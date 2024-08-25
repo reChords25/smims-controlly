@@ -3,9 +3,14 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sasRetina_java8" level="project" />
+    <orderEntry type="library" name="jssc-2.9.6-sources" level="project" />
+    <orderEntry type="library" name="slf4j-api-2.0.16" level="project" />
+    <orderEntry type="library" name="slf4j-simple-2.0.16-sources" level="project" />
   </component>
 </module>

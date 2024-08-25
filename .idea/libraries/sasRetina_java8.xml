@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sasRetina_java8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/sasRetina_java8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

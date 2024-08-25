@@ -1,31 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="" />
+    <list default="true" id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/might.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jssc_2_9_6_sources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sasRetina_java8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_2_0_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/arduino/sketch_aug21a.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/DokumentationSaS.5.7.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jssc-2.9.6/jssc-2.9.6-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jssc-2.9.6/jssc-2.9.6-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jssc-2.9.6/jssc-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sasRetina_java8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-api-2.0.16-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-api-2.0.16-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-api-2.0.16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-simple-2.0.16-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-simple-2.0.16-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sl4fj-2.0.16/slf4j-simple-2.0.16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/Bildnachweis.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/car9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/empty2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/frog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/gap.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frogger/goblet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/weihnachtsmann.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/AbstractController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/TastaturController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/AbstractGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/Frog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/FroggerGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/Pokal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/ScalablePicture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/obstacles/Auto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/minigames/frogger/obstacles/Obstacle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sas_demo/Haus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sas_demo/SaSDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sas_demo/Schneemann.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMIMS_Template_JDK_21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SMIMS_Template_JDK_21.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "CFGG-MM"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/CFGG-MM/SMIMS_Template_JDK_21.git",
+    "accountId": "2755dd74-8b2f-4446-8d34-99ad4e3aca8f"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2l8jpmZh80cSrr7611cZXvcNI4b" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documents/IntelliJ_Workspace/SMIMS_Template_JDK_21/lib/sl4fj-2.0.16/slf4j-simple-2.0.16-javadoc.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15837796",
+    "project.structure.side.proportion": "0.33448276",
+    "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="minigames.frogger" />
+      <recent name="controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\lib\sl4fj 2.0.16" />
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\src\minigames\frogger" />
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources\frogger" />
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\arduino" />
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\lib" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SMIMS_Template_JDK_21" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -35,6 +156,19 @@
       <option name="presentableId" value="Default" />
       <updated>1724568784751</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1724568865972</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724568865972</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>
