@@ -21,21 +21,20 @@ int JoystickY;
 String normaliseData = ("");
 
 void setup() // Hier beginnt das Setup
-
 {  
-Serial.begin(9600);
-pinMode(KnopfA, INPUT);   // Knopf A dient nun als Eingang und ...
-digitalWrite(KnopfA, HIGH);  // ... wird in den Status "HIGH" versetzt
-pinMode(KnopfB, INPUT);
-digitalWrite(KnopfB, HIGH);
-pinMode(KnopfC, INPUT);
-digitalWrite(KnopfC, HIGH);
-pinMode(KnopfD, INPUT);
-digitalWrite(KnopfD, HIGH);
-pinMode(KnopfE, INPUT);
-digitalWrite(KnopfE, HIGH);
-pinMode(KnopfF, INPUT);
-digitalWrite(KnopfF, HIGH);
+  Serial.begin(9600);
+  pinMode(KnopfA, INPUT);   // Knopf A dient nun als Eingang und ...
+  digitalWrite(KnopfA, HIGH);  // ... wird in den Status "HIGH" versetzt
+  pinMode(KnopfB, INPUT);
+  digitalWrite(KnopfB, HIGH);
+  pinMode(KnopfC, INPUT);
+  digitalWrite(KnopfC, HIGH);
+  pinMode(KnopfD, INPUT);
+  digitalWrite(KnopfD, HIGH);
+  pinMode(KnopfE, INPUT);
+  digitalWrite(KnopfE, HIGH);
+  pinMode(KnopfF, INPUT);
+  digitalWrite(KnopfF, HIGH);
 }
 
 void loop() {
