@@ -1,6 +1,4 @@
 import controller.KeyboardController;
-import menu.MainMenu;
-import minigames.frogger.FroggerGame;
 import sas.View;
 
 public class Main {
@@ -11,8 +9,6 @@ public class Main {
 
         View view = new View(WIDTH, HEIGHT);
         KeyboardController controller = new KeyboardController(view);
-        MainMenu menu = new MainMenu(view, controller);
-
-        menu.run();
+        ViewContents menus = new ViewContents(view, controller);
     }
 }
