@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Changed whole project structure :lol:">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jssc_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sl4fj_2_0_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +83,7 @@
       <updated>1725307710642</updated>
       <workItem from="1725307711745" duration="426000" />
       <workItem from="1725308190580" duration="540000" />
-      <workItem from="1725308787417" duration="1601000" />
+      <workItem from="1725308787417" duration="2184000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -101,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725308220611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA">
+      <option name="closed" value="true" />
+      <created>1725304448620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725304448620</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +109,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed whole project structure :lol:" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed whole project structure :lol:" />
+    <MESSAGE value="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA" />
   </component>
 </project>
