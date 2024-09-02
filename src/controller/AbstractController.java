@@ -4,34 +4,29 @@ import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractController implements SerialPortEventListener {
-
-    /* Static Variables */
-
-    /* Static Methods */
-
-    /* Object Variables */
+    private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
     protected String data = "";
     protected SerialPort serialPort;
 
-    /* Constructors */
     public AbstractController() {
         initSerialPort();
     }
 
-    /* Object Methods */
     private void initSerialPort() {
-        boolean funktioniert = false;
-        for (int i = 21; i > 1 && !funktioniert; i--) {
-            funktioniert = true;
+        boolean isWorking = false;
+        for (int i = 21; i > 1 && !isWorking; i--) {
+            isWorking = true;
             try {
                 serialPort = new SerialPort("COM" + i);
                 serialPort.openPort();
                 serialPort.setParams(9600, 8, 1, 0);
                 serialPort.addEventListener(this);
             } catch (SerialPortException ex) {
-                funktioniert = false;
+                isWorking = false;
             }
         }
     }
@@ -44,14 +39,14 @@ public abstract class AbstractController implements SerialPortEventListener {
             data = data.replaceAll("\n", "");
             data = data.replaceAll("\r", "");
 
-            werteDatenAus();
+            evalData();
 
-        } catch (SerialPortException ex) {
-            System.out.println(ex);
+        } catch (SerialPortException e2) {
+            log.error("Exception: ", e2);
         }
     }
 
-    protected abstract void werteDatenAus();
+    protected abstract void evalData();
 
     public abstract void disconnect();
 
@@ -65,7 +60,4 @@ public abstract class AbstractController implements SerialPortEventListener {
 
     public abstract boolean getB();
 
-    // TODO: Mehr Methoden hinzufügen, z.B. für Buttons o.ä.
-
-    /* Inner Classes */
 }

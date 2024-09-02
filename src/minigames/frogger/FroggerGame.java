@@ -2,7 +2,7 @@ package minigames.frogger;
 
 import controller.AbstractController;
 import minigames.AbstractGame;
-import minigames.frogger.obstacles.Auto;
+import minigames.frogger.obstacles.Car;
 import minigames.frogger.obstacles.Obstacle;
 import sas.Text;
 import sas.Tools;
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class FroggerGame extends AbstractGame {
 
-    /* Static Variables */
     private static final int WIDTH = 900;
     private static final int HEIGHT = 700;
     private static final int SLEEP_TIME = 20;
@@ -20,132 +19,116 @@ public class FroggerGame extends AbstractGame {
     private static final double SPEED_FROG = 10;
     private static final double OBJECT_HEIGHT = 50;
 
+    private boolean won;
+    private Frog frog;
+    private ArrayList<Obstacle> obstacles;
 
-    /* Static Methods */
-
-    /* Object Variables */
-    private boolean gewonnen;
-    private Frog frosch;
-    private ArrayList<Obstacle> hindernisse;
     /**
-     * Gibt an, mit welcher Wahrscheinlichkeit ein Hindernis spawnt (in Prozent).
+     * The percentage for a frog to spawn.
      */
     private int spawnChance;
 
-    /* Constructors */
     public FroggerGame(AbstractController controller, View view) {
         super(controller, view);
 
-        this.frosch = null;
-        this.hindernisse = new ArrayList<>();
+        this.frog = null;
+        this.obstacles = new ArrayList<>();
         this.spawnChance = 10;
     }
 
-    /* Object Methods */
     @Override
     protected void initView() {
 
         view.setSize(WIDTH, HEIGHT);
         view.setName("SMIMS Frogger");
 
-        // TODO: Was tue ich, wenn noch ein vorheriges Spiel auf dem Bildschirm zu sehen ist? Ich muss ihn irgendwie 'clearen'.
+        // TODO: Clear the old game, if there is still one on screen.
 
     }
 
     @Override
     public void runGame() {
 
-        gewonnen = false;
+        won = false;
 
-        // Erzeuge den Pokal, zu dem wir hinlaufen müssen.
-        ScalablePicture pokal = new Pokal(Tools.randomNumber(60, view.getWidth() - 60), 50);
-        pokal.scaleTo(OBJECT_HEIGHT);
+        // Spawn the trophy
+        ScalablePicture trophy = new Trophy(Tools.randomNumber(60, view.getWidth() - 60), 50);
+        trophy.scaleTo(OBJECT_HEIGHT);
 
-        // Erzeuge den Frosch.
-        frosch = new Frog(Tools.randomNumber(30, view.getWidth() - 30), view.getHeight() - 100);
-        frosch.scaleTo(OBJECT_HEIGHT);
+        // Spawn the frog
+        frog = new Frog(Tools.randomNumber(30, view.getWidth() - 30), view.getHeight() - 100);
+        frog.scaleTo(OBJECT_HEIGHT);
 
-        // Los geht's!
-        while (!gewonnen) {
+        // Game loop
+        while (!won) {
 
-            spawneHindernisse();
-            bewegeHindernisse();
+            spawnObstacles();
+            moveObstacles();
             bewegeFrosch();
 
-            // Falls der Frosch eines der Hindernisse berührt, wird er wieder an den Anfang zurückgesetzt.
-            if (froschBeruehrtHindernis()) {
-                frosch.moveTo(Tools.randomNumber(30, view.getWidth() - 30), view.getHeight() - 30);
+            // Resets the frog's position if it is touching an obstacle
+            if (frogBeruehrtHindernis()) {
+                frog.moveTo(Tools.randomNumber(30, view.getWidth() - 30), view.getHeight() - 30);
             }
 
-            // Haben wir gewonnen?
-            gewonnen = frosch.intersects(pokal);
+            won = frog.intersects(trophy);
 
-            view.wait(SLEEP_TIME); // Das hier ist sehr wichtig, weil euer Spiel sonst zu schnell läuft.
+            view.wait(SLEEP_TIME); // Wait
 
         }
 
-        new Text(view.getWidth() / 2 - 30, view.getHeight() / 2 - 10, "Gewonnen!");
+        new Text(view.getWidth() / 2 - 30, view.getHeight() / 2 - 10, "Won!");
 
     }
 
 
-    private void spawneHindernisse() {
+    private void spawnObstacles() {
 
-        // Damit wir uns nicht den kompletten Bildschirm mit Hindernissen 'zuballern', verwenden wir einen Zufalls-
-        // generator, der tatsächlich die meisten Runden ausspart.
+        // Randomly generate the obstacles
+        // --> like this, they don't become too many
         if (Tools.randomNumber(1, 100) <= spawnChance) {
-            Obstacle hindernis = new Auto(-200, Tools.randomNumber(view.getHeight() - 150, 30));
-            hindernis.scaleTo(OBJECT_HEIGHT);
-            hindernisse.add(hindernis);
+            Obstacle obstacle = new Car(-200, Tools.randomNumber(view.getHeight() - 150, 30));
+            obstacle.scaleTo(OBJECT_HEIGHT);
+            obstacles.add(obstacle);
         }
 
     }
 
-    private void bewegeHindernisse() {
+    private void moveObstacles() {
+        ArrayList<Obstacle> obstaclesToRemove = new ArrayList<>();
 
-        ArrayList<Obstacle> zuEntfernendeHindernisse = new ArrayList<>();
+        for (Obstacle obstacle : obstacles) {
+            obstacle.move(SPEED_OBSTACLE);
 
-        for (Obstacle hindernis : hindernisse) {
-            hindernis.move(SPEED_OBSTACLE);
-
-            // Haben wir den Rand erreicht? Dann können wir das Hindernis aus dem Spiel entfernen.
-            if (hindernis.getShapeX() > view.getWidth()) {
-                zuEntfernendeHindernisse.add(hindernis);
+            // Remove obstacle if it has reached the end of the window.
+            if (obstacle.getShapeX() > view.getWidth()) {
+                obstaclesToRemove.add(obstacle);
             }
         }
 
-        // Entferne alle Hindernisse, die nicht mehr zu sehen sind.
-        for (Obstacle hindernis : zuEntfernendeHindernisse) {
-            hindernis.setHidden(true);
-            view.remove(hindernis);
-            hindernisse.remove(zuEntfernendeHindernisse);
+        // Remove all obstacles that are not visible anymore
+        for (Obstacle obstacle : obstaclesToRemove) {
+            obstacle.setHidden(true);
+            view.remove(obstacle);
+            obstacles.remove(obstaclesToRemove);
         }
     }
 
     private void bewegeFrosch() {
-
         double x = controller.getJoystickX() * SPEED_FROG;
         double y = controller.getJoystickY() * SPEED_FROG;
 
-        frosch.move(x, y);
-
+        frog.move(x, y);
     }
 
-    private boolean froschBeruehrtHindernis() {
+    private boolean frogBeruehrtHindernis() {
 
-        // Wir müssen für jedes Hindernis schauen, ob der Frosch es berührt.
-        for (Obstacle hindernis : hindernisse) {
-            if (frosch.intersects(hindernis)) {
+        // Check whether the frog collides with an obstacle
+        for (Obstacle hindernis : obstacles) {
+            if (frog.intersects(hindernis)) {
                 return true;
             }
         }
-
         return false;
-
     }
-
-    /* Getters and Setters */
-
-    /* Inner Classes */
-
 }

@@ -8,33 +8,20 @@ import java.awt.*;
 
 public class SaSDemo {
 
-    /* Static Variables */
-
-    /* Static Methods */
-
-    /* Object Variables */
     private View view;
 
-    /* Constructors */
     public SaSDemo() {
         view = new View(800, 600);
     }
 
-    /* Object Methods */
     public void demo1() {
-
         view.setName("Demo: Ball");
-
         Circle ball = new Circle(100, 100, 20, Color.BLACK);
-
         while (ball.getCenterX() < view.getWidth()) {
-
             if (view.keyRightPressed()) {
                 ball.move(20);
             }
-
             view.wait(20);
-
         }
     }
 
@@ -42,41 +29,35 @@ public class SaSDemo {
 
         view.setName("Demo: Winter Wonderland");
 
-        Schneemann schneemann = new Schneemann(view, Color.PINK);
-        schneemann.moveTo(100, 100);
-        Haus haus = new Haus(view);
+        Snowman snowman = new Snowman(view, Color.PINK);
+        snowman.moveTo(100, 100);
+        House house = new House(view);
 
-        Picture weihnachtsmann = new Picture(20, 500, "resources/weihnachtsmann.png");
-        double schrittlaenge = 10;
+        Picture santa = new Picture(20, 500, "resources/snowman.png");
+        double stepLength = 10;
 
-        while (!weihnachtsmann.intersects(haus.getKlingel())) {
+        while (!santa.intersects(house.getDoorbell())) {
 
             if (view.keyRightPressed()) {
-                weihnachtsmann.move(schrittlaenge);
+                santa.move(stepLength);
             }
 
             if (view.keyLeftPressed()) {
-                weihnachtsmann.move(-schrittlaenge);
+                santa.move(-stepLength);
             }
 
             if (view.keyUpPressed()) {
-                weihnachtsmann.move(0, -schrittlaenge);
+                santa.move(0, -stepLength);
             }
 
             if (view.keyDownPressed()) {
-                weihnachtsmann.move(0, schrittlaenge);
+                santa.move(0, stepLength);
             }
 
             view.wait(20);
         }
 
-        haus.blinke();
-        schneemann.tanze();
-
+        house.blink();
+        snowman.dance();
     }
-
-    /* Getters and Setters */
-
-    /* Inner Classes */
-
 }

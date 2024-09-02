@@ -1,6 +1,11 @@
 package test;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Test {
+
+    private static final Logger log = LoggerFactory.getLogger(Test.class);
 
     public static void main(String[] args) {
 
@@ -11,24 +16,9 @@ public class Test {
                 System.out.println("Closing connection now ...");
                 controller.disconnect();
             } catch (InterruptedException e) {
-                System.err.println(e);
+                log.error("Exception: ", e);
             }
         }).start();
 
     }
-
-    /* Static Variables */
-
-    /* Static Methods */
-
-    /* Object Variables */
-
-    /* Constructors */
-
-    /* Object Methods */
-
-    /* Getters and Setters */
-
-    /* Inner Classes */
-
 }

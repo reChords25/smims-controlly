@@ -8,17 +8,8 @@ import org.slf4j.LoggerFactory;
 public class ArduinoTestController extends AbstractController {
     private static final Logger log = LoggerFactory.getLogger(ArduinoTestController.class);
 
-    /* Static Variables */
-
-    /* Static Methods */
-
-    /* Object Variables */
-
-    /* Constructors */
-
-    /* Object Methods */
     @Override
-    protected void werteDatenAus() {
+    protected void evalData() {
         System.out.println(data);
         data = "";
     }
@@ -33,7 +24,6 @@ public class ArduinoTestController extends AbstractController {
     }
 
 
-    /* Getters and Setters */
     @Override
     public double getJoystickX() {
         return 0;
@@ -53,7 +43,5 @@ public class ArduinoTestController extends AbstractController {
     public boolean getB() {
         return false;
     }
-
-    /* Inner Classes */
 
 }
