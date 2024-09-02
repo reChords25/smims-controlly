@@ -1,7 +1,7 @@
+package viewcontents;
+
 import controller.AbstractController;
 import sas.View;
-import viewcontents.GameSelectionMenu;
-import viewcontents.MainMenu;
 
 public class ViewContents {
 
@@ -22,8 +22,10 @@ public class ViewContents {
     }
 
     public ViewContents(View view, AbstractController controller) {
-        MainMenu mainMenu = new MainMenu(view, controller);
-//        GameSelectionMenu gameSelectionMenu = new GameSelectionMenu(view, controller);
-        mainMenu.run();
+        
+    }
+
+    public void setViewContent(AbstractViewContent vc) {
+        vc.run();
     }
 }

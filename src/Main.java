@@ -1,5 +1,7 @@
 import controller.KeyboardController;
 import sas.View;
+import viewcontents.MainMenu;
+import viewcontents.ViewContents;
 
 public class Main {
     private static final int WIDTH = 900;
@@ -9,6 +11,7 @@ public class Main {
 
         View view = new View(WIDTH, HEIGHT);
         KeyboardController controller = new KeyboardController(view);
-        ViewContents menus = new ViewContents(view, controller);
+        ViewContents.initInstance(view, controller);
+        ViewContents.getInstance().setViewContent(new MainMenu(view, controller));
     }
 }
