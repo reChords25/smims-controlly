@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 public class FroggerGame extends AbstractGame {
 
-    private static final int WIDTH = 900;
-    private static final int HEIGHT = 700;
     private static final int SLEEP_TIME = 20;
     private static final int SPEED_OBSTACLE = 15;
     private static final double SPEED_FROG = 10;
@@ -38,8 +36,6 @@ public class FroggerGame extends AbstractGame {
 
     @Override
     protected void initView() {
-
-        view.setSize(WIDTH, HEIGHT);
         view.setName("SMIMS Frogger");
 
         // TODO: Clear the old game, if there is still one on screen.
@@ -47,7 +43,7 @@ public class FroggerGame extends AbstractGame {
     }
 
     @Override
-    public void runGame() {
+    public void run() {
 
         won = false;
 
@@ -64,10 +60,10 @@ public class FroggerGame extends AbstractGame {
 
             spawnObstacles();
             moveObstacles();
-            bewegeFrosch();
+            moveFrog();
 
             // Resets the frog's position if it is touching an obstacle
-            if (frogBeruehrtHindernis()) {
+            if (frogTouchesObstacle()) {
                 frog.moveTo(Tools.randomNumber(30, view.getWidth() - 30), view.getHeight() - 30);
             }
 
@@ -114,14 +110,14 @@ public class FroggerGame extends AbstractGame {
         }
     }
 
-    private void bewegeFrosch() {
+    private void moveFrog() {
         double x = controller.getJoystickX() * SPEED_FROG;
         double y = controller.getJoystickY() * SPEED_FROG;
 
         frog.move(x, y);
     }
 
-    private boolean frogBeruehrtHindernis() {
+    private boolean frogTouchesObstacle() {
 
         // Check whether the frog collides with an obstacle
         for (Obstacle hindernis : obstacles) {

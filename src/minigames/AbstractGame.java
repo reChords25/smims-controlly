@@ -4,11 +4,11 @@ import controller.AbstractController;
 import sas.View;
 
 public abstract class AbstractGame {
-    
+
     public static final String PATH_TO_RESOURCES = "resources/";
 
-    protected AbstractController controller;
     protected View view;
+    protected AbstractController controller;
 
     public AbstractGame(AbstractController controller, View view){
         this.controller = controller;
@@ -18,6 +18,6 @@ public abstract class AbstractGame {
 
     protected abstract void initView();
 
-    public abstract void runGame();
+    public abstract void run();
 
 }

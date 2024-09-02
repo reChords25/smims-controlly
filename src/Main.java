@@ -1,22 +1,18 @@
 import controller.KeyboardController;
+import menu.MainMenu;
 import minigames.frogger.FroggerGame;
 import sas.View;
 
 public class Main {
+    private static final int WIDTH = 900;
+    private static final int HEIGHT = 700;
 
     public static void main(String[] args) {
 
-/*
-        SaSDemo demo = new SaSDemo();
-        demo.demo1();
-        demo.demo2();
-*/
-
-
-        View view = new View();
+        View view = new View(WIDTH, HEIGHT);
         KeyboardController controller = new KeyboardController(view);
-        FroggerGame game = new FroggerGame(controller, view);
+        MainMenu menu = new MainMenu(view, controller);
 
-        game.runGame();
+        menu.run();
     }
 }
