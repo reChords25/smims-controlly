@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color">
-      <change afterPath="$PROJECT_DIR$/src/util/GameOverSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/GameOverSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/GameOverLay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/AbstractViewContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/AbstractViewContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" afterDir="false" />
     </list>
@@ -37,22 +40,22 @@
     &quot;assignee&quot;: &quot;reChords25&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/reChords25/smims-controlly.git",
-    "accountId": "7a731536-fdc5-4ba9-ab26-574b908548a2"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/reChords25/smims-controlly.git&quot;,
+    &quot;accountId&quot;: &quot;7a731536-fdc5-4ba9-ab26-574b908548a2&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "reChords25",
-    "repository": "smims-controlly"
+    &quot;owner&quot;: &quot;reChords25&quot;,
+    &quot;repository&quot;: &quot;smims-controlly&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -200,5 +203,16 @@
     <MESSAGE value="Arduino test added" />
     <MESSAGE value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
     <option name="LAST_COMMIT_MESSAGE" value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/Button.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

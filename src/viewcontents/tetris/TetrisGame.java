@@ -2,11 +2,16 @@ package viewcontents.tetris;
 
 import controller.AbstractController;
 import sas.View;
-import util.GameOverSprite;
+import util.Button;
+import util.GameOverLay;
 import viewcontents.AbstractViewContent;
 import viewcontents.ViewContents;
 
+import java.awt.*;
+
 public class TetrisGame extends AbstractViewContent {
+
+    Button but;
 
     public TetrisGame(View view, AbstractController controller) {
         super(view, controller);
@@ -14,11 +19,15 @@ public class TetrisGame extends AbstractViewContent {
 
     @Override
     protected void initView() {
-        GameOverSprite o = new GameOverSprite(view.getWidth() / 2, view.getHeight() / 2, 600, 400);
+        but = new Button(50, 400, 300, 50, "hallo", Color.CYAN);
     }
 
     @Override
-    public boolean run() {
-        return false;
+    public boolean tick() {
+        if (but.clicked()) {
+            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, view.getWidth() / 2, view.getHeight() / 2, 600, 400));
+            return false;
+        }
+        return true;
     }
 }

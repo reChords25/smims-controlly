@@ -56,15 +56,15 @@ public class GameSelectionMenu extends AbstractViewContent {
     }
 
     @Override
-    public boolean run() {
+    public boolean tick() {
         if (tetrisGameButton.clicked()) {
             ViewContents.getInstance().clear();
-            ViewContents.getInstance().setViewContent(new TetrisGame(view, controller));
+            ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
             return false;
         }
         if (view.keyPressed((char) 8)) {
             ViewContents.getInstance().clear();
-            ViewContents.getInstance().setViewContent(new MainMenu(view, controller));
+            ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
             return false;
         }
         return true;

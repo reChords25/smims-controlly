@@ -3,12 +3,15 @@ package viewcontents;
 import controller.AbstractController;
 import sas.View;
 
+import java.util.Stack;
+
 public class ViewContents {
 
     private static ViewContents instance;
     public static final int TICK_RATE = 20;
 
     private AbstractViewContent vc;
+    private Stack<AbstractViewContent> viewStack;
 
     public static ViewContents getInstance() {
         if (instance == null) {
@@ -21,24 +24,26 @@ public class ViewContents {
         if (instance != null) {
             throw new IllegalStateException("MainMenu has already been initialized!");
         }
-        instance = new ViewContents(view, controller);
+        instance = new ViewContents();
     }
 
-    public ViewContents(View view, AbstractController controller) {
-
+    public ViewContents(){
+        viewStack = new Stack<>();
     }
+
 
     public void clear()  {
-        if (vc == null) { return; }
-        vc.removeUiElements();
+        if (viewStack.peek() == null) { return; }
+        viewStack.peek().removeUiElements();
     }
 
-    public void setViewContent(AbstractViewContent vc) {
-        this.vc = vc;
+    public void runViewContent(AbstractViewContent vc) {
+        viewStack.push(vc);
         boolean active = true;
         while (active) {
-            active = vc.run();
-            vc.view.wait(TICK_RATE);
+            active = viewStack.peek().tick();
+            viewStack.peek().view.wait(TICK_RATE);
         }
+        viewStack.pop();
     }
 }

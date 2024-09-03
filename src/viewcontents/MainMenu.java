@@ -53,14 +53,14 @@ public class MainMenu extends AbstractViewContent {
     }
 
     @Override
-    public boolean run() {
+    public boolean tick() {
         if (exitGameButton.clicked()) {
             System.out.println("Exit Game");
             System.exit(0);
         }
         if (gameSelectionButton.clicked()) {
             ViewContents.getInstance().clear();
-            ViewContents.getInstance().setViewContent(new GameSelectionMenu(view, controller));
+            ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
             return false;
         }
         return true;
