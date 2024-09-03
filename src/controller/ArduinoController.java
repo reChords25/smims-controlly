@@ -1,17 +1,18 @@
 package controller;
 
 import jssc.SerialPortException;
-
-//import javax.swing.text.View;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class ArduinoController extends AbstractController {
+
+    private static final Logger log = LoggerFactory.getLogger(ArduinoController.class);
 
     @Override
     protected void evalData() {
 
         int indexBegin = data.indexOf("#");
-
         if (indexBegin < 0) {
             data = "";
             return;
@@ -27,8 +28,6 @@ public class ArduinoController extends AbstractController {
 
         data = data.substring(0, indexEnd);
 
-        dataArray = null;
-
         dataArray = data.split(",");
 
         for (String s : dataArray) {
@@ -41,7 +40,7 @@ public class ArduinoController extends AbstractController {
         try {
             serialPort.closePort();
         } catch (SerialPortException e) {
-            System.err.println(e);
+            log.error("Exception: ", e);
         }
     }
 
@@ -67,37 +66,6 @@ public class ArduinoController extends AbstractController {
 
     @Override
     public boolean getBtn1Pressed() {
-        if (Integer.parseInt(dataArray[4]) == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static void main(String[] args) {
-        ArduinoController c = new ArduinoController();
-        /*
-        for (int i = 0; i < 100; i++) {
-            try {
-                c.sendVibration(true);
-                Thread.sleep(10);
-                c.sendVibration(false);
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                System.err.println(e);
-            }
-        }
-
-       new Thread(() -> {
-           try {
-
-               Thread.sleep(2000);
-           } catch (InterruptedException e) {
-               System.err.println(e);
-           }
-           System.out.println("finished!");
-       }).start();
-        c.disconnect();
-    */
+        return Integer.parseInt(dataArray[4]) == 1;
     }
 }

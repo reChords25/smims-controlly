@@ -59,7 +59,7 @@ public class MainMenu extends AbstractViewContent {
             System.exit(0);
         }
         if (gameSelectionButton.clicked()) {
-            ViewContents.getInstance().clear();
+            ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
             return false;
         }

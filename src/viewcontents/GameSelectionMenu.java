@@ -59,7 +59,7 @@ public class GameSelectionMenu extends AbstractViewContent {
     @Override
     public boolean tick() {
         if (tetrisGameButton.clicked()) {
-            ViewContents.getInstance().clear();
+            ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
             return false;
         }
@@ -69,7 +69,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 //            return false;
 //        }
         if (view.keyPressed((char) 8)) {
-            ViewContents.getInstance().clear();
+            ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
             return false;
         }
