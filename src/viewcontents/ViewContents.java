@@ -25,11 +25,11 @@ public class ViewContents {
     }
 
     public ViewContents(View view, AbstractController controller) {
-        
+
     }
 
     public void clear()  {
-        if (vc == null) return;
+        if (vc == null) { return; }
         vc.removeUiElements();
     }
 
