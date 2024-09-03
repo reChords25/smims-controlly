@@ -12,7 +12,6 @@ public abstract class AbstractViewContent {
 
     public static final String PATH_TO_RESOURCES = "resources/";
 
-
     protected View view;
     protected AbstractController controller;
     protected ArrayList<Shapes> shapesToRemove;
@@ -30,7 +29,7 @@ public abstract class AbstractViewContent {
 
     protected abstract void initView();
 
-    public abstract void run();
+    public abstract boolean run();
 
     protected void removeUiElements() {
 

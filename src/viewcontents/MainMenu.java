@@ -1,14 +1,11 @@
 package viewcontents;
 
-import com.sun.tools.javac.Main;
 import controller.AbstractController;
-import sas.Shapes;
 import sas.Text;
 import sas.View;
 import util.Button;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class MainMenu extends AbstractViewContent {
 
@@ -29,7 +26,8 @@ public class MainMenu extends AbstractViewContent {
         int buttonHeight = 50;
 
         mainText = new Text(0, 0, "Welcome!", Color.BLACK);
-        mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, viewCenterY - mainText.getShapeHeight() / 2 - 100);
+        mainText.setFontSansSerif(true, 60);
+        mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, viewCenterY - mainText.getShapeHeight() / 2 - 150);
 
         gameSelectionButton = new Button(
                 viewCenterX - buttonWidth / 2,
@@ -55,18 +53,17 @@ public class MainMenu extends AbstractViewContent {
     }
 
     @Override
-    public void run() {
-        while (true) {
-            if (exitGameButton.clicked()) {
-                System.out.println("Exit Game");
-                System.exit(0);
-            }
-            if (gameSelectionButton.clicked()) {
-                removeUiElements();
-                ViewContents.getInstance().setViewContent(new GameSelectionMenu(view, controller));
-            }
-            view.wait(50);
+    public boolean run() {
+        if (exitGameButton.clicked()) {
+            System.out.println("Exit Game");
+            System.exit(0);
         }
+        if (gameSelectionButton.clicked()) {
+            ViewContents.getInstance().clear();
+            ViewContents.getInstance().setViewContent(new GameSelectionMenu(view, controller));
+            return false;
+        }
+        return true;
     }
 
 }

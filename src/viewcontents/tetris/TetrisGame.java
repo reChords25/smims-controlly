@@ -15,7 +15,7 @@ public class TetrisGame extends AbstractViewContent {
     }
 
     @Override
-    public void run() {
-
+    public boolean run() {
+        return true;
     }
 }

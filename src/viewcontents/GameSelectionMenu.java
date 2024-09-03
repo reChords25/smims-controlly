@@ -1,10 +1,12 @@
 package viewcontents;
 
+
 import sas.Text;
 import sas.View;
 
 import controller.AbstractController;
 import util.Button;
+import viewcontents.tetris.TetrisGame;
 
 import java.awt.*;
 
@@ -47,10 +49,26 @@ public class GameSelectionMenu extends AbstractViewContent {
                 "Chess",
                 new Color(57, 243, 91)
         );
+
+        buttonsToRemove.add(tetrisGameButton);
+        buttonsToRemove.add(chessGameButton);
+        textsToRemove.add(mainText);
     }
 
     @Override
-    public void run() {
-
+    public boolean run() {
+        if (tetrisGameButton.clicked()) {
+            ViewContents.getInstance().clear();
+            ViewContents.getInstance().setViewContent(new TetrisGame(view, controller));
+            return false;
+        }
+        if (view.keyPressed((char) 8)) {
+            ViewContents.getInstance().clear();
+            ViewContents.getInstance().setViewContent(new MainMenu(view, controller));
+            return false;
+        }
+        return true;
     }
+
+
 }

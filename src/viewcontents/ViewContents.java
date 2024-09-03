@@ -6,6 +6,9 @@ import sas.View;
 public class ViewContents {
 
     private static ViewContents instance;
+    public static final int TICK_RATE = 20;
+
+    private AbstractViewContent vc;
 
     public static ViewContents getInstance() {
         if (instance == null) {
@@ -25,7 +28,17 @@ public class ViewContents {
         
     }
 
+    public void clear()  {
+        if (vc == null) return;
+        vc.removeUiElements();
+    }
+
     public void setViewContent(AbstractViewContent vc) {
-        vc.run();
+        this.vc = vc;
+        boolean active = true;
+        while (active) {
+            active = vc.run();
+            vc.view.wait(TICK_RATE);
+        }
     }
 }
