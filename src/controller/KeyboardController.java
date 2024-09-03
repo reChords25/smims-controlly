@@ -55,16 +55,36 @@ public class KeyboardController extends AbstractController {
 
     @Override
     public double getRJoystickX() {
-        return 0;
-    }
 
+        double x = 0.0;
+
+        if (view.keyPressed('A')) {
+            x -= 1.0;
+        }
+
+        if (view.keyPressed('D')) {
+            x += 1.0;
+        }
+
+        return x;
+    }
     @Override
     public double getRJoystickY() {
-        return 0;
+        double y = 0.0;
+
+        if (view.keyPressed('W')) {
+            y -= 1.0;
+        }
+
+        if (view.keyPressed('S')) {
+            y += 1.0;
+        }
+
+        return y;
     }
 
     @Override
     public boolean getBtn1Pressed() {
-        return false;
+        return view.keyPressed('E');
     }
 }

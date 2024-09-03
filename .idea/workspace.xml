@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="-">
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/ScalablePicture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/frog.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frogger/frog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/goblet.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frogger/goblet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/KeyboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/KeyboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/StringTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +75,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "alexander",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -80,7 +86,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
