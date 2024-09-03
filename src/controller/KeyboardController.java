@@ -23,16 +23,6 @@ public class KeyboardController extends AbstractController {
     public void disconnect() {}
 
     @Override
-    public void sendLights(int l1, int l2, int l3, int l4, int l5, int l6, int l7, int l8) {
-
-    }
-
-    @Override
-    protected void sendVibration(boolean on) {
-
-    }
-
-    @Override
     public double getLJoystickX() {
 
         double x = 0.0;
@@ -74,13 +64,7 @@ public class KeyboardController extends AbstractController {
     }
 
     @Override
-    public boolean getA() {
-        return view.keyPressed('A');
+    public boolean getBtn1Pressed() {
+        return false;
     }
-
-    @Override
-    public boolean getB() {
-        return view.keyPressed('B');
-    }
-
 }

@@ -1,12 +1,11 @@
 package controller;
-import sas.*;
 
 import jssc.SerialPortException;
 
 //import javax.swing.text.View;
 
 
-public class Controller extends AbstractController {
+public class ArduinoController extends AbstractController {
 
     @Override
     protected void evalData() {
@@ -76,7 +75,7 @@ public class Controller extends AbstractController {
     }
 
     public static void main(String[] args) {
-        Controller c = new Controller();
+        ArduinoController c = new ArduinoController();
         /*
         for (int i = 0; i < 100; i++) {
             try {

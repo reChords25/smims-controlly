@@ -41,18 +41,18 @@ public class GameSelectionMenu extends AbstractViewContent {
                 new Color(85, 85, 255)
         );
 
-        tankGameButton = new Button(
-                viewCenterX - buttonWidth / 2,
-                250,
-                buttonWidth,
-                buttonHeight,
-                "Tank",
-                new Color(57, 243, 91)
-        );
+//        tankGameButton = new Button(
+//                viewCenterX - buttonWidth / 2,
+//                250,
+//                buttonWidth,
+//                buttonHeight,
+//                "Tank",
+//                new Color(57, 243, 91)
+//        );
 
 
         buttonsToRemove.add(tetrisGameButton);
-        buttonsToRemove.add(tankGameButton);
+//        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
 
@@ -63,11 +63,11 @@ public class GameSelectionMenu extends AbstractViewContent {
             ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
             return false;
         }
-        if (tankGameButton.clicked()) {
-            ViewContents.getInstance().clear();
-            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
-            return false;
-        }
+//        if (tankGameButton.clicked()) {
+//            ViewContents.getInstance().clear();
+//            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
+//            return false;
+//        }
         if (view.keyPressed((char) 8)) {
             ViewContents.getInstance().clear();
             ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
