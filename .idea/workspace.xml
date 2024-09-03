@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="Translated to german">
-      <change afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/StringTest.java" afterDir="false" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="some part working now heheheeh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AbstractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/KeyboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/KeyboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/minigames/frogger/FroggerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/minigames/frogger/FroggerGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ArduinoTestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +16,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -30,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="safe" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,113 +31,76 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;CFGG-MM&quot;
+    &quot;assignee&quot;: &quot;reChords25&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/reChords25/smims-controlly.git&quot;,
     &quot;accountId&quot;: &quot;7a731536-fdc5-4ba9-ab26-574b908548a2&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;reChords25&quot;,
+    &quot;repository&quot;: &quot;smims-controlly&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2l8jpmZh80cSrr7611cZXvcNI4b" />
+  <component name="ProjectId" id="2lWtYoyWyE3takwRTBRne0g7Otg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Controller.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StringTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;david&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/reChords/Desktop/smims-controlly&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15837796&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.33448276&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "ben",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="minigames.frogger" />
-      <recent name="controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\lib\sl4fj 2.0.16" />
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\src\minigames\frogger" />
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources\frogger" />
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\arduino" />
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\lib" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
+      <recent name="C:\Users\reChords\Desktop\test\.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Controller">
-    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.Controller" />
-      <module name="SMIMS_Template_JDK_21" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SMIMS_Template_JDK_21" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StringTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.StringTest" />
-      <module name="SMIMS_Template_JDK_21" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <module name="test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="test.Test" />
-      <module name="SMIMS_Template_JDK_21" />
+      <module name="test" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="test.*" />
@@ -156,94 +112,111 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Controller" />
-      <item itemvalue="Application.StringTest" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Controller" />
-        <item itemvalue="Application.StringTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="" />
-      <created>1724568784751</created>
+      <changelist id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="" />
+      <created>1725307710642</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1724568784751</updated>
-      <workItem from="1725284742704" duration="6688000" />
-      <workItem from="1725299068842" duration="1446000" />
+      <updated>1725307710642</updated>
+      <workItem from="1725307711745" duration="426000" />
+      <workItem from="1725308190580" duration="540000" />
+      <workItem from="1725308787417" duration="2955000" />
+      <workItem from="1725337809897" duration="4546000" />
+      <workItem from="1725385279540" duration="66000" />
     </task>
-    <task id="LOCAL-00001" summary="initial commit">
+    <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
-      <created>1724568865972</created>
+      <created>1725308220611</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1724568865972</updated>
+      <updated>1725308220611</updated>
     </task>
-    <task id="LOCAL-00002" summary="basic structure, dependencies and demo code added">
+    <task id="LOCAL-00002" summary="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA">
       <option name="closed" value="true" />
-      <created>1724581410497</created>
+      <created>1725304448620</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1724581410497</updated>
+      <updated>1725304448620</updated>
     </task>
-    <task id="LOCAL-00003" summary="Arduino test added">
+    <task id="LOCAL-00003" summary="forgot something... whoopsie">
       <option name="closed" value="true" />
-      <created>1725108305781</created>
+      <created>1725305118024</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1725108305781</updated>
+      <updated>1725305118024</updated>
     </task>
-    <task id="LOCAL-00004" summary="Arduino test added">
+    <task id="LOCAL-00004" summary="Made own button class">
       <option name="closed" value="true" />
-      <created>1725115655327</created>
+      <created>1725305714972</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1725115655327</updated>
+      <updated>1725305714972</updated>
     </task>
-    <task id="LOCAL-00005" summary="Translated to german">
+    <task id="LOCAL-00005" summary="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color">
       <option name="closed" value="true" />
-      <created>1725289523361</created>
+      <created>1725344038077</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1725289523361</updated>
+      <updated>1725344038077</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="some part working now heheheeh">
+      <option name="closed" value="true" />
+      <created>1725384729937</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725384729937</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="basic structure, dependencies and demo code added" />
+    <MESSAGE value="Changed whole project structure :lol:" />
+    <MESSAGE value="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA" />
+    <MESSAGE value="forgot something... whoopsie" />
+    <MESSAGE value="Made own button class" />
     <MESSAGE value="Arduino test added" />
-    <MESSAGE value="Translated to german" />
-    <option name="LAST_COMMIT_MESSAGE" value="Translated to german" />
+    <MESSAGE value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
+    <MESSAGE value="some part working now heheheeh" />
+    <option name="LAST_COMMIT_MESSAGE" value="some part working now heheheeh" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/Button.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

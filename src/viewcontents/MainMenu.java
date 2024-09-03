@@ -1,14 +1,13 @@
-package menu;
+package viewcontents;
 
 import controller.AbstractController;
 import sas.Text;
 import sas.View;
-import sasio.Button;
+import util.Button;
 
 import java.awt.*;
-import java.io.PrintStream;
 
-public class MainMenu extends AbstractMenu {
+public class MainMenu extends AbstractViewContent {
 
     private Text mainText;
 
@@ -27,7 +26,8 @@ public class MainMenu extends AbstractMenu {
         int buttonHeight = 50;
 
         mainText = new Text(0, 0, "Welcome!", Color.BLACK);
-        mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, viewCenterY - mainText.getShapeHeight() / 2 - 100);
+        mainText.setFontSansSerif(true, 60);
+        mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, viewCenterY - mainText.getShapeHeight() / 2 - 150);
 
         gameSelectionButton = new Button(
                 viewCenterX - buttonWidth / 2,
@@ -37,7 +37,8 @@ public class MainMenu extends AbstractMenu {
                 "Select Game",
                 new Color(85, 255, 85)
         );
-        exitGameButton = gameSelectionButton = new Button(
+
+        exitGameButton = new Button(
                 viewCenterX - buttonWidth / 2,
                 viewCenterY - buttonHeight / 2 + 40,
                 buttonWidth,
@@ -45,16 +46,24 @@ public class MainMenu extends AbstractMenu {
                 "Exit Game",
                 new Color(255, 85, 85)
         );
+
+        buttonsToRemove.add(gameSelectionButton);
+        buttonsToRemove.add(exitGameButton);
+        textsToRemove.add(mainText);
     }
 
     @Override
-    public void run() {
-        while (true) {
-            if (exitGameButton.clicked()) {
-                System.out.println("Exit Game");
-                System.exit(0);
-            }
-            view.wait(50);
+    public boolean tick() {
+        if (exitGameButton.clicked()) {
+            System.out.println("Exit Game");
+            System.exit(0);
         }
+        if (gameSelectionButton.clicked()) {
+            ViewContents.getInstance().clear();
+            ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
+            return false;
+        }
+        return true;
     }
+
 }
