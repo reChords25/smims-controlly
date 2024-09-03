@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="some part working now heheheeh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/GameOverSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/GameOverLay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/AbstractViewContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/AbstractViewContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +66,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#1 on ben",
+    "git-widget-placeholder": "ben",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -148,6 +142,7 @@
       <workItem from="1725308190580" duration="540000" />
       <workItem from="1725308787417" duration="2955000" />
       <workItem from="1725337809897" duration="4546000" />
+      <workItem from="1725385279540" duration="66000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -189,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725344038077</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="some part working now heheheeh">
+      <option name="closed" value="true" />
+      <created>1725384729937</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725384729937</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +205,8 @@
     <MESSAGE value="Made own button class" />
     <MESSAGE value="Arduino test added" />
     <MESSAGE value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
+    <MESSAGE value="some part working now heheheeh" />
+    <option name="LAST_COMMIT_MESSAGE" value="some part working now heheheeh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

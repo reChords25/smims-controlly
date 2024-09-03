@@ -15,7 +15,7 @@ public class GameSelectionMenu extends AbstractViewContent {
     private Text mainText;
 
     private Button tetrisGameButton;
-    private Button chessGameButton;
+    private Button tankGameButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
         super(view, controller);
@@ -41,17 +41,18 @@ public class GameSelectionMenu extends AbstractViewContent {
                 new Color(85, 85, 255)
         );
 
-        chessGameButton = new Button(
+        tankGameButton = new Button(
                 viewCenterX - buttonWidth / 2,
                 250,
                 buttonWidth,
                 buttonHeight,
-                "Chess",
+                "Tank",
                 new Color(57, 243, 91)
         );
 
+
         buttonsToRemove.add(tetrisGameButton);
-        buttonsToRemove.add(chessGameButton);
+        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
 
@@ -60,6 +61,11 @@ public class GameSelectionMenu extends AbstractViewContent {
         if (tetrisGameButton.clicked()) {
             ViewContents.getInstance().clear();
             ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
+            return false;
+        }
+        if (tankGameButton.clicked()) {
+            ViewContents.getInstance().clear();
+            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
             return false;
         }
         if (view.keyPressed((char) 8)) {
