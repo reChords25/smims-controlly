@@ -6,6 +6,7 @@ import sas.Text;
 import sas.View;
 import util.Button;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public abstract class AbstractViewContent {
@@ -27,9 +28,10 @@ public abstract class AbstractViewContent {
         initView();
     }
 
+
     protected abstract void initView();
 
-    public abstract boolean run();
+    public abstract boolean tick();
 
     protected void removeUiElements() {
 
@@ -43,6 +45,5 @@ public abstract class AbstractViewContent {
         for(Text text : textsToRemove) {
             text.setHidden(true);
         }
-
     }
 }

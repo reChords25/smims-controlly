@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Arduino test added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="some part working now heheheeh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,16 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/reChords25/smims-controlly.git&quot;,
     &quot;accountId&quot;: &quot;7a731536-fdc5-4ba9-ab26-574b908548a2&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;reChords25&quot;,
+    &quot;repository&quot;: &quot;smims-controlly&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -134,6 +142,7 @@
       <workItem from="1725308190580" duration="540000" />
       <workItem from="1725308787417" duration="2955000" />
       <workItem from="1725337809897" duration="4546000" />
+      <workItem from="1725385279540" duration="66000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -167,7 +176,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725305714972</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color">
+      <option name="closed" value="true" />
+      <created>1725344038077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725344038077</updated>
+    </task>
+    <task id="LOCAL-00006" summary="some part working now heheheeh">
+      <option name="closed" value="true" />
+      <created>1725384729937</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725384729937</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +204,19 @@
     <MESSAGE value="forgot something... whoopsie" />
     <MESSAGE value="Made own button class" />
     <MESSAGE value="Arduino test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arduino test added" />
+    <MESSAGE value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
+    <MESSAGE value="some part working now heheheeh" />
+    <option name="LAST_COMMIT_MESSAGE" value="some part working now heheheeh" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/Button.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

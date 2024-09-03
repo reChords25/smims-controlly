@@ -42,6 +42,14 @@ public class Button {
         return this.bt.getText();
     }
 
+    public double getWidth() {
+        return this.bt.getWidth();
+    }
+
+    public double getHeight() {
+        return this.bt.getHeight();
+    }
+
     public void setShadowColor(Color shCol) {
         this.bt.shadow.setColor(shCol);
     }
@@ -109,6 +117,14 @@ public class Button {
 
         public String getText() {
             return this.buttontext.getText();
+        }
+
+        public double getWidth() {
+            return this.rect.getShapeWidth();
+        }
+
+        public double getHeight() {
+            return this.rect.getShapeHeight();
         }
 
         public void setHidden(boolean hidden) {
