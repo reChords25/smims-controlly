@@ -111,8 +111,8 @@ public class FroggerGame extends AbstractGame {
     }
 
     private void moveFrog() {
-        double x = controller.getJoystickX() * SPEED_FROG;
-        double y = controller.getJoystickY() * SPEED_FROG;
+        double x = controller.getLJoystickX() * SPEED_FROG;
+        double y = controller.getLJoystickY() * SPEED_FROG;
 
         frog.move(x, y);
     }

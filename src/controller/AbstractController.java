@@ -7,9 +7,11 @@ import jssc.SerialPortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public abstract class AbstractController implements SerialPortEventListener {
     private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
     protected String data = "";
+    protected String[] dataArray;
     protected SerialPort serialPort;
 
     public AbstractController() {
@@ -48,16 +50,23 @@ public abstract class AbstractController implements SerialPortEventListener {
 
     protected abstract void evalData();
 
+    //protected abstract void sendLights(int l1, int l2, int l3, int l4, int l5, int l6, int l7, int l8);
+
+    //protected abstract void sendVibration(boolean on);
+
     public abstract void disconnect();
 
+    /* Geters and Setters */
+    public abstract double getLJoystickX();
 
-    /* Getters and Setters */
-    public abstract double getJoystickX();
+    public abstract double getLJoystickY();
 
-    public abstract double getJoystickY();
+    public abstract double getRJoystickX();
 
-    public abstract boolean getA();
+    public abstract double getRJoystickY();
 
-    public abstract boolean getB();
+    public abstract boolean getBtn1Pressed();
+
+
 
 }
