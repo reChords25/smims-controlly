@@ -50,13 +50,10 @@ public abstract class AbstractController implements SerialPortEventListener {
 
     protected abstract void evalData();
 
-    //protected abstract void sendLights(int l1, int l2, int l3, int l4, int l5, int l6, int l7, int l8);
-
-    //protected abstract void sendVibration(boolean on);
 
     public abstract void disconnect();
 
-    /* Geters and Setters */
+    /* Getters and Setters */
     public abstract double getLJoystickX();
 
     public abstract double getLJoystickY();

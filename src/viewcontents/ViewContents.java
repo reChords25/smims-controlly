@@ -32,9 +32,12 @@ public class ViewContents {
     }
 
 
-    public void clear()  {
-        if (viewStack.peek() == null) { return; }
-        viewStack.peek().removeUiElements();
+    public void clear(int reps)  {
+        for (int i = 0; i < reps; i++) {
+            if (viewStack.isEmpty()) { return; }
+            viewStack.peek().removeUiElements();
+            viewStack.pop();
+        }
     }
 
     public void runViewContent(AbstractViewContent vc) {
@@ -44,6 +47,5 @@ public class ViewContents {
             active = viewStack.peek().tick();
             viewStack.peek().view.wait(TICK_RATE);
         }
-        viewStack.pop();
     }
 }

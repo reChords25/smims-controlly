@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/KeyboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/KeyboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/StringTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AbstractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ArduinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/GameOverLay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/GameOverLay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="david" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +72,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "ben",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -80,7 +83,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

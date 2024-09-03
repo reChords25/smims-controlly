@@ -2,26 +2,29 @@ package util;
 
 import controller.AbstractController;
 import sas.Rectangle;
-import sas.Sprite;
 import sas.View;
 import viewcontents.AbstractViewContent;
+import viewcontents.GameSelectionMenu;
+import viewcontents.ViewContents;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.lang.reflect.InvocationTargetException;
 
 public class GameOverLay extends AbstractViewContent {
 
     private static final int PADDING = 25;
     private static final int BUTTON_HEIGHT = 50;
-    private static final int BUTTON_FS = 50;
+
+    private Class<? extends AbstractViewContent> game;
 
     private Button restartButton;
     private Button exitButton;
     private Button menuButton;
     private Rectangle mainRect;
 
-    public GameOverLay(View view, AbstractController controller, int centerX, int centerY, int width, int height){
+    public GameOverLay(View view, AbstractController controller, Class<? extends AbstractViewContent> game, boolean hasWon) {
         super(view, controller);
+        this.game = game;
     }
 
     @Override
@@ -45,6 +48,20 @@ public class GameOverLay extends AbstractViewContent {
 
     @Override
     public boolean tick() {
+        if (restartButton.clicked()) {
+            try {
+                ViewContents.getInstance().clear(2);
+                ViewContents.getInstance().runViewContent(game.getDeclaredConstructor(View.class, AbstractController.class).newInstance(view, controller));
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                System.out.println("Exception: " + e);
+            }
+            return false;
+        }
+        if (menuButton.clicked()) {
+            ViewContents.getInstance().clear(2);
+            ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
+            return false;
+        }
         if (exitButton.clicked()) {
             System.exit(0);
         }

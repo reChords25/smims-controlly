@@ -20,12 +20,13 @@ public class TetrisGame extends AbstractViewContent {
     @Override
     protected void initView() {
         but = new Button(50, 400, 300, 50, "hallo", Color.CYAN);
+        buttonsToRemove.add(but);
     }
 
     @Override
     public boolean tick() {
         if (but.clicked()) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, view.getWidth() / 2, view.getHeight() / 2, 600, 400));
+            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), false));
             return false;
         }
         return true;
