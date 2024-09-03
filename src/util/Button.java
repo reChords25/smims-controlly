@@ -8,8 +8,13 @@ import sas.Text;
 public class Button {
     Buttontest bt;
 
-    public Button(int xPos, int yPos, int width, int height, String label, Color col) {
-        this.bt = new Buttontest(xPos, yPos, width, height, label, col);
+    public Button(int xPos, int yPos, int width, int height, String label, Color bgCol) {
+        this.bt = new Buttontest(xPos, yPos, width, height, label, bgCol, new Color(150, 150, 150));
+        (new Thread(this.bt)).start();
+    }
+
+    public Button(int xPos, int yPos, int width, int height, String label, Color bgCol, Color shCol) {
+        this.bt = new Buttontest(xPos, yPos, width, height, label, bgCol, shCol);
         (new Thread(this.bt)).start();
     }
 
@@ -37,18 +42,26 @@ public class Button {
         return this.bt.getText();
     }
 
+    public void setShadowColor(Color shCol) {
+        this.bt.shadow.setColor(shCol);
+    }
+
+    public Color getShadowColor() {
+        return this.bt.shadow.getColor();
+    }
+
     class Buttontest implements Runnable {
         private Sprite but = new Sprite();
         private Rectangle rect;
         private Rectangle shadow;
         private Text buttontext;
-        private boolean gedrueckt = false;
+        private boolean pressed = false;
         private boolean activated;
 
-        public Buttontest(int xPos, int yPos, int width, int height, String label, Color col) {
-            this.shadow = new Rectangle(xPos - 1, yPos - 1, width + 3, height + 3, new Color(150, 150, 150));
+        public Buttontest(int xPos, int yPos, int width, int height, String label, Color bgCol, Color shCol) {
+            this.shadow = new Rectangle(xPos - 1, yPos - 1, width + 3, height + 3, shCol);
             this.but.add(this.shadow);
-            this.rect = new Rectangle(xPos, yPos, width, height, col);
+            this.rect = new Rectangle(xPos, yPos, width, height, bgCol);
             this.but.add(this.rect);
             double offset = height * 0.15;
             int fontHeight = (int) Math.round(height * 0.6);
@@ -66,7 +79,7 @@ public class Button {
                 }
 
                 if (this.but.mouseReleased() && this.activated && !Button.this.getHidden()) {
-                    this.gedrueckt = true;
+                    this.pressed = true;
                     this.shadow.move(1.0, 1.0);
                 }
 
@@ -75,8 +88,8 @@ public class Button {
         }
 
         public boolean clicked() {
-            boolean click = this.gedrueckt;
-            this.gedrueckt = false;
+            boolean click = this.pressed;
+            this.pressed = false;
             return click;
         }
 
