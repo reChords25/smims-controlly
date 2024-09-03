@@ -23,7 +23,17 @@ public class KeyboardController extends AbstractController {
     public void disconnect() {}
 
     @Override
-    public double getJoystickX() {
+    public void sendLights(int l1, int l2, int l3, int l4, int l5, int l6, int l7, int l8) {
+
+    }
+
+    @Override
+    protected void sendVibration(boolean on) {
+
+    }
+
+    @Override
+    public double getLJoystickX() {
 
         double x = 0.0;
 
@@ -39,7 +49,7 @@ public class KeyboardController extends AbstractController {
     }
 
     @Override
-    public double getJoystickY() {
+    public double getLJoystickY() {
         double y = 0.0;
 
         if (view.keyUpPressed()) {
@@ -51,6 +61,16 @@ public class KeyboardController extends AbstractController {
         }
 
         return y;
+    }
+
+    @Override
+    public double getRJoystickX() {
+        return 0;
+    }
+
+    @Override
+    public double getRJoystickY() {
+        return 0;
     }
 
     @Override
