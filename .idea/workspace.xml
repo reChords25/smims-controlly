@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Diagonal (in progress)">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Diagonal from right finished rest in progress">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,23 +34,23 @@
     &quot;assignee&quot;: &quot;reChords25&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/reChords25/smims-controlly.git&quot;,
-    &quot;accountId&quot;: &quot;7a731536-fdc5-4ba9-ab26-574b908548a2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rechords25/smims-controlly.git",
+    "accountId": "cf71e194-266c-4255-aa90-48d63616822c"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;reChords25&quot;,
-    &quot;repository&quot;: &quot;smims-controlly&quot;
+    "owner": "reChords25",
+    "repository": "smims-controlly"
   },
-  &quot;editorReviewEnabled&quot;: false
-}</component>
+  "editorReviewEnabled": false
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -60,27 +61,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.Test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "serafina-test",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;serafina-test&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/reChords/Desktop/test/.idea&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\reChords\Desktop\test\.idea" />
@@ -128,8 +129,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -147,6 +148,7 @@
       <workItem from="1725337809897" duration="4546000" />
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
+      <workItem from="1725483575202" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -252,7 +254,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725465515328</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Diagonal from right finished rest in progress">
+      <option name="closed" value="true" />
+      <created>1725466054051</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1725466054051</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Diagonal from right finished rest in progress">
+      <option name="closed" value="true" />
+      <created>1725466151210</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725466151210</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +301,8 @@
     <MESSAGE value="Test able" />
     <MESSAGE value="Move sideways (once)" />
     <MESSAGE value="Diagonal (in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Diagonal (in progress)" />
+    <MESSAGE value="Diagonal from right finished rest in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diagonal from right finished rest in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

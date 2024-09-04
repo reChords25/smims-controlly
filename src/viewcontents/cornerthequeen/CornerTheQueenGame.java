@@ -224,10 +224,26 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 }
             }
         }
-        if((view.keyPressed('s') || view.keyDownPressed())&& markerTurn.getCenterY()<29*groesseFelder){ //WIP put in own if
+        if((view.keyPressed('s') || view.keyDownPressed())){ //WIP put in own if
             if((Math.round(markerTurn.getCenterX()))==Math.round((queen.getCenterX()))){
-                markerTurn.move(0,groesseFelder);
+                if(markerTurn.getCenterY()<29*groesseFelder){
+                    markerTurn.move(0,groesseFelder);
+                }
             } //WIP like above
+             else if((Math.round(markerTurn.getCenterY()))==Math.round((queen.getCenterY()))){
+            //whereIsInt(queen)[0]
+            int[] markerLocation = whereIsInt(markerTurn);
+            //int row = markerLocation[1];
+            int[] queenLocation = whereIsInt(queen);
+            if(markerLocation!=null && queenLocation!=null){
+                //int differenceQueenXminusY = queenLocation[0]-queenLocation[1];
+                int differenceYMarkerminusQueen = markerLocation[0]-queenLocation[0];
+                System.out.println(markerLocation[0] + " " + queenLocation[0]);
+                //System.out.println(markerLocation[1] + " " + differenceQueenXminusY + " " + groesseFelder);
+                //markerTurn.move(-(groesseFelder*(markerLocation[1]+differenceQueenXminusY)),0); //WIP
+                markerTurn.move(0,-(groesseFelder*(differenceYMarkerminusQueen))); //WIP //8*? // Move after to diagonal
+            }
+        }
         }
         //WIP
     }
