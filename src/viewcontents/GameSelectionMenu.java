@@ -6,6 +6,7 @@ import sas.View;
 
 import controller.AbstractController;
 import util.Button;
+import viewcontents.DonkeyKong.DonkeyKongGame;
 import viewcontents.tetris.TetrisGame;
 
 import java.awt.*;
@@ -16,6 +17,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 
     private Button tetrisGameButton;
     private Button tankGameButton;
+    private Button donkeyKongButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
         super(view, controller);
@@ -50,9 +52,19 @@ public class GameSelectionMenu extends AbstractViewContent {
 //                new Color(57, 243, 91)
 //        );
 
+        donkeyKongButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                325,
+                buttonWidth,
+                buttonHeight,
+                "Donkey Kong",
+                new Color(85, 85, 255)
+        );
+
 
         buttonsToRemove.add(tetrisGameButton);
 //        buttonsToRemove.add(tankGameButton);
+        buttonsToRemove.add(donkeyKongButton);
         textsToRemove.add(mainText);
     }
 
@@ -68,6 +80,11 @@ public class GameSelectionMenu extends AbstractViewContent {
 //            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
 //            return false;
 //        }
+        if (donkeyKongButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new DonkeyKongGame(view, controller));
+            return false;
+        }
         if (view.keyPressed((char) 8)) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
@@ -75,6 +92,5 @@ public class GameSelectionMenu extends AbstractViewContent {
         }
         return true;
     }
-
 
 }
