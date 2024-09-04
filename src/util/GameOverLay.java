@@ -2,9 +2,11 @@ package util;
 
 import controller.AbstractController;
 import sas.Rectangle;
+import sas.Text;
 import sas.View;
 import viewcontents.AbstractViewContent;
 import viewcontents.GameSelectionMenu;
+import viewcontents.MainMenu;
 import viewcontents.ViewContents;
 
 import java.awt.*;
@@ -17,14 +19,19 @@ public class GameOverLay extends AbstractViewContent {
 
     private Class<? extends AbstractViewContent> game;
 
+    private Text gameStatusText;
+
     private Button restartButton;
     private Button exitButton;
     private Button menuButton;
     private Rectangle mainRect;
 
+    private boolean hasWon;
+
     public GameOverLay(View view, AbstractController controller, Class<? extends AbstractViewContent> game, boolean hasWon) {
         super(view, controller);
         this.game = game;
+        this.hasWon = hasWon;
     }
 
     @Override
@@ -35,14 +42,44 @@ public class GameOverLay extends AbstractViewContent {
         int yPos = view.getHeight() / 2 - height / 2;
 
         mainRect = new Rectangle(xPos, yPos, width, height);
-        mainRect.setColor(Color.LIGHT_GRAY);
-        restartButton = new Button(xPos + PADDING, yPos + height - 2*PADDING - 2*BUTTON_HEIGHT, width - 2 * PADDING, BUTTON_HEIGHT, "Restart game", Color.GREEN);
-        menuButton = new Button(xPos + PADDING, yPos + height - BUTTON_HEIGHT - PADDING, (int) (width / 2 - 1.5 * PADDING), BUTTON_HEIGHT, "Return to menu", Color.RED);
-        exitButton = new Button((int) (xPos + 2*PADDING + menuButton.getWidth()), yPos + height - BUTTON_HEIGHT - PADDING, (int) (width / 2 - 1.5 * PADDING), BUTTON_HEIGHT, "Exit game", Color.RED);
+        mainRect.setColor(new Color(212, 247, 224));
+
+        String status = hasWon ? "You won!" : "You lost!";
+        gameStatusText = new Text(340, 250, status);
+        gameStatusText.setFontSansSerif(true, 50);
+        gameStatusText.moveTo(xPos + (width - gameStatusText.getShapeWidth()) / 2, yPos + 50);
+
+        restartButton = new Button(
+                xPos + PADDING,
+                yPos + height - 2*PADDING - 2*BUTTON_HEIGHT,
+                width - 2 * PADDING,
+                BUTTON_HEIGHT,
+                "Restart game",
+                new Color(119, 220, 54)
+        );
+
+        menuButton = new Button(
+                xPos + PADDING,
+                yPos + height - BUTTON_HEIGHT - PADDING,
+                (int) Math.round(width / 2d - 1.5 * PADDING),
+                BUTTON_HEIGHT,
+                "To menu",
+                new Color(142, 235, 174)
+        );
+
+        exitButton = new Button(
+                (int) Math.round(xPos + 2*PADDING + menuButton.getWidth()),
+                yPos + height - BUTTON_HEIGHT - PADDING,
+                (int) Math.round(width / 2d - 1.5 * PADDING),
+                BUTTON_HEIGHT,
+                "Exit game",
+                new Color(83, 225, 183)
+        );
 
         buttonsToRemove.add(restartButton);
         buttonsToRemove.add(menuButton);
         buttonsToRemove.add(exitButton);
+        textsToRemove.add(gameStatusText);
         shapesToRemove.add(mainRect);
     }
 
@@ -59,7 +96,7 @@ public class GameOverLay extends AbstractViewContent {
         }
         if (menuButton.clicked()) {
             ViewContents.getInstance().clear(2);
-            ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
+            ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
             return false;
         }
         if (exitButton.clicked()) {
