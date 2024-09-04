@@ -6,6 +6,7 @@ import sas.View;
 
 import controller.AbstractController;
 import util.Button;
+import viewcontents.cornerthequeen.CornerTheQueenGame;
 import viewcontents.tetris.TetrisGame;
 
 import java.awt.*;
@@ -16,6 +17,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 
     private Button tetrisGameButton;
     private Button tankGameButton;
+    private Button queenGameButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
         super(view, controller);
@@ -50,8 +52,18 @@ public class GameSelectionMenu extends AbstractViewContent {
 //                new Color(57, 243, 91)
 //        );
 
+        queenGameButton = new Button(
+               viewCenterX - buttonWidth / 2,
+               250,
+               buttonWidth,
+               buttonHeight,
+               "Queen",
+               new Color(57, 243, 91)
+        );
+
 
         buttonsToRemove.add(tetrisGameButton);
+        buttonsToRemove.add(queenGameButton);
 //        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
@@ -68,6 +80,13 @@ public class GameSelectionMenu extends AbstractViewContent {
 //            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
 //            return false;
 //        }
+
+        if (tetrisGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new CornerTheQueenGame(view, controller));
+            return false;
+        }
+
         if (view.keyPressed((char) 8)) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
