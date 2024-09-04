@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="CactiCatch-Bilder" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Map 1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +55,7 @@
 }</component>
   <component name="ProjectId" id="2lWtYoyWyE3takwRTBRne0g7Otg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -82,6 +85,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\reChords\Desktop\test\.idea" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Schüler32\IdeaProjects\smims-controlly\resources\CactiCatch" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -240,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725460858847</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Map 1">
+      <option name="closed" value="true" />
+      <created>1725461388789</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725461388789</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +265,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="CactiCatch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -268,6 +294,7 @@
     <MESSAGE value="-" />
     <MESSAGE value="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes" />
     <MESSAGE value="CactiCatch-Bilder" />
-    <option name="LAST_COMMIT_MESSAGE" value="CactiCatch-Bilder" />
+    <MESSAGE value="Map 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map 1" />
   </component>
 </project>
