@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Diagonal from right finished rest in progress">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Diagonal finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" afterDir="false" />
     </list>
@@ -148,7 +148,7 @@
       <workItem from="1725337809897" duration="4546000" />
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
-      <workItem from="1725483575202" duration="1405000" />
+      <workItem from="1725483575202" duration="6963000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -270,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725466151210</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Diagonal finished">
+      <option name="closed" value="true" />
+      <created>1725485386308</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725485386308</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,27 +310,7 @@
     <MESSAGE value="Move sideways (once)" />
     <MESSAGE value="Diagonal (in progress)" />
     <MESSAGE value="Diagonal from right finished rest in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Diagonal from right finished rest in progress" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Diagonal finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diagonal finished" />
   </component>
 </project>
