@@ -66,7 +66,7 @@ public class GameSelectionMenu extends AbstractViewContent {
             return false;
         }
         if (tankGameButton.clicked()) {
-            ViewContents.getInstance().clear();
+            ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new TankGame(view, controller));
             return false;
         }
