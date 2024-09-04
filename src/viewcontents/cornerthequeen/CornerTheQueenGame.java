@@ -220,7 +220,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
                     //int differenceYMarkerminusQueen = row-queenLocation[1];
                     System.out.println(markerLocation[1] + " " + differenceQueenXminusY + " " + groesseFelder);
                     //markerTurn.move(-(groesseFelder*(markerLocation[1]+differenceQueenXminusY)),0); //WIP
-                    markerTurn.move(-(8*(markerLocation[1]+differenceQueenXminusY)),0); //WIP //8?
+                    markerTurn.move(-((markerLocation[1]+differenceQueenXminusY)),0); //WIP //8*? // Move after to diagonal
                 }
             }
         }
