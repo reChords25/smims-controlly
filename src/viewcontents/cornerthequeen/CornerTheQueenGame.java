@@ -4,7 +4,9 @@ import controller.AbstractController;
 import sas.Circle;
 import sas.Rectangle;
 import sas.View;
+import util.GameOverLay;
 import viewcontents.AbstractViewContent;
+import viewcontents.ViewContents;
 
 import java.awt.*;
 import java.sql.SQLOutput;
@@ -56,7 +58,6 @@ public class CornerTheQueenGame extends AbstractViewContent {
         markerTurn = new Circle(queen.getCenterX()-(queen.getShapeWidth()/8),queen.getCenterY()-(queen.getShapeHeight()/8),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
         markerTurn.setHidden(true);
         //a & s as controls, enter for submit // joystick -> direction of joystick, button as submit
-        //WIP
     }
 
     @Override
@@ -79,9 +80,6 @@ public class CornerTheQueenGame extends AbstractViewContent {
         if(tickBuffer>0){
             tickBuffer--;
         }
-        /**if(isFinish()){
-            System.out.println("Finish");
-        }**/
         return !isFinish();
     }
 
@@ -120,23 +118,15 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void opponent(){
-        //System.out.println("EHHHH?");
-        /*if(isInLosingPosition((int) ((queen.getCenterX()-(queen.getShapeWidth()/2))/groesseFelder),(int) ((queen.getCenterY()-(queen.getShapeHeight()/2))/groesseFelder))){
-            if(queen.getCenterX()-(queen.getShapeWidth()/2)-groesseFelder>=0) {
-                moveToLeft();
-            }else{
-                moveDown();
-            }
-        }*/
         //move
         Random rand = new Random();
         int randomNum = rand.nextInt(3) + 1;
         int randomNum2 = rand.nextInt(5) + 1;
         if(randomNum==1 && queen.getCenterX()>(randomNum2+1)*groesseFelder){
             queen.move(-(randomNum2+1)*groesseFelder,0);
-        }else if(randomNum==2 && queen.getCenterY()<(((randomNum2+1)*groesseFelder)+(28*groesseFelder))){
+        }else if(randomNum==2 && ((randomNum2+1)*groesseFelder)+queen.getCenterY()<((30*groesseFelder))){
             queen.move(0,(randomNum2+1)*groesseFelder);
-        }else if(queen.getCenterX()>(randomNum2+1)*groesseFelder && queen.getCenterY()<(((randomNum2+1)*groesseFelder)+(28*groesseFelder))){
+        }else if(queen.getCenterX()>(randomNum2+1)*groesseFelder && ((randomNum2+1)*groesseFelder)+queen.getCenterY()<((30*groesseFelder))){
             queen.move(-(randomNum2+1)*groesseFelder,0);
             queen.move(0,(randomNum2+1)*groesseFelder);
         }else{
@@ -172,6 +162,13 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public boolean isFinish(){
+        if(zeroField.contains(queen)){
+            if(!isTurn){
+                ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), true));
+            }else{
+                ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), false));
+            }
+        }
         return(zeroField.contains(queen));
     }
 
@@ -203,10 +200,6 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     }
 
-    /**public void game(){ //turns, back&forth
-        //WIP
-    }**/
-
     public void turnMove(){
         if(!view.keyEnterPressed()){
             turnMoveOnce();
@@ -214,8 +207,12 @@ public class CornerTheQueenGame extends AbstractViewContent {
             isTurn = false;
             turnWasStarted = false;
             markerTurn.setHidden(true);
-            queen.moveTo(fields[whereIsInt(markerTurn)[0]][whereIsInt(markerTurn)[1]].getShapeX(),fields[whereIsInt(markerTurn)[0]][whereIsInt(markerTurn)[1]].getShapeY());
-            tickBuffer = 10;
+            int[] whereIsMarker = new int[2];
+            whereIsMarker = whereIsInt(markerTurn);
+            if(whereIsMarker!=null){
+                queen.moveTo(fields[whereIsMarker[0]][whereIsMarker[1]].getShapeX(),fields[whereIsMarker[0]][whereIsMarker[1]].getShapeY());
+            }
+            tickBuffer = 50;
         }
     }
 
@@ -234,7 +231,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 }
             }
         }
-        if((view.keyPressed('s') || view.keyDownPressed())){ //WIP put in own if
+        if((view.keyPressed('s') || view.keyDownPressed())){
             if((Math.round(markerTurn.getCenterX()))==Math.round((queen.getCenterX()))){
                 if(markerTurn.getCenterY()<29*groesseFelder){
                     markerTurn.move(0,groesseFelder);
@@ -245,7 +242,6 @@ public class CornerTheQueenGame extends AbstractViewContent {
             int[] queenLocation = whereIsInt(queen);
             if(markerLocation!=null && queenLocation!=null){
                 int differenceYMarkerminusQueen = markerLocation[0]-queenLocation[0];
-                //System.out.println(markerLocation[0] + " " + queenLocation[0]);
                 markerTurn.move(0,-(groesseFelder*(differenceYMarkerminusQueen)));
             }
         }
