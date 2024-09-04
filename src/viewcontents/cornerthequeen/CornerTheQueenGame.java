@@ -224,10 +224,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 }
             }
         }
-        if((view.keyPressed('s') || view.keyDownPressed())&& markerTurn.getCenterY()<29*groesseFelder){
+        if((view.keyPressed('s') || view.keyDownPressed())&& markerTurn.getCenterY()<29*groesseFelder){ //WIP put in own if
             if((Math.round(markerTurn.getCenterX()))==Math.round((queen.getCenterX()))){
                 markerTurn.move(0,groesseFelder);
-            }
+            } //WIP like above
         }
         //WIP
     }
