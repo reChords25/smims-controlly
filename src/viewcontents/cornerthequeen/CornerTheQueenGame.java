@@ -216,11 +216,11 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 //int row = markerLocation[1];
                 int[] queenLocation = whereIsInt(queen);
                 if(markerLocation!=null && queenLocation!=null){
-                    int differenceQueenXminusY = queenLocation[0]-queenLocation[1];
-                    //int differenceYMarkerminusQueen = row-queenLocation[1];
-                    System.out.println(markerLocation[1] + " " + differenceQueenXminusY + " " + groesseFelder);
+                    //int differenceQueenXminusY = queenLocation[0]-queenLocation[1];
+                    int differenceYMarkerminusQueen = markerLocation[1]-queenLocation[1];
+                    //System.out.println(markerLocation[1] + " " + differenceQueenXminusY + " " + groesseFelder);
                     //markerTurn.move(-(groesseFelder*(markerLocation[1]+differenceQueenXminusY)),0); //WIP
-                    markerTurn.move(-((markerLocation[1]+differenceQueenXminusY)),0); //WIP //8*? // Move after to diagonal
+                    markerTurn.move(-(groesseFelder*(differenceYMarkerminusQueen)),0); //WIP //8*? // Move after to diagonal
                 }
             }
         }
