@@ -1,8 +1,6 @@
 package viewcontents.tank;
 
 import controller.AbstractController;
-//import minigames.frogger.obstacles.Auto;
-//import minigames.frogger.obstacles.Obstacle;
 import sas.Sprite;
 import sas.Text;
 import sas.Tools;
@@ -27,7 +25,6 @@ public class TankGame extends AbstractViewContent {
     private static int winningNumber = 0;
 
 
-    private Sprite ptank;
     private Tank tank;
     private Cannon cannon;
     private Projectile projectile;
@@ -45,6 +42,7 @@ public class TankGame extends AbstractViewContent {
         this.bullets = new ArrayList<>();
         this.hindernisse = new ArrayList<>();
         this.spawnChance = 10;
+
     }
 
     /* Object Methods */
@@ -88,7 +86,7 @@ public class TankGame extends AbstractViewContent {
         while (!gewonnen) {
             moveTank();
             shoot();
-            rotateCannon();
+            //rotateCannon();
             projectileTouchesTarget();
             moveProjectiles();
 
@@ -111,36 +109,79 @@ public class TankGame extends AbstractViewContent {
         }
     }
 
-    double currentRotation = 0;
+
     double cannonRotation = 0;
     double xPosition = 200;
     double yPosition = 200;
 
-
     private void moveTank() {
         double x = controller.getLJoystickX() * SPEED_Tank;
         double y = controller.getLJoystickY() * SPEED_Tank;
-        System.out.println(x);
-        System.out.println(y);
         tank.move(-y);
-        xPosition = tank.getCenterX();
-        yPosition = tank.getCenterY();
-        System.out.println(tank.getCenterX());
-        cannon.moveTo(xPosition - 25, yPosition - 25);
+        cannon.moveTo(xPosition-25, yPosition-25);
         double finalDegree = 0;
-        if (y > 0) {
+        if(y > 0){
             System.out.println("asdf");
             finalDegree = -x;
-        } else {
+        }
+        else {
             finalDegree = x;
         }
 
         tank.turn(finalDegree);
         cannon.turn(finalDegree);
-        currentRotation += finalDegree;
+        //currentRotation += finalDegree;
         cannonRotation += finalDegree;
-
     }
+
+
+/*    private void moveTank() {
+
+        xPosition = tank.getCenterX();
+        yPosition = tank.getCenterY();
+
+        double x = controller.getLJoystickX();
+        double y = controller.getLJoystickY();
+        double dxRot = controller.getRJoystickX();
+        double dyRot = controller.getRJoystickY();
+
+        if (x < 400) {
+            cannon.moveTo(xPosition + 10, yPosition);
+            tank.turnTo(180);
+        }
+        if (x > 640) {
+            cannon.moveTo(xPosition - 10, yPosition);
+            tank.turn(0);
+        }
+        if (y < 400) {
+            cannon.moveTo(xPosition, yPosition - 10);
+            tank.turn(90);
+        }
+        if (y > 640) {
+            cannon.moveTo(xPosition, yPosition + 10);
+            tank.turn(270);
+        }
+        if ((x < 400) && (y < 400)) {
+            cannon.moveTo(xPosition - 10, yPosition + 10);
+            tank.turn(135);
+        }
+        if ((x < 400) && (y > 640)) {
+            cannon.moveTo(xPosition - 10, yPosition - 10);
+            tank.turn(225);
+        }
+        if ((x > 640) && (y < 400)){
+            cannon.moveTo(xPosition + 10, yPosition + 10);
+            tank.turn(45);
+        }
+        if ((x > 640) && (y > 640)) {
+            cannon.moveTo(xPosition + 10, yPosition - 10);
+            tank.turn(315);
+        }
+
+        double cannonAngle = Math.toDegrees(Math.atan(dxRot/dyRot));
+        cannon.turnTo(cannonAngle);
+
+    }*/
 
     private void rotateCannon() {
         double x = controller.getRJoystickX() * SPEED_Tank;
@@ -235,15 +276,12 @@ public class TankGame extends AbstractViewContent {
         } else if (x > 0) {
 
             if (y > 0) {
-                System.out.println("PP");
                 return -180 + Math.toDegrees(Math.atan(divide(x, y)));
             } else {
-                System.out.println("PN");
                 return Math.toDegrees(Math.atan(divide(x, y)));
             }
         } else {
             if (y > 0) {
-                System.out.println("NP");
                 return Math.toDegrees(Math.atan(divide(x, y)));
             } else {
                 return -180 + Math.toDegrees(Math.atan(divide(x, y)));
@@ -265,15 +303,12 @@ public class TankGame extends AbstractViewContent {
         } else if (x > 0) {
 
             if (y > 0) {
-                System.out.println("PP");
                 return Math.toDegrees(Math.atan(divide(x, y)));
             } else {
-                System.out.println("PN");
                 return Math.toDegrees(Math.atan(divide(x, y)));
             }
         } else {
             if (y > 0) {
-                System.out.println("NP");
                 return -180 + Math.toDegrees(Math.atan(divide(x, y)));
             } else {
                 return -180 + Math.toDegrees(Math.atan(divide(x, y)));
@@ -319,9 +354,6 @@ public class TankGame extends AbstractViewContent {
         return sign * (quotient + fractional_part);
     }
 
-    /* Getters and Setters */
-
-    /* Inner Classes */
 
 }
 

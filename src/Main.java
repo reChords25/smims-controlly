@@ -1,3 +1,4 @@
+import controller.ArduinoController;
 import controller.KeyboardController;
 import sas.View;
 import viewcontents.MainMenu;
@@ -9,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         View view = new View(WIDTH, HEIGHT);
-        KeyboardController controller = new KeyboardController(view);
+        ArduinoController controller = new ArduinoController(view);
         ViewContents.initInstance(view, controller);
         ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
     }
