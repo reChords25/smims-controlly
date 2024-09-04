@@ -7,6 +7,8 @@ import sas.View;
 import viewcontents.AbstractViewContent;
 
 import java.awt.*;
+import java.sql.SQLOutput;
+
 
 public class CornerTheQueenGame extends AbstractViewContent {
     private static final String PATH_TO_IMAGES = PATH_TO_RESOURCES + "cornerthequeen/";
@@ -19,6 +21,9 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     private Circle markerTurn;
     private boolean isTurn, turnWasStarted;
+    boolean noTurnMoveActive;
+
+    int tickBuffer;
 
     public CornerTheQueenGame(View view, AbstractController controller){
         super(view, controller);
@@ -26,6 +31,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     @Override
     protected void initView() {
+        tickBuffer = 10;
         isTurn = true;
         fields = new Rectangle[30][30];
         if(view.getHeight()<view.getWidth()){
@@ -59,46 +65,24 @@ public class CornerTheQueenGame extends AbstractViewContent {
     @Override
     public boolean tick() {
         if(view.keyPressed()){
-            if(isTurn){
+            if(isTurn && tickBuffer == 0){
+                //System.out.println("(tack)");
                 if(!turnWasStarted){
+                    tickBuffer = 10;
                     turn();
                     turnWasStarted = true;
                 }else{
+                    tickBuffer = 10;
+                    //System.out.println("Hello");
                     turnMove();
+                    //System.out.println("Hello World");
                 }
             }
         }
+        if(tickBuffer>0){
+            tickBuffer--;
+        }
         return !isFinish();
-    }
-
-    public void initScreen(){
-        /**markerTurn = new Circle(queen.getCenterX()+(queen.getShapeWidth()/4),queen.getCenterY()+(queen.getShapeHeight()/4),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
-        markerTurn.setHidden(true);
-        if(view.getHeight()<view.getWidth()){
-            groesseFelder = (view.getHeight()/30);
-        }else{
-            groesseFelder = (view.getWidth()/30);
-        }
-        for(int i = 0;i<30;i=i+2){
-            for(int j = 0;j<30;j=j+2){
-                fields[j][i] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
-                fields[j][i].setColor(Color.WHITE);
-                fields[j+1][i] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
-                fields[j+1][i].setColor(Color.BLACK);
-            }
-
-            for(int j = 0;j<15;j++){
-                fields[j][i+1] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
-                fields[j][i+1].setColor(Color.BLACK);
-                fields[j+1][i+1] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
-                fields[j+1][i+1].setColor(Color.WHITE);
-            }
-        }
-        Rectangle zeroField =new Rectangle(0,view.getHeight()-groesseFelder,groesseFelder,groesseFelder);
-        zeroField.setColor(Color.green);
-        queen = new Circle(((view.getWidth()/2)+(14*groesseFelder)),0,groesseFelder/2,Color.blue);
-        //a & s as controls, enter for submit // joystick -> direction of joystick, (opposite direction or) button as submit
-        //WIP**/
     }
 
     public void initLoosingFields(){
@@ -174,11 +158,11 @@ public class CornerTheQueenGame extends AbstractViewContent {
     public void turn(){
         markerTurn.moveTo(queen.getCenterX()-queen.getShapeWidth()/4,queen.getCenterY()-queen.getShapeHeight()/4);
         markerTurn.setHidden(false);
-
+        noTurnMoveActive = true;
         turnMove();
         //wip //movement
         //view.keyPressed('a');
-        isTurn = false;
+        //System.out.println("Yay?");
     }
 
     public void moveToLeftMarker(){
@@ -206,24 +190,59 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void turnMove(){
-        System.out.println("Hello");
-        if(view.keyPressed('a') || view.keyLeftPressed()){
-            System.out.println("Hello World");
-            //System.out.println(markerTurn.getCenterY() + " " + markerTurn.getShapeHeight()+ "        " +((markerTurn.getCenterY()-markerTurn.getShapeHeight())) + " " + (queen.getCenterY()-(queen.getShapeHeight()/2)));
-            System.out.println(markerTurn.getCenterY() + " " + (queen.getCenterY()));
+        if(!view.keyEnterPressed() && noTurnMoveActive){
+            //System.out.println("EHHH?");
+            noTurnMoveActive = false;
+            turnMoveOnce();
+            noTurnMoveActive = true;
+        }else{
+            isTurn = false;
+            turnWasStarted = false;
+            //WIP
+        }
+        //WIP
+    }
+
+    public void turnMoveOnce(){
+        //System.out.println("Hello World!");
+        if((view.keyPressed('a') || view.keyLeftPressed())){
             if((Math.round(markerTurn.getCenterY()))==Math.round((queen.getCenterY()))){
-                //markerTurn.getCenterY()-markerTurn.getShapeHeight()))==(queen.getCenterY()-(queen.getShapeHeight()/2)))
-                System.out.println("Hello World!");
-                markerTurn.move(-groesseFelder,0);
+                if(markerTurn.getCenterX()>groesseFelder){
+                    markerTurn.move(-groesseFelder,0);
+                }
+            }else if((Math.round(markerTurn.getCenterX()))==Math.round((queen.getCenterX()))){
+                //whereIsInt(queen)[0]
+                int[] markerLocation = whereIsInt(markerTurn);
+                //int row = markerLocation[1];
+                int[] queenLocation = whereIsInt(queen);
+                if(markerLocation!=null && queenLocation!=null){
+                    int differenceQueenXminusY = queenLocation[0]-queenLocation[1];
+                    //int differenceYMarkerminusQueen = row-queenLocation[1];
+                    System.out.println(markerLocation[1] + " " + differenceQueenXminusY + " " + groesseFelder);
+                    //markerTurn.move(-(groesseFelder*(markerLocation[1]+differenceQueenXminusY)),0); //WIP
+                    markerTurn.move(-(8*(markerLocation[1]+differenceQueenXminusY)),0); //WIP //8?
+                }
             }
         }
-        if(view.keyPressed('s') || view.keyDownPressed()){
-            //(((markerTurn.getCenterX()-markerTurn.getShapeWidth())-groesseFelder)/groesseFelder)==((queen.getCenterX()-(queen.getShapeWidth()/2))"eeeeehhhhhhhhh")
-            if(((markerTurn.getCenterX()-markerTurn.getShapeWidth()))==(queen.getCenterX()-(queen.getShapeWidth()/2))){
+        if((view.keyPressed('s') || view.keyDownPressed())&& markerTurn.getCenterY()<29*groesseFelder){
+            if((Math.round(markerTurn.getCenterX()))==Math.round((queen.getCenterX()))){
                 markerTurn.move(0,groesseFelder);
             }
         }
         //WIP
+    }
+    public int[] whereIsInt(Circle c){
+        for(int i = 0;i<30;i++){ //y
+            for(int j = 0;j<30;j++){ //x
+                if(fields[j][i].contains(c)){
+                    int[] returnInt = new int[2];
+                    returnInt[0] = j;
+                    returnInt[1] = i;
+                    return returnInt;
+                }
+            }
+        }
+        return null;
     }
 
 }
