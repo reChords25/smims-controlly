@@ -11,10 +11,8 @@ import java.awt.*;
 public class CornerTheQueenGame extends AbstractViewContent {
     private static final String PATH_TO_IMAGES = PATH_TO_RESOURCES + "cornerthequeen/";
 
-    private View view;
-    private AbstractController controller;
     private int groesseFelder;
-    private Rectangle[][] fields= new Rectangle[30][30];
+    private Rectangle[][] fields ;
     private int[][] losingFields = new int[11][2];
     private Circle queen;
     private Rectangle zeroField;
@@ -22,13 +20,38 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     public CornerTheQueenGame(View view, AbstractController controller){
         super(view, controller);
-        markerTurn = new Circle(queen.getCenterX()+(queen.getShapeWidth()/4),queen.getCenterY()+(queen.getShapeHeight()/4),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
-        markerTurn.setHidden(true);
     }
 
     @Override
     protected void initView() {
-        initScreen();
+        fields = new Rectangle[30][30];
+        if(view.getHeight()<view.getWidth()){
+            groesseFelder = (view.getHeight()/30);
+        }else{
+            groesseFelder = (view.getWidth()/30);
+        }
+        for(int i = 0;i<30;i=i+2){
+            for(int j = 0;j<30;j=j+2){
+                fields[j][i] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
+                fields[j][i].setColor(Color.blue);
+                fields[j+1][i] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
+                fields[j+1][i].setColor(Color.BLACK);
+            }
+
+            for(int j = 0;j<15;j++){
+                fields[j][i+1] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
+                fields[j][i+1].setColor(Color.BLACK);
+                fields[j+1][i+1] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder);
+                fields[j+1][i+1].setColor(Color.orange);
+            }
+        }
+        Rectangle zeroField =new Rectangle(0,view.getHeight()-groesseFelder,groesseFelder,groesseFelder);
+        zeroField.setColor(Color.green);
+        queen = new Circle(((view.getWidth()/2)+(14*groesseFelder)),0,groesseFelder/2,Color.blue);
+        markerTurn = new Circle(queen.getCenterX()+(queen.getShapeWidth()/4),queen.getCenterY()+(queen.getShapeHeight()/4),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
+        markerTurn.setHidden(true);
+        //a & s as controls, enter for submit // joystick -> direction of joystick, (opposite direction or) button as submit
+        //WIP
     }
 
     @Override
@@ -37,10 +60,12 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void initScreen(){
-        if(this.view.getHeight()<this.view.getWidth()){
-            groesseFelder = (this.view.getHeight()/30);
+        /**markerTurn = new Circle(queen.getCenterX()+(queen.getShapeWidth()/4),queen.getCenterY()+(queen.getShapeHeight()/4),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
+        markerTurn.setHidden(true);
+        if(view.getHeight()<view.getWidth()){
+            groesseFelder = (view.getHeight()/30);
         }else{
-            groesseFelder = (this.view.getWidth()/30);
+            groesseFelder = (view.getWidth()/30);
         }
         for(int i = 0;i<30;i=i+2){
             for(int j = 0;j<30;j=j+2){
@@ -57,11 +82,11 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 fields[j+1][i+1].setColor(Color.WHITE);
             }
         }
-        Rectangle zeroField =new Rectangle(0,this.view.getHeight()-groesseFelder,groesseFelder,groesseFelder);
+        Rectangle zeroField =new Rectangle(0,view.getHeight()-groesseFelder,groesseFelder,groesseFelder);
         zeroField.setColor(Color.green);
-        queen = new Circle(((this.view.getWidth()/2)+(14*groesseFelder)),0,groesseFelder/2,Color.blue);
+        queen = new Circle(((view.getWidth()/2)+(14*groesseFelder)),0,groesseFelder/2,Color.blue);
         //a & s as controls, enter for submit // joystick -> direction of joystick, (opposite direction or) button as submit
-        //WIP
+        //WIP**/
     }
 
     public void initLoosingFields(){

@@ -81,7 +81,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 //            return false;
 //        }
 
-        if (tetrisGameButton.clicked()) {
+        if (queenGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new CornerTheQueenGame(view, controller));
             return false;
