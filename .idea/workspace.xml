@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Map 1">
-      <change afterPath="$PROJECT_DIR$/resources/CactiCatch/Furniture Bench 01a.png" afterDir="false" />
-    </list>
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Map 1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -262,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725463241515</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Map 1">
+      <option name="closed" value="true" />
+      <created>1725465338328</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725465338328</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
