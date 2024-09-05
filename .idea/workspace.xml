@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="GameOverLay changes">
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="finished (bugs: left column, idk)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tetris/TetrisGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +21,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="serafina" />
+        <entry key="$PROJECT_DIR$" value="david" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +50,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/rechords25/smims-controlly.git&quot;,
-    &quot;accountId&quot;: &quot;cc4ba494-198a-4a37-b3ee-5cfce7b4b7a1&quot;
+    &quot;accountId&quot;: &quot;cf71e194-266c-4255-aa90-48d63616822c&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
     &quot;server&quot;: {
@@ -49,16 +59,16 @@
       &quot;port&quot;: null,
       &quot;suffix&quot;: null
     },
-    &quot;owner&quot;: &quot;reChords25&quot;,
+    &quot;owner&quot;: &quot;rechords25&quot;,
     &quot;repository&quot;: &quot;smims-controlly&quot;
-  },
-  &quot;editorReviewEnabled&quot;: false
+  }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2lWtYoyWyE3takwRTBRne0g7Otg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -70,7 +80,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ben",
+    "git-widget-placeholder": "serafina",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -91,8 +101,21 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="ArduinoController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.ArduinoController" />
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH" value="22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="test" />
@@ -116,16 +139,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ArduinoController" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ArduinoController" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -151,8 +176,7 @@
       <workItem from="1725337809897" duration="4546000" />
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
-      <workItem from="1725456434630" duration="49000" />
-      <workItem from="1725461964801" duration="20000" />
+      <workItem from="1725555852944" duration="927000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -210,15 +234,96 @@
       <option name="project" value="LOCAL" />
       <updated>1725387394996</updated>
     </task>
-    <task id="LOCAL-00008" summary="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes">
+    <task id="LOCAL-00008" summary="-">
       <option name="closed" value="true" />
-      <created>1725391490119</created>
+      <created>1725390087829</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1725391490119</updated>
+      <updated>1725390087829</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+
+    <task id="LOCAL-00009" summary="Corner the Queen graphic">
+      <option name="closed" value="true" />
+      <created>1725436440421</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1725436440422</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Test able">
+      <option name="closed" value="true" />
+      <created>1725437790834</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725437790834</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Move sideways (once)">
+      <option name="closed" value="true" />
+      <created>1725459219082</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725459219082</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Diagonal (in progress)">
+      <option name="closed" value="true" />
+      <created>1725465469621</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1725465469621</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Diagonal (in progress)">
+      <option name="closed" value="true" />
+      <created>1725465515328</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725465515328</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Diagonal from right finished rest in progress">
+      <option name="closed" value="true" />
+      <created>1725466054051</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1725466054051</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Diagonal from right finished rest in progress">
+      <option name="closed" value="true" />
+      <created>1725466151210</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725466151210</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Diagonal finished">
+      <option name="closed" value="true" />
+      <created>1725485386308</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725485386308</updated>
+    </task>
+    <task id="LOCAL-00017" summary="finished (no finish Screen)">
+      <option name="closed" value="true" />
+      <created>1725490746106</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1725490746106</updated>
+    </task>
+    <task id="LOCAL-00018" summary="finished (bugs: left column, idk)">
+      <option name="closed" value="true" />
+      <created>1725551610449</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725551610449</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +334,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/CactiCatch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -245,6 +362,14 @@
     <MESSAGE value="some part working now heheheeh" />
     <MESSAGE value="-" />
     <MESSAGE value="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes" />
+    <MESSAGE value="Corner the Queen graphic" />
+    <MESSAGE value="Test able" />
+    <MESSAGE value="Move sideways (once)" />
+    <MESSAGE value="Diagonal (in progress)" />
+    <MESSAGE value="Diagonal from right finished rest in progress" />
+    <MESSAGE value="Diagonal finished" />
+    <MESSAGE value="finished (no finish Screen)" />
+    <MESSAGE value="finished (bugs: left column, idk)" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished (bugs: left column, idk)" />
   </component>
 </project>
