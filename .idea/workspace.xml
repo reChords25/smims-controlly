@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes">
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/ScalablePicture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" afterDir="false" />
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="initial donkeyKong">
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Stairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frogger/frog.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frogger/frog.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frogger/goblet.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frogger/goblet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mario.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/DonkeyKong/mario.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ArduinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/KeyboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/KeyboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Barrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKongGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKongGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/ScalablePicture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,23 +45,23 @@
     &quot;assignee&quot;: &quot;reChords25&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/reChords25/smims-controlly.git&quot;,
-    &quot;accountId&quot;: &quot;7a731536-fdc5-4ba9-ab26-574b908548a2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rechords25/smims-controlly.git",
+    "accountId": "ac087547-213c-468c-8dc9-a5779b6dcfc3"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;reChords25&quot;,
-    &quot;repository&quot;: &quot;smims-controlly&quot;
+    "owner": "reChords25",
+    "repository": "smims-controlly"
   },
-  &quot;editorReviewEnabled&quot;: false
-}</component>
+  "editorReviewEnabled": false
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -78,7 +78,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging Oli",
+    "git-widget-placeholder": "Oli",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -96,6 +96,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\reChords\Desktop\test\.idea" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\olive\IdeaProjects\smims-controlly\resources\DonkeyKong" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -131,19 +134,11 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

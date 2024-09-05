@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         View view = new View(WIDTH, HEIGHT);
-        ArduinoController controller = new ArduinoController(view);
+        KeyboardController controller = new KeyboardController(view);
         ViewContents.initInstance(view, controller);
         ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
     }
