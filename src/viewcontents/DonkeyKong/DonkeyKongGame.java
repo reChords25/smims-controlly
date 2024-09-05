@@ -86,7 +86,7 @@ public class DonkeyKongGame extends AbstractViewContent {
     }
 
     public void spawnBarrel() {
-        int ranInt = Tools.randomNumber(1, 50);
+        int ranInt = Tools.randomNumber(1, 200);
         if (ranInt==2) {
             barrels.add(new Barrel(100,110));
             for(int i=0; i<barrels.size();i++){
@@ -169,15 +169,25 @@ public class DonkeyKongGame extends AbstractViewContent {
         barrelFallDown();
         changeDirectionBarrels();
         spawnBarrel();
+        //loose
         if(mario.checkKollisionBarrels()){
             mario.getMario().setHidden(true);
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), false);
+            ViewContents.getInstance().runViewContent(overlay);
+            return false;
         }
         for (int i = 0; i < barrels.size(); i++) {
             barrels.get(i).fallBarrel();
             barrels.get(i).moveBarrel();
         }
+        //win
         if (mario.getMario().intersects(dk)) {
             dk.setHidden(true);
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), true);
+            ViewContents.getInstance().runViewContent(overlay);
+            return false;
         }
 
         return true;
