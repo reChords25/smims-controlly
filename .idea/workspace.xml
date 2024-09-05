@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="-ErstesTankGame">
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Background.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/BasicObstacle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/Heart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/tank/SoundPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/shooting.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CactiCatch/shooting.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AbstractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ArduinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" afterDir="false" />
     </list>
@@ -87,13 +83,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ArduinoController.executor": "Run",
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "alexander",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
+    "last_opened_file_path": "C:/Users/Schüler59/Desktop/smims-controlly",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -250,7 +246,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725460252008</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="-ErstesTankGame">
+      <option name="closed" value="true" />
+      <created>1725486344388</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725486344388</updated>
+    </task>
+    <task id="LOCAL-00011" summary="-ErstesTankGame">
+      <option name="closed" value="true" />
+      <created>1725486378393</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725486378393</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

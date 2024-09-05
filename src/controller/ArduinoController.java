@@ -8,39 +8,86 @@ import sas.View;
 
 public class ArduinoController extends AbstractController {
 
-    private View view;
-
-    public ArduinoController(View view) {
-        this.view = view;
+    public ArduinoController() {
+        super();
     }
+    private boolean containsHash(String testString){
+        for (int i = 0; i < testString.length(); i++) {
+            char c = testString.charAt(i);
+            if(c == '#'){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void toArray(String pString){
+        System.out.println(pString);
+        if(pString!= null){
+            dataArray = pString.split(",");
+        }
+    }
+
+    private String tmpData;
 
     @Override
     protected void evalData() {
+        //System.out.println(data);
+        if(data.length() >= 1){
+            //System.out.println(data);
 
-        int indexBegin = data.indexOf("#");
 
-        if (indexBegin < 0) {
-            data = "";
-            return;
-        }
+        if(data.charAt(0)=='#' && data.length() == 1){
+            //System.out.println("Blurry");
+            toArray(tmpData);
+        } else if (containsHash(data)){
 
-        data = data.substring(indexBegin + 1);
+            //System.out.println(data);
+            String[] tmpSplit = data.split("#");
+            if(tmpSplit[0] != ""){
+                toArray(tmpData + tmpSplit[0]);
+            } else if(tmpSplit[1] != null){
+                if(tmpSplit.length > 2){
+                    toArray(tmpSplit[1]);
+                }
+                else{
+                    toArray(tmpData + tmpSplit[1]);
+                    tmpData = tmpSplit[1];
+                }
+            } else if(tmpSplit.length > 2){
+                if(tmpSplit[3] != null){
+                    toArray(tmpData);
+                    tmpData = tmpSplit[3];
+                }
+                //toArray(tmpData);
+            }
 
-        int indexEnd = data.indexOf("?");
-        if (indexEnd < 0) {
-            data = "";
-            return;
-        }
 
-        data = data.substring(0, indexEnd);
-
-        dataArray = null;
-
-        dataArray = data.split(",");
-
-        for (String s : dataArray) {
-            System.out.print(s + " ");
-        }
+        } else{
+            tmpData = tmpData + data;
+        }}
+//        if (indexBegin < 0) {
+//            //System.out.println("Wweefe");
+//            data = "";
+//            return;
+//        }
+//
+//        data = data.substring(indexBegin + 1);
+//
+//        int indexEnd = data.indexOf("?");
+//        if (indexEnd < 0) {
+//            data = "";
+//            return;
+//        }
+//
+//        data = data.substring(0, indexEnd);
+//        System.out.println(data);
+//
+//        dataArray = data.split(",");
+//
+//        for (String s : dataArray) {
+//            System.out.print(s + " ");
+//        }
     }
 
     @Override
@@ -54,31 +101,59 @@ public class ArduinoController extends AbstractController {
 
     @Override
     public double getLJoystickX() {
-        return Double.parseDouble(dataArray[0]);
+        //evalData();
+        if(dataArray != null){
+            //System.out.println("LX");
+            //System.out.println(parsTester(dataArray[0]));
+            return parsTester(dataArray[0]);
+        }
+        return 0;
     }
 
     @Override
     public double getLJoystickY() {
-        return Double.parseDouble(dataArray[1]);
+        //evalData();
+        if(dataArray != null){
+        return parsTester(dataArray[1]);
+    }
+        return 0;
     }
 
     @Override
     public double getRJoystickX() {
-        return Double.parseDouble(dataArray[2]);
+        //evalData();
+        if(dataArray != null){
+        return parsTester(dataArray[2]);
+    }
+        return 0;
     }
 
     @Override
     public double getRJoystickY() {
-        return Double.parseDouble(dataArray[3]);
+        //evalData();
+        if(dataArray != null){
+            return parsTester(dataArray[3]);
+        }
+        return 0;
     }
 
     @Override
     public boolean getBtn1Pressed() {
-        if (Integer.parseInt(dataArray[4]) == 1) {
-            return true;
-        } else {
-            return false;
+        if (dataArray[4] !=null) {
+            if(dataArray[4].charAt(0) == '1'){
+                return true;
+            }
         }
+        return false;
+    }
+    private double parsTester(String testString){
+        for (int i = 0; i < testString.length(); i++) {
+            char c = testString.charAt(i);
+            if(c == '#'){
+                return 0;
+            }
+        }
+        return Double.parseDouble(testString);
     }
 
     public static void main(String[] args) {

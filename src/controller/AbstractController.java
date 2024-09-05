@@ -19,6 +19,7 @@ public abstract class AbstractController implements SerialPortEventListener {
     }
 
     private void initSerialPort() {
+        System.out.println("asdf");
         boolean isWorking = false;
         for (int i = 21; i > 1 && !isWorking; i--) {
             isWorking = true;
@@ -28,6 +29,7 @@ public abstract class AbstractController implements SerialPortEventListener {
                 serialPort.setParams(9600, 8, 1, 0);
                 serialPort.addEventListener(this);
             } catch (SerialPortException ex) {
+                System.err.println("Failed to connect :(");
                 isWorking = false;
             }
         }
@@ -35,13 +37,29 @@ public abstract class AbstractController implements SerialPortEventListener {
 
     public void serialEvent(SerialPortEvent e) {
         try {
-            data = data + serialPort.readString();
-            data = data.replaceAll(" ", "");
-            data = data.replaceAll("null", "");
-            data = data.replaceAll("\n", "");
-            data = data.replaceAll("\r", "");
-
-            evalData();
+            if(data != null){
+                //System.out.println(data);
+                data = serialPort.readString();
+                //System.out.println(data);
+                if(data!= null){
+                    data = data.replaceAll(" ", "");
+                }
+                if(data!=null){
+                    data = data.replaceAll("null", "");
+                }
+                if (data != null) {
+                    data = data.replaceAll("\n", "");
+                }
+                if(data != null){
+                    data = data.replaceAll("\r", "");
+                }
+                if(data != null){
+                    data = data.replaceAll("\\?", "");
+                }
+                if(data != null){
+                    evalData();
+                }
+            }
 
         } catch (SerialPortException e2) {
             log.error("Exception: ", e2);

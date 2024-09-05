@@ -16,20 +16,30 @@ public class TankGame extends AbstractViewContent {
 
     private static final String PATH_IMAGE = AbstractViewContent.PATH_TO_RESOURCES + "frogger/car1.png";
     private static final String PATH_IMAGEB = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/border.png";
+    private static final String cactusOne = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusEins.png";
+    private static final String cactusTwo = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusTwo.png";
+    private static final String cactusThree = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusThree.png";
 
     /* Static Variables */
     private static final int WIDTH = 900;
     private static final int HEIGHT = 700;
     private static final int SLEEP_TIME = 20;
-    private static final double SPEED_OBSTACLE = 2.5;
     private static final int SPEED_Projectile = 25;
-    private static final double SPEED_Tank = 3;
     private static final double OBJECT_HEIGHT = 50;
     private static boolean gewonnen = false;
-    private static int winningNumber = 0;
-    public int tankHP;
+    private static int points = 0;
 
-    private Sprite ptank;
+    public int tankHP;
+    private double SPEED_OBSTACLE = 1;
+    private double SPEED_Tank = 3;
+
+    private Heart heart1;
+    private Heart heart2;
+    private Heart heart3;
+    private Text scoreboard;
+
+
+    private Background background;
     private Tank tank;
     private Cannon cannon;
     private Projectile projectile;
@@ -39,7 +49,11 @@ public class TankGame extends AbstractViewContent {
 
 
     private int spawnChance;
+    private int spawnChance2;
+    private int spawnChance3;
     private int score;
+    private int level;
+    private int clock = 0;
 
     /* Constructors */
     public TankGame(View view, AbstractController controller) {
@@ -49,8 +63,13 @@ public class TankGame extends AbstractViewContent {
         this.bullets = new ArrayList<>();
         this.hindernisse = new ArrayList<>();
         this.obstacles = new ArrayList<>();
-        this.spawnChance = 43;
+        this.spawnChance = 100;
+        this.spawnChance2 = 100;
+        this.spawnChance3 = 100;
+
         this.tankHP = 3;
+        this.SPEED_OBSTACLE = 2;
+
     }
 
     /* Object Methods */
@@ -62,22 +81,22 @@ public class TankGame extends AbstractViewContent {
     }
 
     boolean hasRunOnce = false;
+
     @Override
     public boolean tick() {
-
         runGame();
         return false;
     }
 
     public void runGame() {
-        if(!hasRunOnce){
+        if (!hasRunOnce) {
             hasRunOnce = true;
             gewonnen = false;
 
-            Background background = new Background(0, 0);
+            background = new Background(0, 0);
             //System.out.println(view.getWidth());
             background.scaleTo(view.getWidth(), view.getHeight());
-            background.moveTo(0,0);
+            background.moveTo(0, 0);
 
             // Spawns the Tank
 
@@ -90,14 +109,23 @@ public class TankGame extends AbstractViewContent {
             cannon = new Cannon(200, 200);
             cannon.scaleTo(20, 20);
             cannon.moveTo(232, 222);
-            Heart heart = new Heart(1, 1);
-            heart.scaleTo(40, 40);
-            heart.moveTo(10, 10);
 
-            Heart heart2 = new Heart(1, 1);
+            tankHP = 3;
+            heart1 = new Heart(1, 1);
+            heart1.scaleTo(40, 40);
+            heart1.moveTo(10, 10);
+
+            heart2 = new Heart(1, 1);
             heart2.scaleTo(40, 40);
             heart2.moveTo(60, 10);
-            tankHP = 3;
+
+            heart3 = new Heart(1, 1);
+            heart3.scaleTo(40, 40);
+            heart3.moveTo(110, 10);
+
+            level = 0;
+            scoreboard = new Text(view.getWidth() - 90, -10, "Score: 0 | Level 1");
+            scoreboard.scaleTo(240, 90);
             //ptank.add(cannon);
             //ptank.scaleTo(50, 50);
             spawnObstacles();
@@ -105,10 +133,25 @@ public class TankGame extends AbstractViewContent {
 
 
         while (!gewonnen) {
+            if (score >= 10) {
+                spawnChance = 200;
+                spawnChance2 = 200;
+                level = 2;
+            } else if (score >= 20) {
+                spawnChance = 300;
+                spawnChance2 = 300;
+                spawnChance3 = 300;
+            }
+            clock += 1;
+            updateText(level, score);
+
             spawnCactus();
+            spawnCactus2();
+            spawnCactus3();
             moveTank();
             shoot();
             rotateCannon();
+
             projectileTouchesTarget();
             moveProjectiles();
             targetTouchesTank();
@@ -116,33 +159,46 @@ public class TankGame extends AbstractViewContent {
             moveHindernisse();
 
             view.wait(SLEEP_TIME); // Das hier ist sehr wichtig, weil euer Spiel sonst zu schnell läuft.
-            if (winningNumber >= spawnChance) {
+            if (points == 2147483647) {
                 gewonnen = true;
             }
-
         }
-
-        new Text(view.getWidth() / 2 - 30, view.getHeight() / 2 - 10, "Gewonnen!");
+        String winningText = "Your Score:" + points;
+        new Text(view.getWidth() / 2 - 30, view.getHeight() / 2 - 10, winningText);
     }
+
+    private void updateText(int level, int score) {
+        view.remove(scoreboard);
+        scoreboard = new Text(view.getWidth() - 180, -10, "Score: " + score + " | Level " + level);
+        scoreboard.scaleTo(430, 90);
+    }
+
+    /*public void speichern(String dateiname, String datensatz) {
+        if (!StringFileTools.fileExists(dateiname)) {
+            StringFileTools.writeInFile(dateiname,datensatz);
+        } else {
+            StringFileTools.appendToFile(dateiname, datensatz);
+        }
+    }*/
 
 
     private void spawnObstacles() {
-        BasicObstacle border = new BasicObstacle(1, 1, PATH_IMAGEB);
-        border.scaleTo(10, HEIGHT*2);
-        border.moveTo(-10, 0);
-        obstacles.add(border);
-        BasicObstacle borderR = new BasicObstacle(1, 1, PATH_IMAGEB);
-        borderR.scaleTo(10, HEIGHT*2);
-        borderR.moveTo(WIDTH, -10);
-        obstacles.add(borderR);
-        BasicObstacle borderO = new BasicObstacle(1, 1, PATH_IMAGEB);
-        borderO.scaleTo(view.getWidth(), 10);
-        borderO.moveTo(25, -10);
-        obstacles.add(borderO);
-        BasicObstacle borderU = new BasicObstacle(1, 1, PATH_IMAGEB);
-        borderU.scaleTo(WIDTH, 10);
-        borderU.moveTo(0, HEIGHT);
-        obstacles.add(borderU);
+//        BasicObstacle border = new BasicObstacle(1, 1, PATH_IMAGEB);
+//        border.scaleTo(10, HEIGHT*2);
+//        border.moveTo(-10, 0);
+//        obstacles.add(border);
+//        BasicObstacle borderR = new BasicObstacle(1, 1, PATH_IMAGEB);
+//        borderR.scaleTo(10, HEIGHT*2);
+//        borderR.moveTo(WIDTH, -10);
+//        obstacles.add(borderR);
+//        BasicObstacle borderO = new BasicObstacle(1, 1, PATH_IMAGEB);
+//        borderO.scaleTo(view.getWidth(), 10);
+//        borderO.moveTo(25, -10);
+//        obstacles.add(borderO);
+//        BasicObstacle borderU = new BasicObstacle(1, 1, PATH_IMAGEB);
+//        borderU.scaleTo(WIDTH, 10);
+//        borderU.moveTo(0, HEIGHT);
+//        obstacles.add(borderU);
 
         /*for (int i = 0; i<spawnChance; i++) {
             BasicObstacle obstacle = new BasicObstacle(Tools.randomNumber(1, view.getHeight()), Tools.randomNumber(1, view.getWidth()), PATH_IMAGE);
@@ -153,36 +209,54 @@ public class TankGame extends AbstractViewContent {
 
     private void spawnCactus() {
         int ranInt = Tools.randomNumber(1, spawnChance);
-        System.out.println(ranInt);
-
-        if(ranInt == 42) {
-            int randomMain = Tools.randomNumber(1, 2* view.getHeight()+ 2* view.getHeight());
-            //System.out.println("View" + view.getHeight() + "Width" + view.getWidth());
-            System.out.println("Biggus" + randomMain);
-            Trophy cactus;
-            if(randomMain >= (2*view.getWidth() + view.getHeight())){
-                System.out.println("Highest");
-                //cactus = new Pokal(100, 100);
-                cactus = new Trophy(20, randomMain-(2*view.getWidth() + view.getHeight()));
-            } else if(randomMain >= (view.getWidth() + view.getHeight())){
-                System.out.println("Down");
-                //cactus = new Pokal(100, 100);
-                cactus = new Trophy(randomMain-(view.getWidth() + view.getHeight()), view.getHeight()-160);
-            } else if(randomMain >= view.getWidth()){
-                System.out.println("Right");
-                //cactus = new Pokal(100, 100);
-                cactus = new Trophy(view.getWidth()-50, randomMain- view.getWidth());
+        if (ranInt == 2) {
+            int randomMain = Tools.randomNumber(1, 2 * view.getHeight() + 2 * view.getHeight());
+            ;
+            if (randomMain >= (2 * view.getWidth() + view.getHeight())) {
+                createCactus(1, 30, randomMain - (2 * view.getWidth() + view.getHeight()));
+            } else if (randomMain >= (view.getWidth() + view.getHeight())) {
+                createCactus(1, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() - 160);
+            } else if (randomMain >= view.getWidth()) {
+                createCactus(1, view.getWidth() - 50, randomMain - view.getWidth());
+            } else {
+                createCactus(1, randomMain, 20);
             }
-            else{
-                System.out.println("Highest");
-                //cactus = new Pokal(100, 100);
-                cactus = new Trophy(randomMain, 20);
-            }
-            cactus.scaleTo(OBJECT_HEIGHT);
-            hindernisse.add(cactus);
         }
     }
 
+    private void spawnCactus2() {
+        int ranInt = Tools.randomNumber(1, spawnChance2);
+        if (ranInt == 2) {
+            int randomMain = Tools.randomNumber(1, 2 * view.getHeight() + 2 * view.getHeight());
+            ;
+            if (randomMain >= (2 * view.getWidth() + view.getHeight())) {
+                createCactus(2, 30, randomMain - (2 * view.getWidth() + view.getHeight()));
+            } else if (randomMain >= (view.getWidth() + view.getHeight())) {
+                createCactus(2, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() - 160);
+            } else if (randomMain >= view.getWidth()) {
+                createCactus(2, view.getWidth() - 50, randomMain - view.getWidth());
+            } else {
+                createCactus(2, randomMain, 20);
+            }
+        }
+    }
+
+    private void spawnCactus3() {
+        int ranInt = Tools.randomNumber(2, spawnChance);
+        if (ranInt == 2) {
+            int randomMain = Tools.randomNumber(1, 2 * view.getHeight() + 2 * view.getHeight());
+            ;
+            if (randomMain >= (2 * view.getWidth() + view.getHeight())) {
+                createCactus(3, 30, randomMain - (2 * view.getWidth() + view.getHeight()));
+            } else if (randomMain >= (view.getWidth() + view.getHeight())) {
+                createCactus(3, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() - 160);
+            } else if (randomMain >= view.getWidth()) {
+                createCactus(3, view.getWidth() - 50, randomMain - view.getWidth());
+            } else {
+                createCactus(3, randomMain, 20);
+            }
+        }
+    }
 
 
     double cannonRotation = 0;
@@ -190,9 +264,31 @@ public class TankGame extends AbstractViewContent {
     double yPosition = 200;
 
     private void moveTank() {
+//        double rawX = 512-(controller.getLJoystickX());
+//        double rawY = 512-(controller.getLJoystickY());
+//    //System.out.println(rawX);
+//
+//        double x = (rawX/ 100);
+//        double y = (rawY/100);
+//        if((x<1 && x>0) || (x<0 && x>-1)){
+//            x = 0;
+//        }
+//        if((y<1 && y>0) || (y<0 && y>-1)){
+//            y = 0;
+//        }
+        //System.out.println(x);
+        //System.out.println(y);
+        //System.out.println("Dings: " + rawX + "Uepselon" + rawY);
+
         double x = controller.getLJoystickX() * SPEED_Tank;
         double y = controller.getLJoystickY() * SPEED_Tank;
-        if(!checkCollision(x, y)){
+        if (!checkCollision(x, y)) {
+            cannon.move(x, y);
+            xPosition += x;
+            yPosition += y;
+        }
+
+        if (!checkCollision(x, y)) {
             cannon.move(x, y);
             xPosition += x;
             yPosition += y;
@@ -202,19 +298,25 @@ public class TankGame extends AbstractViewContent {
     private boolean checkCollision(double x, double y) {
         tank.move(x, y);
         ArrayList<Projectile> deletableProjectiles = new ArrayList<>();
-        for (BasicObstacle obstacle: obstacles){
-            if(obstacle.intersects(tank)){
-                System.out.println("Kollision");
-                tank.move(-x, -y);
-                return true;
-            }
-            for(Projectile bullet: bullets){
-                if(obstacle.intersects(bullet)){
-                    view.remove(bullet);
-                    deletableProjectiles.add(bullet);
+        if (background.contains(tank)) {
+            for (BasicObstacle obstacle : obstacles) {
+                if (obstacle.intersects(tank)) {
+                    //System.out.println("Kollision");
+                    tank.move(-x, -y);
+                    return true;
+                }
+                for (Projectile bullet : bullets) {
+                    if (obstacle.intersects(bullet)) {
+                        view.remove(bullet);
+                        deletableProjectiles.add(bullet);
+                    }
                 }
             }
+        } else {
+            tank.move(-x, -y);
+            return true;
         }
+
         for (Projectile bullet : deletableProjectiles) {
             bullet.setHidden(true);
             view.remove(bullet);
@@ -226,10 +328,12 @@ public class TankGame extends AbstractViewContent {
 
     private void moveHindernisse() {
         // Aktuelle Position des Panzers abrufen
+
         double tankX = tank.getShapeX();
         double tankY = tank.getShapeY();
 
         for (Trophy hindernis : hindernisse) {
+            //System.out.println("print");
             double xDiff = tankX - hindernis.getShapeX();
             double yDiff = tankY - hindernis.getShapeY();
             double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
@@ -237,8 +341,9 @@ public class TankGame extends AbstractViewContent {
 
 
             // Normale Richtung berechnen
-            double xMove = SPEED_OBSTACLE * (xDiff / distance);
-            double yMove = SPEED_OBSTACLE * (yDiff / distance);
+            double xMove = hindernis.getSpeed() * SPEED_OBSTACLE * (xDiff / distance);
+            double yMove = hindernis.getSpeed() * SPEED_OBSTACLE * (yDiff / distance);
+            //System.out.println(xMove);
 
             // Versuche, sich in die Richtung des Tanks zu bewegen
             if (!checkObstacleCollision(hindernis, xMove, yMove)) {
@@ -287,6 +392,11 @@ public class TankGame extends AbstractViewContent {
                 return true;
             }
         }
+        if (hindernis.intersects(tank)) {
+            hindernis.move(-xMove, -yMove);
+            takeDamage(hindernis);
+            return true;
+        }
         // Bewege das Hindernis zurück, wenn keine Kollision erkannt wurde
         hindernis.move(-xMove, -yMove);
         return false;
@@ -303,29 +413,40 @@ public class TankGame extends AbstractViewContent {
     private void rotateCannon() {
         double x = controller.getRJoystickX() * SPEED_Tank;
         double y = controller.getRJoystickY() * SPEED_Tank;
-        if(x!=0 || y!=0) {
+
+        //double rawX = 512-(controller.getRJoystickX());
+        //double rawY = 512-(controller.getRJoystickY());
+        //System.out.println(rawX);
+
+        // double x = (rawX/ 50);
+        //double y = (rawY/50);
+
+        if (x != 0 || y != 0) {
             double rotationNeeded = (getCannonDegrees(x, y) - cannonRotation);
 
-            if(rotationNeeded>180){
-                rotationNeeded = rotationNeeded-360;
-            } else if(rotationNeeded<-180){
-                rotationNeeded = rotationNeeded+360;
+            if (rotationNeeded > 180) {
+                rotationNeeded = rotationNeeded - 360;
+            } else if (rotationNeeded < -180) {
+                rotationNeeded = rotationNeeded + 360;
             }
             cannon.turn(rotationNeeded);
             updateRotation(rotationNeeded);
         }
     }
 
-    private void updateRotation(double newRot){
+    private void updateRotation(double newRot) {
         cannonRotation += newRot;
-        while((cannonRotation-360)>=0){
-            cannonRotation = cannonRotation-360;
+        while ((cannonRotation - 360) >= 0) {
+            cannonRotation = cannonRotation - 360;
         }
     }
 
-    private void shoot(){
-        if(controller.getBtn1Pressed()){
-            projectile = new Projectile((int)xPosition, (int)yPosition);
+    private int lastShot = 0;
+
+    private void shoot() {
+        if (controller.getBtn1Pressed() && (clock - lastShot) >= 10) {
+            lastShot = clock;
+            projectile = new Projectile((int) xPosition, (int) yPosition);
             projectile.scaleTo(15);
             projectile.moveTo(xPosition, yPosition);
 
@@ -343,14 +464,14 @@ public class TankGame extends AbstractViewContent {
 
     private boolean projectileTouchesTarget() {
         for (Trophy target : hindernisse) {
-            for (Projectile bullet: bullets) {
+            for (Projectile bullet : bullets) {
                 if (bullet.intersects(target)) {
                     score += 1;
                     view.remove(target);
                     hindernisse.remove(target);
                     view.remove(bullet);
                     bullets.remove(bullet);
-                    winningNumber = winningNumber + 1;
+                    points = points + 1;
                     return true;
                 }
             }
@@ -360,14 +481,88 @@ public class TankGame extends AbstractViewContent {
 
     private void targetTouchesTank() {
         for (Trophy target : hindernisse) {
-            if(target.intersects(tank)){
-                tankHP -= 100;
+            if (target.intersects(tank)) {
+                takeDamage(target);
             }
         }
     }
+
+    SoundPlayer hitSound = new SoundPlayer("CactiCatch/damage.wav");
+
+    private void takeDamage(Trophy target) {
+        if ((clock - target.getLastDamage()) > 50) {
+            target.setLastDamage(clock);
+            hitSound.play();
+            tankHP -= target.getDamage();
+            updateHearts(false);
+        }
+
+    }
+
     private void isTankDead() {
-        if(tankHP<=0){
+        if (tankHP <= 0) {
             gewonnen = true;
+        }
+    }
+
+    private void updateHearts(boolean increased) {
+        if (tankHP == 3) {
+            heart3 = new Heart(1, 1);
+            heart3.scaleTo(40, 40);
+            heart3.moveTo(110, 10);
+        } else if (tankHP == 2) {
+            if (!increased) {
+                view.remove(heart3);
+            } else {
+                heart2 = new Heart(1, 1);
+                heart2.scaleTo(40, 40);
+                heart2.moveTo(60, 10);
+            }
+        } else if (tankHP == 1) {
+            if (!increased) {
+                view.remove(heart2);
+                if (heart3 != null) {
+                    view.remove(heart3);
+                }
+            } else {
+                heart1 = new Heart(1, 1);
+                heart1.scaleTo(40, 40);
+                heart1.moveTo(10, 10);
+            }
+        } else {
+            view.remove(heart1);
+
+            if (heart2 != null) {
+                view.remove(heart2);
+            }
+        }
+        if (tankHP == 2 && !increased) {
+            view.remove(heart3);
+        }
+    }
+
+    private void createCactus(int cactusType, double posX, double posY) {
+        if (cactusType == 1) {
+            Trophy cactus = new Trophy(1, 1, cactusOne);
+            cactus.setHp(1);
+            cactus.setDamage(1);
+            cactus.scaleTo(50, 50);
+            cactus.moveTo(posX, posY);
+            hindernisse.add(cactus);
+        } else if (cactusType == 2) {
+            Trophy cactus = new Trophy(1, 1, cactusThree);
+            cactus.setHp(1);
+            cactus.setDamage(2);
+            cactus.scaleTo(50, 50);
+            cactus.moveTo(posX, posY);
+            hindernisse.add(cactus);
+        } else {
+            Trophy cactus = new Trophy(1, 1, cactusTwo);
+            cactus.setHp(3);
+            cactus.setDamage(2);
+            cactus.scaleTo(50, 50);
+            cactus.moveTo(posX, posY);
+            hindernisse.add(cactus);
         }
     }
 
