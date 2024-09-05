@@ -118,8 +118,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
@@ -148,7 +148,6 @@
       <workItem from="1725337809897" duration="4546000" />
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
-      <workItem from="1725483575202" duration="9444000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
