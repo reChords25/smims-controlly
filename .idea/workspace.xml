@@ -225,8 +225,8 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.ArduinoController" />
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +253,7 @@
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
       <workItem from="1725555852944" duration="927000" />
+      <workItem from="1725567158903" duration="1509000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
