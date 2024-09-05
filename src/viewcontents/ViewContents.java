@@ -48,4 +48,9 @@ public class ViewContents {
             viewStack.peek().view.wait(TICK_RATE);
         }
     }
+
+    public AbstractViewContent getViewContent() {
+        if (viewStack.isEmpty()) { return null; }
+        return viewStack.peek();
+    }
 }

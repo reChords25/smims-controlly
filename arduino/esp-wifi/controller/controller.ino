@@ -1,61 +1,83 @@
-#include <ESP8266WiFi.h>
-#include <espnow.h>
+#include <esp_now.h>
+#include <WiFi.h>
 
-// Define button pins
-const int buttonPin1 = 5; // GPIO5
-const int buttonPin2 = 4; // GPIO4
+uint8_t receiverAddress[] = {0xC0, 0x49, 0xEF, 0x68, 0xA7, 0x20};// c0:49:ef:68:a7:20
+esp_now_peer_info_t peerInfo;
 
-// Define peer MAC address (receiver's Wi-Fi MAC)
-uint8_t receiverMAC[] = {0x48, 0x55, 0x19, 0x7A, 0x94, 0x8B}; // Replace with receiver's MAC address
+int rStickXPin = 33;
+int rStickYPin = 34;
+int lStickXPin = 35;
+int lStickYPin = 39;
 
-// Callback when data is sent
-void onDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
-  Serial.print("Send Status: ");
-  Serial.println(sendStatus == 0 ? "Success" : "Fail");
+int rStickButtonPin = 0;
+int lStickButtonPin = 2;
+
+int rPadPin = 4;
+int lPadPin = 12;
+
+typedef struct message {
+    int rStickX;
+    int rStickY;
+    bool rStickClicked;
+    int lStickX;
+    int lStickY;
+    bool lStickClicked;
+    bool rPadClicked;
+    bool lPadClicked;
+} message;
+
+message myMessage; 
+
+void messageSent(const uint8_t *macAddr, esp_now_send_status_t status) {
+    Serial.print("Send status: ");
+    if(status == ESP_NOW_SEND_SUCCESS){
+        Serial.println("Success");
+    }
+    else{
+        Serial.println("Error");
+    }
 }
 
-void setup() {
-  Serial.begin(115200);
+void setup(){
+    analogReadResolution(10);
+    analogSetAttenuation(ADC_11db);
+    
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    
+    if (esp_now_init() == ESP_OK) {
+        Serial.println("ESPNow Init success");
+    }
+    else {
+        Serial.println("ESPNow Init fail");
+        return;
+    }
+    
+    esp_now_register_send_cb(messageSent);   
 
-  // Initialize button pins
-  pinMode(buttonPin1, INPUT_PULLUP);
-  pinMode(buttonPin2, INPUT_PULLUP);
+    memcpy(peerInfo.peer_addr, receiverAddress, 6);
+    peerInfo.channel = 0;
+    peerInfo.encrypt = false;
 
-  // Initialize Wi-Fi in Station Mode
-  WiFi.mode(WIFI_STA);
-
-  // Initialize ESP-NOW
-  if (esp_now_init() != 0) {
-    Serial.println("ESP-NOW Initialization failed");
-    return;
-  }
-
-  // Set the ESP-NOW role
-  esp_now_set_self_role(ESP_NOW_ROLE_CONTROLLER);
-
-  // Register the receiver peer
-  esp_now_add_peer(receiverMAC, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
-
-  // Register the send callback
-  esp_now_register_send_cb(onDataSent);
+    if (esp_now_add_peer(&peerInfo) != ESP_OK) {
+        Serial.println("Failed to add peer");
+        return;
+    }
 }
+ 
+void loop(){
+    myMessage.rStickX = analogRead(rStickXPin);
+    myMessage.rStickY = analogRead(rStickYPin);
+    myMessage.rStickClicked = digitalRead(rStickButtonPin);
+    myMessage.lStickX = analogRead(lStickXPin);
+    myMessage.lStickY = analogRead(lStickYPin);
+    myMessage.lStickClicked = digitalRead(lStickButtonPin);
+    myMessage.rPadClicked = digitalRead(rStickButtonPin);
+    myMessage.lPadClicked = digitalRead(lStickButtonPin);
 
-void loop() {
-  // Read button states
-  int button1State = digitalRead(buttonPin1);
-  int button2State = digitalRead(buttonPin2);
-
-  // Create a data packet to send
-  String data = "#";
-  data += button1State == LOW ? "1," : "0,";
-  data += button2State == LOW ? "1?" : "0?";
-
-  // Convert the string to a char array
-  char dataToSend[20];
-  data.toCharArray(dataToSend, 20);
-
-  // Send the data
-  esp_now_send(receiverMAC, (uint8_t *)dataToSend, sizeof(dataToSend));
-
-  delay(5); //1000 / delayTime = polling rate
+    esp_err_t result = esp_now_send(receiverAddress, (uint8_t *) &myMessage, sizeof(myMessage));
+    if (result != ESP_OK) {
+        Serial.println("Sending error");
+    }
+    delay(100);
 }

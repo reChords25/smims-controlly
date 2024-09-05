@@ -3,68 +3,80 @@ package controller;
 import sas.View;
 
 /**
- The class <code>{@link KeyboardController}</code> serves merely as a placeholder during the programming phase,
- as long as the joystick, gamepad, etc., are not yet completed.
- In the meantime, the keyboard is being used for input so that other teams can program and control their games.
- Later, one can easily switch to joystick/gamepad/... control by simply changing the class being used.
+ * The class <code>{@link KeyboardController}</code> serves merely as a placeholder during the programming phase,
+ * as long as the joystick, gamepad, etc., are not yet completed.
+ * In the meantime, the keyboard is being used for input so that other teams can program and control their games.
+ * Later, one can easily switch to joystick/gamepad/... control by simply changing the class being used.
  */
 public class KeyboardController extends AbstractController {
 
     private View view;
 
     public KeyboardController(View view) {
+        System.out.println("KeyboardController constructor");
         this.view = view;
+        System.out.println("KeyboardController constructor done");
+
     }
 
     @Override
-    protected void evalData() {}
+    protected void evalData() {
+    }
 
     @Override
-    public void disconnect() {}
+    public void disconnect() {
+    }
 
     @Override
-    public double getLJoystickX() {
-
-        double x = 0.0;
-
-        if (view.keyLeftPressed()) {
-            x -= 1.0;
-        }
-
+    public int getLJoystickX() {
         if (view.keyRightPressed()) {
-            x += 1.0;
+            return 1;
         }
-
-        return x;
+        if (view.keyLeftPressed()) {
+            return -1;
+        }
+        return 0;
     }
 
     @Override
-    public double getLJoystickY() {
-        double y = 0.0;
-
+    public int getLJoystickY() {
         if (view.keyUpPressed()) {
-            y -= 1.0;
+            return -1;
         }
-
         if (view.keyDownPressed()) {
-            y += 1.0;
+            return 1;
         }
-
-        return y;
-    }
-
-    @Override
-    public double getRJoystickX() {
         return 0;
     }
 
     @Override
-    public double getRJoystickY() {
-        return 0;
-    }
-
-    @Override
-    public boolean getBtn1Pressed() {
+    public boolean getLJoystickButton() {
         return false;
     }
+
+    @Override
+    public boolean getLPad() {
+        return view.keyPressed('l');
+    }
+
+    @Override
+    public int getRJoystickX() {
+        return 0;
+    }
+
+    @Override
+    public int getRJoystickY() {
+        return 0;
+    }
+
+    @Override
+    public boolean getRJoystickButton() {
+        return false;
+    }
+
+    @Override
+    public boolean getRPad() {
+        return false;
+    }
+
 }

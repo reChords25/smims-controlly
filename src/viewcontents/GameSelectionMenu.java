@@ -8,15 +8,17 @@ import controller.AbstractController;
 import util.Button;
 import viewcontents.cornerthequeen.CornerTheQueenGame;
 import viewcontents.snake.SnakeGame;
-import viewcontents.tetris.TetrisGame;
+import viewcontents.demo.Demo;
+import viewcontents.tank.CactiCatchGame;
 
-import java.awt.*;
+
+import java.awt.Color;
 
 public class GameSelectionMenu extends AbstractViewContent {
 
     private Text mainText;
 
-    private Button tetrisGameButton;
+    private Button demoButton;
     private Button tankGameButton;
     private Button queenGameButton;
     private Button snakeGameButton;
@@ -37,21 +39,32 @@ public class GameSelectionMenu extends AbstractViewContent {
         mainText.setFontSansSerif(true, 40);
         mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, 100);
 
-        tetrisGameButton = new Button(
+        demoButton = new Button(
                 viewCenterX - buttonWidth / 2,
                 175,
                 buttonWidth,
                 buttonHeight,
-                "Tetris",
-                new Color(85, 85, 255));
+                "DEMO",
+                new Color(85, 85, 255)
+        );
+
+        tankGameButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                250,
+                buttonWidth,
+                buttonHeight,
+                "Cacti Catch",
+                new Color(85, 255, 85)
+        );
 
         queenGameButton = new Button(
                viewCenterX - buttonWidth / 2,
-               250,
+               325,
                buttonWidth,
                buttonHeight,
-               "Queen",
-               new Color(255, 157, 44));
+               "Corner The Queen",
+               new Color(255, 85, 85)
+        );
 
         snakeGameButton = new Button(
                 viewCenterX - buttonWidth / 2,
@@ -61,17 +74,23 @@ public class GameSelectionMenu extends AbstractViewContent {
                 "Snake",
                 new Color(57, 243, 91));
 
-        buttonsToRemove.add(tetrisGameButton);
+        buttonsToRemove.add(demoButton);
         buttonsToRemove.add(queenGameButton);
         buttonsToRemove.add(snakeGameButton);
+        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
 
     @Override
     public boolean tick() {
-        if (tetrisGameButton.clicked()) {
+        if (demoButton.clicked()) {
             ViewContents.getInstance().clear(1);
-            ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
+            ViewContents.getInstance().runViewContent(new Demo(view, controller));
+            return false;
+        }
+        if (tankGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new CactiCatchGame(view, controller));
             return false;
         }
 

@@ -17,7 +17,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     private int groesseFelder;
     private Rectangle[][] fields;
-//    private int[][] losingFields = new int[11][2];
+    //    private int[][] losingFields = new int[11][2];
     private Circle queen;
     private Rectangle zeroField;
 
@@ -61,6 +61,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     @Override
     public boolean tick() {
+        //if(buttonWasPressed()){ //change controls
         if (view.keyPressed()) {
             if (isTurn && tickBuffer == 0) {
                 if (!turnWasStarted) {
@@ -71,10 +72,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
                     tickBuffer = 10;
                     turnMove();
                 }
-            } else if (!opponentTurn && !isTurn) {
-                opponentTurn = true;
-                opponent();
             }
+        } else if (!opponentTurn && !isTurn && tickBuffer == 0) {
+            opponentTurn = true;
+            opponent();
         }
         if (tickBuffer > 0) {
             tickBuffer--;
@@ -162,7 +163,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
     public boolean isFinish() {
         boolean contains = zeroField.contains(queen);
         if (contains) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), !isTurn));
+            boolean wonB = !isTurn;
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), wonB);
+            ViewContents.getInstance().runViewContent(overlay);
         }
         return contains;
     }
@@ -194,9 +198,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void turnMove() {
+        //if (!controller.getLPad() && !controller.getRPad() && !controller.getLJoystickButton() && !controller.getRJoystickButton()) { //change controls
         if (!view.keyEnterPressed()) {
             turnMoveOnce();
-        } else {
+        } else if(!queen.contains(markerTurn)){
             isTurn = false;
             turnWasStarted = false;
             markerTurn.setHidden(true);
@@ -205,11 +210,12 @@ public class CornerTheQueenGame extends AbstractViewContent {
             if (whereIsMarker != null) {
                 queen.moveTo(fields[whereIsMarker[0]][whereIsMarker[1]].getShapeX(), fields[whereIsMarker[0]][whereIsMarker[1]].getShapeY());
             }
-            tickBuffer = 50;
+            tickBuffer = 20;
         }
     }
 
     public void turnMoveOnce() {
+        //if(controller.getRJoystickX()<0||controller.getLJoystickX()<0){ //change controls (pls check first)
         if (view.keyPressed('a') || view.keyLeftPressed()) {
             if (Math.round(markerTurn.getCenterY()) == Math.round(queen.getCenterY())) {
                 if (markerTurn.getCenterX() > groesseFelder) {
@@ -220,10 +226,13 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 int[] queenLocation = whereIsInt(queen);
                 if (markerLocation != null && queenLocation != null) {
                     int differenceYMarkerminusQueen = markerLocation[1] - queenLocation[1];
-                    markerTurn.move(-groesseFelder * differenceYMarkerminusQueen, 0);
+                    if(markerTurn.getCenterX()>groesseFelder*differenceYMarkerminusQueen){
+                        markerTurn.move(-groesseFelder * differenceYMarkerminusQueen, 0);
+                    }
                 }
             }
         }
+        //if(controller.getRJoystickY()<0||controller.getLJoystickY()<0){ //change controls (pls check first)
         if (view.keyPressed('s') || view.keyDownPressed()) {
             if (Math.round(markerTurn.getCenterX()) == Math.round(queen.getCenterX())) {
                 if (markerTurn.getCenterY() < 29 * groesseFelder) {
@@ -233,8 +242,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 int[] markerLocation = whereIsInt(markerTurn);
                 int[] queenLocation = whereIsInt(queen);
                 if (markerLocation != null && queenLocation != null) {
-                    int differenceYMarkerminusQueen = markerLocation[0] - queenLocation[0];
-                    markerTurn.move(0, -groesseFelder * differenceYMarkerminusQueen);
+                    int differenceYMarkerminusQueen = queenLocation[0] - markerLocation[0];
+                    if(markerTurn.getCenterY()+groesseFelder * differenceYMarkerminusQueen<30*groesseFelder){
+                        markerTurn.move(0, groesseFelder * differenceYMarkerminusQueen);
+                    }
                 }
             }
         }
@@ -252,6 +263,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
             }
         }
         return null;
+    }
+
+    public boolean buttonWasPressed(){
+        return(controller.getLPad() || controller.getRPad() || controller.getLJoystickButton() || controller.getRJoystickButton() || controller.getLJoystickX() == 0 || controller.getRJoystickX() == 0 || controller.getLJoystickY() == 0 || controller.getRJoystickY() == 0);
     }
 
 }

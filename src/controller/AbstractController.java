@@ -15,6 +15,7 @@ public abstract class AbstractController implements SerialPortEventListener {
     protected SerialPort serialPort;
 
     public AbstractController() {
+        System.out.println("Super Constructor");
         initSerialPort();
     }
 
@@ -27,7 +28,9 @@ public abstract class AbstractController implements SerialPortEventListener {
                 serialPort.openPort();
                 serialPort.setParams(9600, 8, 1, 0);
                 serialPort.addEventListener(this);
+                System.err.println("Serial port " + i + " successfully opened.");
             } catch (SerialPortException ex) {
+                System.err.println("Failed to connect to Serial port " + i + ".");
                 isWorking = false;
             }
         }
@@ -35,13 +38,29 @@ public abstract class AbstractController implements SerialPortEventListener {
 
     public void serialEvent(SerialPortEvent e) {
         try {
-            data = data + serialPort.readString();
-            data = data.replaceAll(" ", "");
-            data = data.replaceAll("null", "");
-            data = data.replaceAll("\n", "");
-            data = data.replaceAll("\r", "");
-
-            evalData();
+            if(data != null){
+                //System.out.println(data);
+                data = serialPort.readString();
+                //System.out.println(data);
+                if(data!= null){
+                    data = data.replaceAll(" ", "");
+                }
+                if(data!=null){
+                    data = data.replaceAll("null", "");
+                }
+                if (data != null) {
+                    data = data.replaceAll("\n", "");
+                }
+                if(data != null){
+                    data = data.replaceAll("\r", "");
+                }
+                if(data != null){
+                    data = data.replaceAll("\\?", "");
+                }
+                if(data != null){
+                    evalData();
+                }
+            }
 
         } catch (SerialPortException e2) {
             log.error("Exception: ", e2);
@@ -54,16 +73,13 @@ public abstract class AbstractController implements SerialPortEventListener {
     public abstract void disconnect();
 
     /* Getters and Setters */
-    public abstract double getLJoystickX();
+    public abstract int getRJoystickX();
+    public abstract int getRJoystickY();
+    public abstract boolean getRJoystickButton();
+    public abstract boolean getRPad();
 
-    public abstract double getLJoystickY();
-
-    public abstract double getRJoystickX();
-
-    public abstract double getRJoystickY();
-
-    public abstract boolean getBtn1Pressed();
-
-
-
+    public abstract int getLJoystickX();
+    public abstract int getLJoystickY();
+    public abstract boolean getLJoystickButton();
+    public abstract boolean getLPad();
 }
