@@ -33,6 +33,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     @Override
     protected void initView() {
+
         tickBuffer = 10;
         isTurn = true;
         opponentTurn = false;
@@ -46,17 +47,24 @@ public class CornerTheQueenGame extends AbstractViewContent {
             for(int j = 0;j<30;j=j+2){
                 fields[j][i] = new Rectangle(j*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder,Color.WHITE);
                 fields[j+1][i] = new Rectangle((j+1)*groesseFelder,i*groesseFelder,groesseFelder,groesseFelder,Color.BLACK);
+                shapesToRemove.add(fields[j][i]);
+                shapesToRemove.add(fields[j+1][i]);
             }
 
             for(int j = 0;j<30;j=j+2){
                 fields[j][i+1] = new Rectangle(j*groesseFelder,(i+1)*groesseFelder,groesseFelder,groesseFelder,Color.BLACK);
                 fields[j+1][i+1] = new Rectangle((j+1)*groesseFelder,(i+1)*groesseFelder,groesseFelder,groesseFelder,Color.WHITE);
+                shapesToRemove.add(fields[j][i+1]);
+                shapesToRemove.add(fields[j+1][i+1]);
             }
         }
         zeroField =new Rectangle(0,29*groesseFelder,groesseFelder,groesseFelder,Color.green);
+        shapesToRemove.add(zeroField);
         queen = new Circle(28*groesseFelder,0, (double) groesseFelder /2,Color.pink);  //if middle aligned : ((view.getWidth()/2)+(14*groesseFelder))
         markerTurn = new Circle(queen.getCenterX()-(queen.getShapeWidth()/8),queen.getCenterY()-(queen.getShapeHeight()/8),queen.getShapeHeight()/4,Color.lightGray);//(3,3,4,PATH_TO_IMAGES + "meinbild.png");
         markerTurn.setHidden(true);
+        shapesToRemove.add(queen);
+        shapesToRemove.add(markerTurn);
         //a & s as controls, enter for submit // joystick -> direction of joystick, button as submit
     }
 
@@ -203,7 +211,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
     public void turnMove(){
         if(!view.keyEnterPressed()){
             turnMoveOnce();
-        }else{
+        }else if(!queen.contains(markerTurn)){
             isTurn = false;
             turnWasStarted = false;
             markerTurn.setHidden(true);
