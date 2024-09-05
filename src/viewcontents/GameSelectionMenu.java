@@ -6,6 +6,7 @@ import sas.View;
 
 import controller.AbstractController;
 import util.Button;
+import viewcontents.DonkeyKong.DonkeyKongGame;
 import viewcontents.cornerthequeen.CornerTheQueenGame;
 import viewcontents.snake.SnakeGame;
 import viewcontents.demo.Demo;
@@ -22,6 +23,7 @@ public class GameSelectionMenu extends AbstractViewContent {
     private Button tankGameButton;
     private Button queenGameButton;
     private Button snakeGameButton;
+    private Button donkeyKongButton;
     private Button testButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
@@ -74,10 +76,19 @@ public class GameSelectionMenu extends AbstractViewContent {
                 "Snake",
                 new Color(57, 243, 91));
 
+        donkeyKongButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                475,
+                buttonWidth,
+                buttonHeight,
+                "Donkey Kong",
+                new Color(255, 85, 85));
+
         buttonsToRemove.add(demoButton);
         buttonsToRemove.add(queenGameButton);
         buttonsToRemove.add(snakeGameButton);
         buttonsToRemove.add(tankGameButton);
+        buttonsToRemove.add(donkeyKongButton);
         textsToRemove.add(mainText);
     }
 
@@ -103,6 +114,12 @@ public class GameSelectionMenu extends AbstractViewContent {
         if (snakeGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new SnakeGame(view, controller));
+            return false;
+        }
+
+        if (donkeyKongButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new DonkeyKongGame(view, controller));
             return false;
         }
 

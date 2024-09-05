@@ -31,10 +31,10 @@ public class Barrel {
     public void moveBarrel(){
         if(!falling) {
             if (directionRight) {
-                barrel.moveTo(barrel.getShapeX() + 5, barrel.getShapeY());
+                barrel.moveTo(barrel.getShapeX() + 10, barrel.getShapeY());
             }
             if (!directionRight) {
-                barrel.moveTo(barrel.getShapeX() - 5, barrel.getShapeY());
+                barrel.moveTo(barrel.getShapeX() - 10, barrel.getShapeY());
             }
         }
     }
