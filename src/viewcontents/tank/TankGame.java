@@ -444,7 +444,7 @@ public class TankGame extends AbstractViewContent {
     private int lastShot = 0;
 
     private void shoot() {
-        if (controller.getBtn1Pressed() && (clock - lastShot) >= 10) {
+        if (controller.getLPad() && (clock - lastShot) >= 10) {
             lastShot = clock;
             projectile = new Projectile((int) xPosition, (int) yPosition);
             projectile.scaleTo(15);

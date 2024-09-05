@@ -81,10 +81,4 @@ public abstract class AbstractController implements SerialPortEventListener {
     public abstract int getLJoystickY();
     public abstract boolean getLJoystickButton();
     public abstract boolean getLPad();
-
-    public abstract boolean getBtn1Pressed();
-
-
-
-
 }

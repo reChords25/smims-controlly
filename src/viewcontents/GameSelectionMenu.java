@@ -52,16 +52,16 @@ public class GameSelectionMenu extends AbstractViewContent {
                 buttonWidth,
                 buttonHeight,
                 "Tank",
-                new Color(57, 243, 91)
+                new Color(85, 255, 85)
         );
 
         queenGameButton = new Button(
                viewCenterX - buttonWidth / 2,
-               250,
+               325,
                buttonWidth,
                buttonHeight,
                "Queen",
-               new Color(57, 243, 91)
+               new Color(255, 85, 85)
         );
 
 
