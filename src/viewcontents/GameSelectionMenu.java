@@ -68,7 +68,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 
         snakeGameButton = new Button(
                 viewCenterX - buttonWidth / 2,
-                325,
+                400,
                 buttonWidth,
                 buttonHeight,
                 "Snake",

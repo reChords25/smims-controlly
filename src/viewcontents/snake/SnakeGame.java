@@ -113,12 +113,16 @@ public class SnakeGame extends AbstractViewContent {
     public boolean tick() {
 
         if (died) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), false));
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), false);
+            ViewContents.getInstance().runViewContent(overlay);
             return false;
         }
 
         if (won) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), true));
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), true);
+            ViewContents.getInstance().runViewContent(overlay);
             return false;
         }
 
