@@ -5,6 +5,7 @@ import sas.Rectangle;
 import sas.Text;
 import sas.View;
 import viewcontents.AbstractViewContent;
+import viewcontents.GameSelectionMenu;
 import viewcontents.MainMenu;
 import viewcontents.ViewContents;
 
@@ -25,6 +26,8 @@ public class GameOverLay extends AbstractViewContent {
     private Button menuButton;
     private Rectangle mainRect;
 
+    private int width, height, xPos, yPos;
+
     private boolean hasWon;
 
     public GameOverLay(View view, AbstractController controller) {
@@ -33,18 +36,16 @@ public class GameOverLay extends AbstractViewContent {
 
     @Override
     protected void initView() {
-        int width = 500;
-        int height = 300;
-        int xPos = view.getWidth() / 2 - width / 2;
-        int yPos = view.getHeight() / 2 - height / 2;
+        width = 500;
+        height = 300;
+        xPos = view.getWidth() / 2 - width / 2;
+        yPos = view.getHeight() / 2 - height / 2;
 
         mainRect = new Rectangle(xPos, yPos, width, height);
         mainRect.setColor(new Color(212, 247, 224));
 
         String status = "Placeholder";
         gameStatusText = new Text(340, 250, status);
-        gameStatusText.setFontSansSerif(true, 50);
-        gameStatusText.moveTo(xPos + (width - gameStatusText.getShapeWidth()) / 2, yPos + 50);
 
         restartButton = new Button(
                 xPos + PADDING,
@@ -93,7 +94,7 @@ public class GameOverLay extends AbstractViewContent {
         }
         if (menuButton.clicked()) {
             ViewContents.getInstance().clear(2);
-            ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
+            ViewContents.getInstance().runViewContent(new GameSelectionMenu(view, controller));
             return false;
         }
         if (exitButton.clicked()) {
@@ -106,5 +107,7 @@ public class GameOverLay extends AbstractViewContent {
         this.hasWon = hasWon;
         this.gameClass = gameClass;
         gameStatusText.setText(hasWon ? "You won!" : "You lost!");
+        gameStatusText.setFontSansSerif(true, 50);
+        gameStatusText.moveTo(xPos + (width - gameStatusText.getShapeWidth()) / 2, yPos + 50);
     }
 }
