@@ -3,15 +3,87 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BookmarksViewState">
+    <option name="groupLineBookmarks" value="false" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="finished (bugs: left column, idk)">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="Fixed issues in TankGame.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_05.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_06.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_06.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_07.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_08.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_08.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_09.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_09.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Berry_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Berry_10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Flowering_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Flowering_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Flowering_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Flowering_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Flowering_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Flowering_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Flowering_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Flowering_04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Bush_Leafy_Flowering_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Bush_Leafy_Flowering_05.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Furniture Bench 01a.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Furniture Bench 01a.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Hedge_Path_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Hedge_Path_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Hedge_Path_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Hedge_Path_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Statue Structure (9).png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Statue Structure (9).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/Structure Fountain (5).png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/Structure Fountain (5).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/avatar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/bla" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/bla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/border.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/border.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactus1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactus1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactus2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactus2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactus3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactus3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactusEins.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactusEins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactusThree.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactusThree.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/cactusTwo.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/cactusTwo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/damage.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/damage.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/herz.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/herz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/map1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/map1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/mapMid.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/mapMid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/mapPerformance.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/mapPerformance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/shooting.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/shooting.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/stars.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/stars.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_small_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_small_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_small_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_small_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_small_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_small_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/tree_small_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/tree_small_04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/wand.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/wand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CactiCatch/waterfall_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/cacticatch/waterfall_05.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/Bildnachweis.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/car9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/empty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/empty2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/frog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/gap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frogger/goblet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/santa.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AbstractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ArduinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArduinoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/KeyboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/KeyboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/GameSelectionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/ViewContents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Background.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/BasicObstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/BasicObstacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Cannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/ScalablePicture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ScalablePicture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/CactiCatchGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +157,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ben",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -326,7 +398,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725551610449</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed issues.&#10;Fixed all the issues that occurred while merging.">
+      <option name="closed" value="true" />
+      <created>1725565715956</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725565715956</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed issues in TankGame.">
+      <option name="closed" value="true" />
+      <created>1725566796213</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725566796213</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +461,8 @@
     <MESSAGE value="Diagonal finished" />
     <MESSAGE value="finished (no finish Screen)" />
     <MESSAGE value="finished (bugs: left column, idk)" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished (bugs: left column, idk)" />
+    <MESSAGE value="Fixed issues.&#10;Fixed all the issues that occurred while merging." />
+    <MESSAGE value="Fixed issues in TankGame." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues in TankGame." />
   </component>
 </project>

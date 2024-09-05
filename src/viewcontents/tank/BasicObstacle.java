@@ -1,6 +1,6 @@
 package viewcontents.tank;
 
-import viewcontents.AbstractViewContent;
+import util.ScalablePicture;
 
 public class BasicObstacle extends ScalablePicture {
 

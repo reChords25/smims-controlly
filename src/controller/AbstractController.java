@@ -15,11 +15,11 @@ public abstract class AbstractController implements SerialPortEventListener {
     protected SerialPort serialPort;
 
     public AbstractController() {
+        System.out.println("Super Constructor");
         initSerialPort();
     }
 
     private void initSerialPort() {
-        System.out.println("asdf");
         boolean isWorking = false;
         for (int i = 21; i > 1 && !isWorking; i--) {
             isWorking = true;
@@ -28,8 +28,9 @@ public abstract class AbstractController implements SerialPortEventListener {
                 serialPort.openPort();
                 serialPort.setParams(9600, 8, 1, 0);
                 serialPort.addEventListener(this);
+                System.err.println("Serial port " + i + " successfully opened.");
             } catch (SerialPortException ex) {
-                System.err.println("Failed to connect :(");
+                System.err.println("Failed to connect to Serial port " + i + ".");
                 isWorking = false;
             }
         }

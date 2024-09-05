@@ -11,7 +11,7 @@ import java.lang.Math;
 import java.util.ArrayList;
 
 
-public class TankGame extends AbstractViewContent {
+public class CactiCatchGame extends AbstractViewContent {
 
     private static final String PATH_IMAGE = AbstractViewContent.PATH_TO_RESOURCES + "frogger/car1.png";
     private static final String PATH_IMAGEB = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/border.png";
@@ -35,7 +35,7 @@ public class TankGame extends AbstractViewContent {
 
 
     private Background background;
-    private Tank tank;
+    private Player tank;
     private Cannon cannon;
     private Projectile projectile;
     private ArrayList<Projectile> bullets;
@@ -50,7 +50,7 @@ public class TankGame extends AbstractViewContent {
     private int clock = 0;
 
     /* Constructors */
-    public TankGame(View view, AbstractController controller) {
+    public CactiCatchGame(View view, AbstractController controller) {
         super(view, controller);
 
         this.tank = null;
@@ -89,7 +89,7 @@ public class TankGame extends AbstractViewContent {
             // Spawns the Tank
 
 
-            tank = new Tank(200, 200);
+            tank = new Player(200, 200);
             tank.scaleTo(37, 55);
             tank.moveTo(200, 200);
 
