@@ -1,33 +1,54 @@
-#include <ESP8266WiFi.h>
-#include <espnow.h>
+#include <esp_now.h>
+#include <WiFi.h>
 
-// Callback function that will be executed when data is received
-void onDataRecv(uint8_t *mac_addr, uint8_t *data, uint8_t len) {
-  // Print the received data
-  Serial.print("\nReceived data: ");
-  Serial.print((char *)data);
-  
-  // // Extract button states
-  // String dataStr = String((char *)data);
-  // int button1State = dataStr.charAt(1) - '0'; // Convert '0' or '1' to integer
-  // int button2State = dataStr.charAt(3) - '0'; // Convert '0' or '1' to integer
+typedef struct message {
+    int rStickX;
+    int rStickY;
+    bool rStickClicked;
+    int lStickX;
+    int lStickY;
+    bool lStickClicked;
+    bool rPadClicked;
+    bool lPadClicked;
+} message;
+
+message myMessage;
+
+void messageReceived(const esp_now_recv_info *info, const uint8_t* incomingData, int len){
+    memcpy(&myMessage, incomingData, sizeof(myMessage));   
+    Serial.print("Right Stick X: ");
+    Serial.println(myMessage.rStickX);
+    Serial.print("Right Stick Y: ");
+    Serial.println(myMessage.rStickY);
+    Serial.print("Right Stick Button: ");
+    Serial.println(myMessage.rStickClicked);
+    Serial.print("Right Pad: ");
+    Serial.println(myMessage.rPadClicked);
+    Serial.print("Left Stick X: ");
+    Serial.println(myMessage.lStickX);
+    Serial.print("Left Stick Y: ");
+    Serial.println(myMessage.lStickY);
+    Serial.print("Left Stick Button: ");
+    Serial.println(myMessage.lStickClicked);
+    Serial.print("Left Pad: ");
+    Serial.println(myMessage.lPadClicked);
+    Serial.println();
 }
 
-void setup() {
-  pinMode(16, OUTPUT);                                        
-  Serial.begin(115200);
+void setup(){
+    Serial.begin(115200);
+    // delay(1000); // uncomment if your serial monitor is empty
+    WiFi.mode(WIFI_STA);
+    
+    if (esp_now_init() == ESP_OK) {
+        Serial.println("ESPNow Init success");
+    }
+    else {
+        Serial.println("ESPNow Init fail");
+        return;
+    }
 
-  WiFi.mode(WIFI_STA);
-
-  if (esp_now_init() != 0) {
-    Serial.println("ESP-NOW Initialization failed");
-    return;
-  }
-
-  esp_now_set_self_role(ESP_NOW_ROLE_SLAVE);
-  esp_now_register_recv_cb(onDataRecv);
+    esp_now_register_recv_cb(messageReceived);
 }
-
-void loop() {
-  
-}
+ 
+void loop(){}
