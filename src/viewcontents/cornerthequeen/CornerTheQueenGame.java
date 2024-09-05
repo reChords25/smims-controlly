@@ -17,7 +17,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     private int groesseFelder;
     private Rectangle[][] fields;
-//    private int[][] losingFields = new int[11][2];
+    //    private int[][] losingFields = new int[11][2];
     private Circle queen;
     private Rectangle zeroField;
 
