@@ -7,6 +7,7 @@ import sas.View;
 import controller.AbstractController;
 import util.Button;
 import viewcontents.cornerthequeen.CornerTheQueenGame;
+import viewcontents.snake.SnakeGame;
 import viewcontents.tetris.TetrisGame;
 
 import java.awt.*;
@@ -18,6 +19,8 @@ public class GameSelectionMenu extends AbstractViewContent {
     private Button tetrisGameButton;
     private Button tankGameButton;
     private Button queenGameButton;
+    private Button snakeGameButton;
+    private Button testButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
         super(view, controller);
@@ -40,17 +43,7 @@ public class GameSelectionMenu extends AbstractViewContent {
                 buttonWidth,
                 buttonHeight,
                 "Tetris",
-                new Color(85, 85, 255)
-        );
-
-//        tankGameButton = new Button(
-//                viewCenterX - buttonWidth / 2,
-//                250,
-//                buttonWidth,
-//                buttonHeight,
-//                "Tank",
-//                new Color(57, 243, 91)
-//        );
+                new Color(85, 85, 255));
 
         queenGameButton = new Button(
                viewCenterX - buttonWidth / 2,
@@ -58,13 +51,19 @@ public class GameSelectionMenu extends AbstractViewContent {
                buttonWidth,
                buttonHeight,
                "Queen",
-               new Color(57, 243, 91)
-        );
+               new Color(255, 157, 44));
 
+        snakeGameButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                325,
+                buttonWidth,
+                buttonHeight,
+                "Snake",
+                new Color(57, 243, 91));
 
         buttonsToRemove.add(tetrisGameButton);
         buttonsToRemove.add(queenGameButton);
-//        buttonsToRemove.add(tankGameButton);
+        buttonsToRemove.add(snakeGameButton);
         textsToRemove.add(mainText);
     }
 
@@ -75,15 +74,16 @@ public class GameSelectionMenu extends AbstractViewContent {
             ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
             return false;
         }
-//        if (tankGameButton.clicked()) {
-//            ViewContents.getInstance().clear();
-//            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
-//            return false;
-//        }
 
         if (queenGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new CornerTheQueenGame(view, controller));
+            return false;
+        }
+
+        if (snakeGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new SnakeGame(view, controller));
             return false;
         }
 
