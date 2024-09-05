@@ -1,54 +1,65 @@
-#include <ESP8266WiFi.h>
-#include <espnow.h>
+#include <WiFi.h>
+#include <esp_now.h>
 
 // Define button pins
-const int buttonPin1 = 5; // GPIO5
-const int buttonPin2 = 4; // GPIO4
+const int buttonPin = 18; // GPIO15
+const int stickYPin = 19; // GPIO2
+const int stickXPin = 20; // GPIO4
 
 // Define peer MAC address (receiver's Wi-Fi MAC)
 uint8_t receiverMAC[] = {0x48, 0x55, 0x19, 0x7A, 0x94, 0x8B}; // Replace with receiver's MAC address
 
 // Callback when data is sent
-void onDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
+void onDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("Send Status: ");
-  Serial.println(sendStatus == 0 ? "Success" : "Fail");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Success" : "Fail");
 }
 
 void setup() {
   Serial.begin(115200);
 
   // Initialize button pins
-  pinMode(buttonPin1, INPUT_PULLUP);
-  pinMode(buttonPin2, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(stickYPin, INPUT);
+  pinMode(stickXPin, INPUT);
 
   // Initialize Wi-Fi in Station Mode
   WiFi.mode(WIFI_STA);
 
   // Initialize ESP-NOW
-  if (esp_now_init() != 0) {
-    Serial.println("ESP-NOW Initialization failed");
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
     return;
   }
 
-  // Set the ESP-NOW role
-  esp_now_set_self_role(ESP_NOW_ROLE_CONTROLLER);
-
-  // Register the receiver peer
-  esp_now_add_peer(receiverMAC, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
-
   // Register the send callback
   esp_now_register_send_cb(onDataSent);
+
+  // Add the receiver's peer information
+  esp_now_peer_info_t peerInfo;
+  memcpy(peerInfo.peer_addr, receiverMAC, 6);
+  peerInfo.channel = 0;  
+  peerInfo.encrypt = false;
+
+  // Add the peer
+  if (esp_now_add_peer(&peerInfo) != ESP_OK) {
+    Serial.println("Failed to add peer");
+    return;
+  }
 }
 
 void loop() {
   // Read button states
-  int button1State = digitalRead(buttonPin1);
-  int button2State = digitalRead(buttonPin2);
+  int stickYState = digitalRead(stickYPin);
+  int stickXState = digitalRead(stickXPin);
+  int buttonState = digitalRead(buttonPin);
 
   // Create a data packet to send
   String data = "#";
-  data += button1State == LOW ? "1," : "0,";
-  data += button2State == LOW ? "1?" : "0?";
+  data += String(stickYState + ",");
+  data += String(stickYState + ",");
+  data += buttonState == LOW ? "1?" : "0?";
+
 
   // Convert the string to a char array
   char dataToSend[20];
@@ -57,5 +68,5 @@ void loop() {
   // Send the data
   esp_now_send(receiverMAC, (uint8_t *)dataToSend, sizeof(dataToSend));
 
-  delay(5); //1000 / delayTime = polling rate
+  delay(5); // Adjust as needed for desired polling rate
 }
