@@ -61,6 +61,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
 
     @Override
     public boolean tick() {
+        //if(buttonWasPressed()){ //change controls
         if (view.keyPressed()) {
             if (isTurn && tickBuffer == 0) {
                 if (!turnWasStarted) {
@@ -197,6 +198,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void turnMove() {
+        //if (!controller.getLPad() && !controller.getRPad() && !controller.getLJoystickButton() && !controller.getRJoystickButton()) { //change controls
         if (!view.keyEnterPressed()) {
             turnMoveOnce();
         } else if(!queen.contains(markerTurn)){
@@ -213,6 +215,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
     }
 
     public void turnMoveOnce() {
+        //if(controller.getRJoystickX()<0||controller.getLJoystickX()<0){ //change controls (pls check first)
         if (view.keyPressed('a') || view.keyLeftPressed()) {
             if (Math.round(markerTurn.getCenterY()) == Math.round(queen.getCenterY())) {
                 if (markerTurn.getCenterX() > groesseFelder) {
@@ -229,6 +232,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 }
             }
         }
+        //if(controller.getRJoystickY()<0||controller.getLJoystickY()<0){ //change controls (pls check first)
         if (view.keyPressed('s') || view.keyDownPressed()) {
             if (Math.round(markerTurn.getCenterX()) == Math.round(queen.getCenterX())) {
                 if (markerTurn.getCenterY() < 29 * groesseFelder) {
@@ -259,6 +263,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
             }
         }
         return null;
+    }
+
+    public boolean buttonWasPressed(){
+        return(controller.getLPad() || controller.getRPad() || controller.getLJoystickButton() || controller.getRJoystickButton() || controller.getLJoystickX() == 0 || controller.getRJoystickX() == 0 || controller.getLJoystickY() == 0 || controller.getRJoystickY() == 0);
     }
 
 }
