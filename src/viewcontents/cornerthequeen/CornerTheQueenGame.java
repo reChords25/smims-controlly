@@ -239,8 +239,8 @@ public class CornerTheQueenGame extends AbstractViewContent {
                 int[] queenLocation = whereIsInt(queen);
                 if (markerLocation != null && queenLocation != null) {
                     int differenceYMarkerminusQueen = queenLocation[0] - markerLocation[0];
-                    if(markerTurn.getCenterY()<29*differenceYMarkerminusQueen-groesseFelder*differenceYMarkerminusQueen){
-                        markerTurn.move(0, -groesseFelder * differenceYMarkerminusQueen);
+                    if(markerTurn.getCenterY()+groesseFelder * differenceYMarkerminusQueen<30*groesseFelder){
+                        markerTurn.move(0, groesseFelder * differenceYMarkerminusQueen);
                     }
                 }
             }
