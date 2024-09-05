@@ -28,7 +28,6 @@ public abstract class AbstractViewContent {
         initView();
     }
 
-
     protected abstract void initView();
 
     public abstract boolean tick();
