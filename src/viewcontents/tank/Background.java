@@ -1,5 +1,6 @@
 package viewcontents.tank;
 
+import util.ScalablePicture;
 import viewcontents.AbstractViewContent;
 
 public class Background extends ScalablePicture {

@@ -13,8 +13,10 @@ public class KeyboardController extends AbstractController {
     private View view;
 
     public KeyboardController(View view) {
-        super();
+        System.out.println("KeyboardController constructor");
         this.view = view;
+        System.out.println("KeyboardController constructor done");
+
     }
 
     @Override

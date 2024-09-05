@@ -8,8 +8,7 @@ import controller.AbstractController;
 import util.Button;
 import viewcontents.cornerthequeen.CornerTheQueenGame;
 import viewcontents.demo.Demo;
-import viewcontents.tetris.TetrisGame;
-import viewcontents.tank.TankGame;
+import viewcontents.tank.CactiCatchGame;
 
 
 import java.awt.*;
@@ -51,7 +50,7 @@ public class GameSelectionMenu extends AbstractViewContent {
                 250,
                 buttonWidth,
                 buttonHeight,
-                "Tank",
+                "Cacti Catch",
                 new Color(85, 255, 85)
         );
 
@@ -60,7 +59,7 @@ public class GameSelectionMenu extends AbstractViewContent {
                325,
                buttonWidth,
                buttonHeight,
-               "Queen",
+               "Corner The Queen",
                new Color(255, 85, 85)
         );
 
@@ -80,7 +79,7 @@ public class GameSelectionMenu extends AbstractViewContent {
         }
         if (tankGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
-            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
+            ViewContents.getInstance().runViewContent(new CactiCatchGame(view, controller));
             return false;
         }
 
