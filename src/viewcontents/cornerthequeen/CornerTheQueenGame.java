@@ -71,10 +71,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
                     tickBuffer = 10;
                     turnMove();
                 }
-            } else if (!opponentTurn && !isTurn) {
-                opponentTurn = true;
-                opponent();
             }
+        } else if (!opponentTurn && !isTurn && tickBuffer == 0) {
+            opponentTurn = true;
+            opponent();
         }
         if (tickBuffer > 0) {
             tickBuffer--;
@@ -162,7 +162,10 @@ public class CornerTheQueenGame extends AbstractViewContent {
     public boolean isFinish() {
         boolean contains = zeroField.contains(queen);
         if (contains) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), !isTurn));
+            boolean wonB = !isTurn;
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), wonB);
+            ViewContents.getInstance().runViewContent(overlay);
         }
         return contains;
     }
@@ -196,7 +199,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
     public void turnMove() {
         if (!view.keyEnterPressed()) {
             turnMoveOnce();
-        } else {
+        } else if(!queen.contains(markerTurn)){
             isTurn = false;
             turnWasStarted = false;
             markerTurn.setHidden(true);
@@ -205,7 +208,7 @@ public class CornerTheQueenGame extends AbstractViewContent {
             if (whereIsMarker != null) {
                 queen.moveTo(fields[whereIsMarker[0]][whereIsMarker[1]].getShapeX(), fields[whereIsMarker[0]][whereIsMarker[1]].getShapeY());
             }
-            tickBuffer = 50;
+            tickBuffer = 20;
         }
     }
 

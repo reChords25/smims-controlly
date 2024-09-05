@@ -67,7 +67,7 @@
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#7 on serafina",
+    "git-widget-placeholder": "serafina",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
     "node.js.detected.package.eslint": "true",
@@ -118,11 +118,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
