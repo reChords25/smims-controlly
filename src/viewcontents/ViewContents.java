@@ -8,7 +8,7 @@ import java.util.Stack;
 public class ViewContents {
 
     private static ViewContents instance;
-    public static final int TICK_RATE = 20;
+    public static final int TICK_RATE = 500;
 
     private AbstractViewContent vc;
     private Stack<AbstractViewContent> viewStack;
