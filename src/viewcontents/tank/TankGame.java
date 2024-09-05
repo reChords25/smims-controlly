@@ -1,7 +1,6 @@
 package viewcontents.tank;
 
 import controller.AbstractController;
-import sas.Sprite;
 import sas.Text;
 import sas.Tools;
 import sas.View;
@@ -21,12 +20,8 @@ public class TankGame extends AbstractViewContent {
     private static final String cactusThree = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusThree.png";
 
     /* Static Variables */
-    private static final int WIDTH = 900;
-    private static final int HEIGHT = 700;
-    private static final int SLEEP_TIME = 20;
     private static final int SPEED_Projectile = 25;
-    private static final double OBJECT_HEIGHT = 50;
-    private static boolean gewonnen = false;
+    private static boolean gameOver;
     private static int points = 0;
 
     public int tankHP;
@@ -50,7 +45,6 @@ public class TankGame extends AbstractViewContent {
 
     private int spawnChance;
     private int spawnChance2;
-    private int spawnChance3;
     private int score;
     private int level;
     private int clock = 0;
@@ -65,7 +59,6 @@ public class TankGame extends AbstractViewContent {
         this.obstacles = new ArrayList<>();
         this.spawnChance = 100;
         this.spawnChance2 = 100;
-        this.spawnChance3 = 100;
 
         this.tankHP = 3;
         this.SPEED_OBSTACLE = 2;
@@ -84,14 +77,9 @@ public class TankGame extends AbstractViewContent {
 
     @Override
     public boolean tick() {
-        runGame();
-        return false;
-    }
-
-    public void runGame() {
         if (!hasRunOnce) {
             hasRunOnce = true;
-            gewonnen = false;
+            gameOver = false;
 
             background = new Background(0, 0);
             //System.out.println(view.getWidth());
@@ -131,8 +119,7 @@ public class TankGame extends AbstractViewContent {
             spawnObstacles();
         }
 
-
-        while (!gewonnen) {
+        if (!gameOver) {
             if (score >= 10) {
                 spawnChance = 200;
                 spawnChance2 = 200;
@@ -140,7 +127,6 @@ public class TankGame extends AbstractViewContent {
             } else if (score >= 20) {
                 spawnChance = 300;
                 spawnChance2 = 300;
-                spawnChance3 = 300;
             }
             clock += 1;
             updateText(level, score);
@@ -158,14 +144,14 @@ public class TankGame extends AbstractViewContent {
             isTankDead();
             moveHindernisse();
 
-            view.wait(SLEEP_TIME); // Das hier ist sehr wichtig, weil euer Spiel sonst zu schnell läuft.
             if (points == 2147483647) {
-                gewonnen = true;
+                gameOver = true;
             }
         }
-        String winningText = "Your Score:" + points;
-        new Text(view.getWidth() / 2 - 30, view.getHeight() / 2 - 10, winningText);
+
+        return !gameOver;
     }
+
 
     private void updateText(int level, int score) {
         view.remove(scoreboard);
@@ -501,7 +487,7 @@ public class TankGame extends AbstractViewContent {
 
     private void isTankDead() {
         if (tankHP <= 0) {
-            gewonnen = true;
+            gameOver = true;
         }
     }
 
