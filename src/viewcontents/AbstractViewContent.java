@@ -28,7 +28,6 @@ public abstract class AbstractViewContent {
         initView();
     }
 
-
     protected abstract void initView();
 
     public abstract boolean tick();
@@ -36,13 +35,15 @@ public abstract class AbstractViewContent {
     protected void removeUiElements() {
 
         for (Shapes shape : shapesToRemove) {
+            if (shape == null) { return; }
             shape.setHidden(true);
-            view.remove(shape);
         }
         for(Button button : buttonsToRemove) {
+            if (button == null) { return; }
             button.setHidden(true);
         }
         for(Text text : textsToRemove) {
+            if (text == null) { return; }
             text.setHidden(true);
         }
     }

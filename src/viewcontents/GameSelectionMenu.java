@@ -6,18 +6,23 @@ import sas.View;
 
 import controller.AbstractController;
 import util.Button;
-import viewcontents.DonkeyKong.DonkeyKongGame;
-import viewcontents.tetris.TetrisGame;
+import viewcontents.cornerthequeen.CornerTheQueenGame;
+import viewcontents.snake.SnakeGame;
+import viewcontents.demo.Demo;
+import viewcontents.tank.CactiCatchGame;
 
-import java.awt.*;
+
+import java.awt.Color;
 
 public class GameSelectionMenu extends AbstractViewContent {
 
     private Text mainText;
 
-    private Button tetrisGameButton;
+    private Button demoButton;
     private Button tankGameButton;
-    private Button donkeyKongButton;
+    private Button queenGameButton;
+    private Button snakeGameButton;
+    private Button testButton;
 
     public GameSelectionMenu(View view, AbstractController controller) {
         super(view, controller);
@@ -34,57 +39,73 @@ public class GameSelectionMenu extends AbstractViewContent {
         mainText.setFontSansSerif(true, 40);
         mainText.moveTo(viewCenterX - mainText.getShapeWidth() / 2, 100);
 
-        tetrisGameButton = new Button(
+        demoButton = new Button(
                 viewCenterX - buttonWidth / 2,
                 175,
                 buttonWidth,
                 buttonHeight,
-                "Tetris",
+                "DEMO",
                 new Color(85, 85, 255)
         );
 
-//        tankGameButton = new Button(
-//                viewCenterX - buttonWidth / 2,
-//                250,
-//                buttonWidth,
-//                buttonHeight,
-//                "Tank",
-//                new Color(57, 243, 91)
-//        );
+        tankGameButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                250,
+                buttonWidth,
+                buttonHeight,
+                "Cacti Catch",
+                new Color(85, 255, 85)
+        );
 
-        donkeyKongButton = new Button(
+        queenGameButton = new Button(
+               viewCenterX - buttonWidth / 2,
+               325,
+               buttonWidth,
+               buttonHeight,
+               "Corner The Queen",
+               new Color(255, 85, 85)
+        );
+
+        snakeGameButton = new Button(
                 viewCenterX - buttonWidth / 2,
                 325,
                 buttonWidth,
                 buttonHeight,
-                "Donkey Kong",
-                new Color(85, 85, 255)
-        );
+                "Snake",
+                new Color(57, 243, 91));
 
-
-        buttonsToRemove.add(tetrisGameButton);
-//        buttonsToRemove.add(tankGameButton);
-        buttonsToRemove.add(donkeyKongButton);
+        buttonsToRemove.add(demoButton);
+        buttonsToRemove.add(queenGameButton);
+        buttonsToRemove.add(snakeGameButton);
+        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
 
     @Override
     public boolean tick() {
-        if (tetrisGameButton.clicked()) {
+        if (demoButton.clicked()) {
             ViewContents.getInstance().clear(1);
-            ViewContents.getInstance().runViewContent(new TetrisGame(view, controller));
+            ViewContents.getInstance().runViewContent(new Demo(view, controller));
             return false;
         }
-//        if (tankGameButton.clicked()) {
-//            ViewContents.getInstance().clear();
-//            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
-//            return false;
-//        }
-        if (donkeyKongButton.clicked()) {
+        if (tankGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
-            ViewContents.getInstance().runViewContent(new DonkeyKongGame(view, controller));
+            ViewContents.getInstance().runViewContent(new CactiCatchGame(view, controller));
             return false;
         }
+
+        if (queenGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new CornerTheQueenGame(view, controller));
+            return false;
+        }
+
+        if (snakeGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new SnakeGame(view, controller));
+            return false;
+        }
+
         if (view.keyPressed((char) 8)) {
             ViewContents.getInstance().clear(1);
             ViewContents.getInstance().runViewContent(new MainMenu(view, controller));
@@ -92,5 +113,6 @@ public class GameSelectionMenu extends AbstractViewContent {
         }
         return true;
     }
+
 
 }
