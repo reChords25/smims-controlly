@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="finished (no finish Screen)">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="finished (bugs: left column, idk)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/cornerthequeen/CornerTheQueenGame.java" afterDir="false" />
     </list>
@@ -46,7 +46,7 @@
       &quot;port&quot;: null,
       &quot;suffix&quot;: null
     },
-    &quot;owner&quot;: &quot;reChords25&quot;,
+    &quot;owner&quot;: &quot;rechords25&quot;,
     &quot;repository&quot;: &quot;smims-controlly&quot;
   },
   &quot;editorReviewEnabled&quot;: false
@@ -148,6 +148,7 @@
       <workItem from="1725337809897" duration="4546000" />
       <workItem from="1725385279540" duration="66000" />
       <workItem from="1725431743938" duration="2336000" />
+      <workItem from="1725555852944" duration="927000" />
     </task>
     <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
       <option name="closed" value="true" />
@@ -285,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725490746106</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="finished (bugs: left column, idk)">
+      <option name="closed" value="true" />
+      <created>1725551610449</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725551610449</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +328,7 @@
     <MESSAGE value="Diagonal from right finished rest in progress" />
     <MESSAGE value="Diagonal finished" />
     <MESSAGE value="finished (no finish Screen)" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished (no finish Screen)" />
+    <MESSAGE value="finished (bugs: left column, idk)" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished (bugs: left column, idk)" />
   </component>
 </project>
