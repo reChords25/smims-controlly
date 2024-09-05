@@ -26,7 +26,9 @@ public class TetrisGame extends AbstractViewContent {
     @Override
     public boolean tick() {
         if (but.clicked()) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller, this.getClass(), false));
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), false);
+            ViewContents.getInstance().runViewContent(overlay);
             return false;
         }
         return true;
