@@ -54,15 +54,18 @@ public abstract class AbstractController implements SerialPortEventListener {
     public abstract void disconnect();
 
     /* Getters and Setters */
-    public abstract double getLJoystickX();
+    public abstract int getRJoystickX();
+    public abstract int getRJoystickY();
+    public abstract boolean getRJoystickButton();
+    public abstract boolean getRPad();
 
-    public abstract double getLJoystickY();
-
-    public abstract double getRJoystickX();
-
-    public abstract double getRJoystickY();
+    public abstract int getLJoystickX();
+    public abstract int getLJoystickY();
+    public abstract boolean getLJoystickButton();
+    public abstract boolean getLPad();
 
     public abstract boolean getBtn1Pressed();
+
 
 
 

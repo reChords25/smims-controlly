@@ -45,23 +45,43 @@ public class ArduinoController extends AbstractController {
     }
 
     @Override
-    public double getLJoystickX() {
-        return Double.parseDouble(dataArray[0]);
+    public int getLJoystickX() {
+        return Integer.parseInt(dataArray[0]);
     }
 
     @Override
-    public double getLJoystickY() {
-        return Double.parseDouble(dataArray[1]);
+    public int getLJoystickY() {
+        return Integer.parseInt(dataArray[1]);
     }
 
     @Override
-    public double getRJoystickX() {
-        return Double.parseDouble(dataArray[2]);
+    public boolean getLJoystickButton() {
+        return false;
     }
 
     @Override
-    public double getRJoystickY() {
-        return Double.parseDouble(dataArray[3]);
+    public boolean getLPad() {
+        return false;
+    }
+
+    @Override
+    public int getRJoystickX() {
+        return Integer.parseInt(dataArray[2]);
+    }
+
+    @Override
+    public int getRJoystickY() {
+        return Integer.parseInt(dataArray[3]);
+    }
+
+    @Override
+    public boolean getRJoystickButton() {
+        return false;
+    }
+
+    @Override
+    public boolean getRPad() {
+        return false;
     }
 
     @Override
