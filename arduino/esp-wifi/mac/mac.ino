@@ -1,0 +1,14 @@
+#include <ESP8266WiFi.h>
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println();
+  
+  // Print the MAC Address of the device
+  Serial.print("MAC Address: ");
+  Serial.println(WiFi.macAddress());
+}
+
+void loop() {
+  // Nothing needed here
+}

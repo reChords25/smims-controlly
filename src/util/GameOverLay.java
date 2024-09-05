@@ -5,7 +5,6 @@ import sas.Rectangle;
 import sas.Text;
 import sas.View;
 import viewcontents.AbstractViewContent;
-import viewcontents.GameSelectionMenu;
 import viewcontents.MainMenu;
 import viewcontents.ViewContents;
 
@@ -17,7 +16,7 @@ public class GameOverLay extends AbstractViewContent {
     private static final int PADDING = 25;
     private static final int BUTTON_HEIGHT = 50;
 
-    private Class<? extends AbstractViewContent> game;
+    private Class<? extends AbstractViewContent> gameClass;
 
     private Text gameStatusText;
 
@@ -28,10 +27,8 @@ public class GameOverLay extends AbstractViewContent {
 
     private boolean hasWon;
 
-    public GameOverLay(View view, AbstractController controller, Class<? extends AbstractViewContent> game, boolean hasWon) {
+    public GameOverLay(View view, AbstractController controller) {
         super(view, controller);
-        this.game = game;
-        this.hasWon = hasWon;
     }
 
     @Override
@@ -44,7 +41,7 @@ public class GameOverLay extends AbstractViewContent {
         mainRect = new Rectangle(xPos, yPos, width, height);
         mainRect.setColor(new Color(212, 247, 224));
 
-        String status = hasWon ? "You won!" : "You lost!";
+        String status = "Placeholder";
         gameStatusText = new Text(340, 250, status);
         gameStatusText.setFontSansSerif(true, 50);
         gameStatusText.moveTo(xPos + (width - gameStatusText.getShapeWidth()) / 2, yPos + 50);
@@ -88,7 +85,7 @@ public class GameOverLay extends AbstractViewContent {
         if (restartButton.clicked()) {
             try {
                 ViewContents.getInstance().clear(2);
-                ViewContents.getInstance().runViewContent(game.getDeclaredConstructor(View.class, AbstractController.class).newInstance(view, controller));
+                ViewContents.getInstance().runViewContent(gameClass.getDeclaredConstructor(View.class, AbstractController.class).newInstance(view, controller));
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 System.out.println("Exception: " + e);
             }
@@ -103,5 +100,11 @@ public class GameOverLay extends AbstractViewContent {
             System.exit(0);
         }
         return true;
+    }
+
+    public void setGameData(Class<? extends AbstractViewContent> gameClass, boolean hasWon) {
+        this.hasWon = hasWon;
+        this.gameClass = gameClass;
+        gameStatusText.setText(hasWon ? "You won!" : "You lost!");
     }
 }
