@@ -61,6 +61,19 @@ public class KeyboardController extends AbstractController {
         return 0;
     }
 
+        double x = 0.0;
+
+        if (view.keyPressed('A')) {
+            x -= 1.0;
+        }
+
+        if (view.keyPressed('D')) {
+            x += 1.0;
+        }
+
+        return x;
+    }
+
     @Override
     public int getRJoystickY() {
         return 0;
@@ -78,6 +91,6 @@ public class KeyboardController extends AbstractController {
 
     @Override
     public boolean getBtn1Pressed() {
-        return false;
+        return view.keyPressed('E');
     }
 }

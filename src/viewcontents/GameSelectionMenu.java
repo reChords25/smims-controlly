@@ -9,6 +9,8 @@ import util.Button;
 import viewcontents.cornerthequeen.CornerTheQueenGame;
 import viewcontents.demo.Demo;
 import viewcontents.tetris.TetrisGame;
+import viewcontents.tank.TankGame;
+
 
 import java.awt.*;
 
@@ -44,14 +46,14 @@ public class GameSelectionMenu extends AbstractViewContent {
                 new Color(85, 85, 255)
         );
 
-//        tankGameButton = new Button(
-//                viewCenterX - buttonWidth / 2,
-//                250,
-//                buttonWidth,
-//                buttonHeight,
-//                "Tank",
-//                new Color(57, 243, 91)
-//        );
+        tankGameButton = new Button(
+                viewCenterX - buttonWidth / 2,
+                250,
+                buttonWidth,
+                buttonHeight,
+                "Tank",
+                new Color(57, 243, 91)
+        );
 
         queenGameButton = new Button(
                viewCenterX - buttonWidth / 2,
@@ -65,7 +67,7 @@ public class GameSelectionMenu extends AbstractViewContent {
 
         buttonsToRemove.add(demoButton);
         buttonsToRemove.add(queenGameButton);
-//        buttonsToRemove.add(tankGameButton);
+        buttonsToRemove.add(tankGameButton);
         textsToRemove.add(mainText);
     }
 
@@ -76,11 +78,11 @@ public class GameSelectionMenu extends AbstractViewContent {
             ViewContents.getInstance().runViewContent(new Demo(view, controller));
             return false;
         }
-//        if (tankGameButton.clicked()) {
-//            ViewContents.getInstance().clear();
-//            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
-//            return false;
-//        }
+        if (tankGameButton.clicked()) {
+            ViewContents.getInstance().clear(1);
+            ViewContents.getInstance().runViewContent(new TankGame(view, controller));
+            return false;
+        }
 
         if (queenGameButton.clicked()) {
             ViewContents.getInstance().clear(1);
