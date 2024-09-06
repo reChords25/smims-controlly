@@ -4,7 +4,9 @@ import controller.AbstractController;
 import sas.Text;
 import sas.Tools;
 import sas.View;
+import util.GameOverLay;
 import viewcontents.AbstractViewContent;
+import viewcontents.ViewContents;
 
 import java.lang.Math;
 
@@ -13,8 +15,6 @@ import java.util.ArrayList;
 
 public class CactiCatchGame extends AbstractViewContent {
 
-    private static final String PATH_IMAGE = AbstractViewContent.PATH_TO_RESOURCES + "frogger/car1.png";
-    private static final String PATH_IMAGEB = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/border.png";
     private static final String cactusOne = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusEins.png";
     private static final String cactusTwo = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusTwo.png";
     private static final String cactusThree = AbstractViewContent.PATH_TO_RESOURCES + "CactiCatch/cactusThree.png";
@@ -34,6 +34,12 @@ public class CactiCatchGame extends AbstractViewContent {
     private Text scoreboard;
 
 
+    SoundPlayer steps = new SoundPlayer("CactiCatch/steps2.wav");
+    SoundPlayer loseSound = new SoundPlayer("CactiCatch/damage.wav");
+    SoundPlayer hitSound = new SoundPlayer("CactiCatch/damage2.wav");
+    SoundPlayer shootSound = new SoundPlayer("CactiCatch/wandSound5.wav");
+
+    private SoundPlayer backgroundMusic;
     private Background background;
     private Player tank;
     private Cannon cannon;
@@ -43,8 +49,10 @@ public class CactiCatchGame extends AbstractViewContent {
     private ArrayList<BasicObstacle> obstacles;
 
 
+    private boolean isRunning;
     private int spawnChance;
     private int spawnChance2;
+    private int spawnChance3;
     private int score;
     private int level;
     private int clock = 0;
@@ -53,15 +61,18 @@ public class CactiCatchGame extends AbstractViewContent {
     public CactiCatchGame(View view, AbstractController controller) {
         super(view, controller);
 
+
+
         this.tank = null;
         this.bullets = new ArrayList<>();
         this.hindernisse = new ArrayList<>();
         this.obstacles = new ArrayList<>();
-        this.spawnChance = 100;
-        this.spawnChance2 = 100;
+        this.spawnChance = 200;
+        this.spawnChance2 = 10000;
+        this.spawnChance3 = 10000;
 
         this.tankHP = 3;
-        this.SPEED_OBSTACLE = 2;
+        this.SPEED_OBSTACLE = 1;
 
     }
 
@@ -78,10 +89,12 @@ public class CactiCatchGame extends AbstractViewContent {
     @Override
     public boolean tick() {
         if (!hasRunOnce) {
+            isRunning = false;
             hasRunOnce = true;
             gameOver = false;
 
             background = new Background(0, 0);
+            shapesToRemove.add(background);
             //System.out.println(view.getWidth());
             background.scaleTo(view.getWidth(), view.getHeight());
             background.moveTo(0, 0);
@@ -90,43 +103,60 @@ public class CactiCatchGame extends AbstractViewContent {
 
 
             tank = new Player(200, 200);
+            shapesToRemove.add(tank);
             tank.scaleTo(37, 55);
             tank.moveTo(200, 200);
 
             //ptank = new Sprite(tank);
             cannon = new Cannon(200, 200);
+            shapesToRemove.add(cannon);
             cannon.scaleTo(20, 20);
             cannon.moveTo(232, 222);
 
             tankHP = 3;
             heart1 = new Heart(1, 1);
+            shapesToRemove.add(heart1);
             heart1.scaleTo(40, 40);
             heart1.moveTo(10, 10);
 
             heart2 = new Heart(1, 1);
+            shapesToRemove.add(heart2);
             heart2.scaleTo(40, 40);
             heart2.moveTo(60, 10);
 
             heart3 = new Heart(1, 1);
+            shapesToRemove.add(heart3);
             heart3.scaleTo(40, 40);
             heart3.moveTo(110, 10);
 
             level = 0;
             scoreboard = new Text(view.getWidth() - 90, -10, "Score: 0 | Level 1");
+            textsToRemove.add(scoreboard);
             scoreboard.scaleTo(240, 90);
             //ptank.add(cannon);
             //ptank.scaleTo(50, 50);
             spawnObstacles();
+            backgroundMusic = new SoundPlayer("CactiCatch/background_music.wav");
+            backgroundMusic.loop();
+            backgroundMusic.setVolume(-10f);
+            steps.setVolume(6f);
         }
 
         if (!gameOver) {
             if (score >= 10) {
-                spawnChance = 200;
-                spawnChance2 = 200;
+                spawnChance = 250;
+                spawnChance2 = 250;
                 level = 2;
             } else if (score >= 20) {
                 spawnChance = 300;
                 spawnChance2 = 300;
+                spawnChance3 = 300;
+                level = 3;
+            }else if (score >= 30) {
+                spawnChance = 300;
+                spawnChance2 = 200;
+                spawnChance3 = 200;
+                level = 4;
             }
             clock += 1;
             updateText(level, score);
@@ -148,7 +178,14 @@ public class CactiCatchGame extends AbstractViewContent {
                 gameOver = true;
             }
         }
-
+        if(gameOver){
+            steps.stop();
+            backgroundMusic.stop();
+            loseSound.play();
+            GameOverLay overlay = new GameOverLay(view, controller);
+            overlay.setGameData(this.getClass(), false);
+            ViewContents.getInstance().runViewContent(overlay);
+        }
         return !gameOver;
     }
 
@@ -156,6 +193,7 @@ public class CactiCatchGame extends AbstractViewContent {
     private void updateText(int level, int score) {
         view.remove(scoreboard);
         scoreboard = new Text(view.getWidth() - 180, -10, "Score: " + score + " | Level " + level);
+        textsToRemove.add(scoreboard);
         scoreboard.scaleTo(430, 90);
     }
 
@@ -169,28 +207,26 @@ public class CactiCatchGame extends AbstractViewContent {
 
 
     private void spawnObstacles() {
-//        BasicObstacle border = new BasicObstacle(1, 1, PATH_IMAGEB);
-//        border.scaleTo(10, HEIGHT*2);
-//        border.moveTo(-10, 0);
-//        obstacles.add(border);
-//        BasicObstacle borderR = new BasicObstacle(1, 1, PATH_IMAGEB);
-//        borderR.scaleTo(10, HEIGHT*2);
-//        borderR.moveTo(WIDTH, -10);
-//        obstacles.add(borderR);
-//        BasicObstacle borderO = new BasicObstacle(1, 1, PATH_IMAGEB);
-//        borderO.scaleTo(view.getWidth(), 10);
-//        borderO.moveTo(25, -10);
-//        obstacles.add(borderO);
-//        BasicObstacle borderU = new BasicObstacle(1, 1, PATH_IMAGEB);
-//        borderU.scaleTo(WIDTH, 10);
-//        borderU.moveTo(0, HEIGHT);
-//        obstacles.add(borderU);
-
-        /*for (int i = 0; i<spawnChance; i++) {
-            BasicObstacle obstacle = new BasicObstacle(Tools.randomNumber(1, view.getHeight()), Tools.randomNumber(1, view.getWidth()), PATH_IMAGE);
-            obstacle.scaleTo(OBJECT_HEIGHT);
-            obstacles.add(obstacle);
-        }*/
+        BasicObstacle fountain = new BasicObstacle(1, 1, AbstractViewContent.PATH_TO_RESOURCES + "cacticatch/fountain.png");
+        shapesToRemove.add(fountain);
+        fountain.scaleTo(126, 126);
+        fountain.moveTo((view.getWidth()/2)-60, (view.getHeight()/2)-70);
+        obstacles.add(fountain);
+        BasicObstacle treeOne = new BasicObstacle(1, 1, AbstractViewContent.PATH_TO_RESOURCES + "/cacticatch/tree_small_01.png");
+        shapesToRemove.add(treeOne);
+        treeOne.scaleTo(30);
+        treeOne.moveTo(80, 140);
+        obstacles.add(treeOne);
+        BasicObstacle treeTwo = new BasicObstacle(1, 1, AbstractViewContent.PATH_TO_RESOURCES + "/cacticatch/tree_small_02.png");
+        shapesToRemove.add(treeTwo);
+        treeTwo.scaleTo(30);
+        treeTwo.moveTo(150, 40);
+        obstacles.add(treeTwo);
+        BasicObstacle treeThree = new BasicObstacle(1, 1, AbstractViewContent.PATH_TO_RESOURCES + "/cacticatch/tree_small_03.png");
+        shapesToRemove.add(treeThree);
+        treeThree.scaleTo(30);
+        treeThree.moveTo(200, 70);
+        obstacles.add(treeThree);
     }
 
     private void spawnCactus() {
@@ -199,13 +235,13 @@ public class CactiCatchGame extends AbstractViewContent {
             int randomMain = Tools.randomNumber(1, 2 * view.getHeight() + 2 * view.getHeight());
             ;
             if (randomMain >= (2 * view.getWidth() + view.getHeight())) {
-                createCactus(1, 30, randomMain - (2 * view.getWidth() + view.getHeight()));
+                createCactus(1, -10, randomMain - (2 * view.getWidth() + view.getHeight()));
             } else if (randomMain >= (view.getWidth() + view.getHeight())) {
-                createCactus(1, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() - 160);
+                createCactus(1, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() +10);
             } else if (randomMain >= view.getWidth()) {
-                createCactus(1, view.getWidth() - 50, randomMain - view.getWidth());
+                createCactus(1, view.getWidth() + 10, randomMain - view.getWidth());
             } else {
-                createCactus(1, randomMain, 20);
+                createCactus(1, randomMain, -10);
             }
         }
     }
@@ -228,12 +264,13 @@ public class CactiCatchGame extends AbstractViewContent {
     }
 
     private void spawnCactus3() {
-        int ranInt = Tools.randomNumber(2, spawnChance);
+        int ranInt = Tools.randomNumber(1, spawnChance);
         if (ranInt == 2) {
             int randomMain = Tools.randomNumber(1, 2 * view.getHeight() + 2 * view.getHeight());
-            ;
+
             if (randomMain >= (2 * view.getWidth() + view.getHeight())) {
                 createCactus(3, 30, randomMain - (2 * view.getWidth() + view.getHeight()));
+
             } else if (randomMain >= (view.getWidth() + view.getHeight())) {
                 createCactus(3, randomMain - (view.getWidth() + view.getHeight()), view.getHeight() - 160);
             } else if (randomMain >= view.getWidth()) {
@@ -268,10 +305,22 @@ public class CactiCatchGame extends AbstractViewContent {
 
         double x = controller.getLJoystickX() * SPEED_Tank;
         double y = controller.getLJoystickY() * SPEED_Tank;
+
         if (!checkCollision(x, y)) {
             cannon.move(x, y);
             xPosition += x;
             yPosition += y;
+            if( x!= 0 || y != 0){
+                if(!isRunning){
+                    isRunning = true;
+                    steps.loop();
+                }
+            } else{
+                if(isRunning){
+                    isRunning = false;
+                    steps.stop();
+                }
+            }
         }
 
         if (!checkCollision(x, y)) {
@@ -296,6 +345,12 @@ public class CactiCatchGame extends AbstractViewContent {
                         view.remove(bullet);
                         deletableProjectiles.add(bullet);
                     }
+                }
+            }
+            for(Projectile bullet : bullets) {
+                if(!background.contains(bullet)){
+                    view.remove(bullet);
+                    deletableProjectiles.add(bullet);
                 }
             }
         } else {
@@ -333,39 +388,62 @@ public class CactiCatchGame extends AbstractViewContent {
 
             // Versuche, sich in die Richtung des Tanks zu bewegen
             if (!checkObstacleCollision(hindernis, xMove, yMove)) {
+                System.out.println("1");
                 hindernis.move(xMove, yMove);
-            } else {
-                // Probiere alternative Bewegungen, um Hindernisse zu umgehen
-                double bestXMove = 0;
-                double bestYMove = 0;
-                double minDistance = distance;
-
-                // Probiere alle acht Richtungen (inkl. Diagonalen)
-                double[][] directions = {
-                        {SPEED_OBSTACLE, 0},
-                        {-SPEED_OBSTACLE, 0},
-                        {0, SPEED_OBSTACLE},
-                        {0, -SPEED_OBSTACLE},
-                        {SPEED_OBSTACLE, SPEED_OBSTACLE},
-                        {-SPEED_OBSTACLE, -SPEED_OBSTACLE},
-                        {SPEED_OBSTACLE, -SPEED_OBSTACLE},
-                        {-SPEED_OBSTACLE, SPEED_OBSTACLE}
-                };
-
-                for (double[] dir : directions) {
-                    double newXMove = dir[0];
-                    double newYMove = dir[1];
-                    double newDistance = calculateDistance(hindernis.getShapeX() + newXMove, hindernis.getShapeY() + newYMove, tankX, tankY);
-
-                    if (newDistance < minDistance && !checkObstacleCollision(hindernis, newXMove, newYMove)) {
-                        bestXMove = newXMove;
-                        bestYMove = newYMove;
-                        minDistance = newDistance;
-                    }
-                }
-
-                hindernis.move(bestXMove, bestYMove);
+            } else if (!checkObstacleCollision(hindernis, xMove, -yMove)) {
+                System.out.println("2");
+                hindernis.move(xMove, -yMove);
             }
+            else if (!checkObstacleCollision(hindernis, -xMove, yMove)) {
+                System.out.println("3");
+                hindernis.move(-xMove, yMove);
+            }
+            else if (!checkObstacleCollision(hindernis, hindernis.getSpeed(), 0)) {
+                System.out.println("4");
+                hindernis.move(hindernis.getSpeed(), 0);
+            }
+            else if (!checkObstacleCollision(hindernis, -hindernis.getSpeed(), 0)) {
+                System.out.println("5");
+                hindernis.move(-hindernis.getSpeed(), 0);
+            }
+            else if (!checkObstacleCollision(hindernis, 0, -hindernis.getSpeed())) {
+                System.out.println("6");
+                hindernis.move(0, -hindernis.getSpeed());
+            }else if (!checkObstacleCollision(hindernis, 0, hindernis.getSpeed())) {
+                System.out.println("7");
+                hindernis.move(0, hindernis.getSpeed());
+            }
+//                // Probiere alternative Bewegungen, um Hindernisse zu umgehen
+//                double bestXMove = 0;
+//                double bestYMove = 0;
+//                double minDistance = distance;
+//
+//                // Probiere alle acht Richtungen (inkl. Diagonalen)
+//                double[][] directions = {
+//                        {SPEED_OBSTACLE, 0},
+//                        {-SPEED_OBSTACLE, 0},
+//                        {0, SPEED_OBSTACLE},
+//                        {0, -SPEED_OBSTACLE},
+//                        {SPEED_OBSTACLE, SPEED_OBSTACLE},
+//                        {-SPEED_OBSTACLE, -SPEED_OBSTACLE},
+//                        {SPEED_OBSTACLE, -SPEED_OBSTACLE},
+//                        {-SPEED_OBSTACLE, SPEED_OBSTACLE}
+//                };
+//
+//                for (double[] dir : directions) {
+//                    double newXMove = dir[0];
+//                    double newYMove = dir[1];
+//                    double newDistance = calculateDistance(hindernis.getShapeX() + newXMove, hindernis.getShapeY() + newYMove, tankX, tankY);
+//
+//                    if (newDistance < minDistance && !checkObstacleCollision(hindernis, newXMove, newYMove)) {
+//                        bestXMove = newXMove;
+//                        bestYMove = newYMove;
+//                        minDistance = newDistance;
+//                    }
+//                }
+
+//                hindernis.move(bestXMove, bestYMove);
+//            }
         }
     }
 
@@ -394,7 +472,6 @@ public class CactiCatchGame extends AbstractViewContent {
         double yDiff = y2 - y1;
         return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
     }
-
 
     private void rotateCannon() {
         double x = controller.getRJoystickX() * SPEED_Tank;
@@ -431,8 +508,10 @@ public class CactiCatchGame extends AbstractViewContent {
 
     private void shoot() {
         if (controller.getLPad() && (clock - lastShot) >= 10) {
+            shootSound.play();
             lastShot = clock;
             projectile = new Projectile((int) xPosition, (int) yPosition);
+            shapesToRemove.add(projectile);
             projectile.scaleTo(15);
             projectile.moveTo(xPosition, yPosition);
 
@@ -447,11 +526,14 @@ public class CactiCatchGame extends AbstractViewContent {
         }
     }
 
-
     private boolean projectileTouchesTarget() {
         for (Trophy target : hindernisse) {
             for (Projectile bullet : bullets) {
                 if (bullet.intersects(target)) {
+//                    if(target.getHp == 1){
+//
+//                    }
+
                     score += 1;
                     view.remove(target);
                     hindernisse.remove(target);
@@ -473,10 +555,8 @@ public class CactiCatchGame extends AbstractViewContent {
         }
     }
 
-    SoundPlayer hitSound = new SoundPlayer("CactiCatch/damage.wav");
-
     private void takeDamage(Trophy target) {
-        if ((clock - target.getLastDamage()) > 50) {
+        if ((clock - target.getLastDamage()) > 25) {
             target.setLastDamage(clock);
             hitSound.play();
             tankHP -= target.getDamage();
@@ -494,6 +574,7 @@ public class CactiCatchGame extends AbstractViewContent {
     private void updateHearts(boolean increased) {
         if (tankHP == 3) {
             heart3 = new Heart(1, 1);
+            shapesToRemove.add(heart3);
             heart3.scaleTo(40, 40);
             heart3.moveTo(110, 10);
         } else if (tankHP == 2) {
@@ -501,6 +582,7 @@ public class CactiCatchGame extends AbstractViewContent {
                 view.remove(heart3);
             } else {
                 heart2 = new Heart(1, 1);
+                shapesToRemove.add(heart2);
                 heart2.scaleTo(40, 40);
                 heart2.moveTo(60, 10);
             }
@@ -512,6 +594,7 @@ public class CactiCatchGame extends AbstractViewContent {
                 }
             } else {
                 heart1 = new Heart(1, 1);
+                shapesToRemove.add(heart1);
                 heart1.scaleTo(40, 40);
                 heart1.moveTo(10, 10);
             }
@@ -530,22 +613,28 @@ public class CactiCatchGame extends AbstractViewContent {
     private void createCactus(int cactusType, double posX, double posY) {
         if (cactusType == 1) {
             Trophy cactus = new Trophy(1, 1, cactusOne);
+            shapesToRemove.add(cactus);
             cactus.setHp(1);
             cactus.setDamage(1);
+            cactus.setSpeed(4);
             cactus.scaleTo(50, 50);
             cactus.moveTo(posX, posY);
             hindernisse.add(cactus);
         } else if (cactusType == 2) {
             Trophy cactus = new Trophy(1, 1, cactusThree);
+            shapesToRemove.add(cactus);
             cactus.setHp(1);
             cactus.setDamage(2);
+            cactus.setSpeed(2);
             cactus.scaleTo(50, 50);
             cactus.moveTo(posX, posY);
             hindernisse.add(cactus);
         } else {
             Trophy cactus = new Trophy(1, 1, cactusTwo);
+            shapesToRemove.add(cactus);
             cactus.setHp(3);
             cactus.setDamage(2);
+            cactus.setSpeed(2);
             cactus.scaleTo(50, 50);
             cactus.moveTo(posX, posY);
             hindernisse.add(cactus);
