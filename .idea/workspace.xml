@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="initial donkeyKong">
+      <change afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Stairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mario.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/DonkeyKong/mario.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Barrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKongGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewcontents/DonkeyKong/DonkeyKongGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Projectile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/ScalablePicture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Tank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/TankGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewcontents/tank/Trophy.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;reChords25&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rechords25/smims-controlly.git",
+    "accountId": "ac087547-213c-468c-8dc9-a5779b6dcfc3"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "reChords25",
+    "repository": "smims-controlly"
+  },
+  "editorReviewEnabled": false
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2lWtYoyWyE3takwRTBRne0g7Otg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Oli",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/reChords/Desktop/test/.idea",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\reChords\Desktop\test\.idea" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\olive\IdeaProjects\smims-controlly\resources\DonkeyKong" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="test.Test" />
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30344279-5593-4119-8055-1d928f229f98" name="Changes" comment="" />
+      <created>1725307710642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725307710642</updated>
+      <workItem from="1725307711745" duration="426000" />
+      <workItem from="1725308190580" duration="540000" />
+      <workItem from="1725308787417" duration="2955000" />
+      <workItem from="1725337809897" duration="4546000" />
+      <workItem from="1725385279540" duration="66000" />
+      <workItem from="1725431743938" duration="2336000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changed whole project structure :lol:">
+      <option name="closed" value="true" />
+      <created>1725308220611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725308220611</updated>
+    </task>
+    <task id="LOCAL-00002" summary="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA">
+      <option name="closed" value="true" />
+      <created>1725304448620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725304448620</updated>
+    </task>
+    <task id="LOCAL-00003" summary="forgot something... whoopsie">
+      <option name="closed" value="true" />
+      <created>1725305118024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725305118024</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Made own button class">
+      <option name="closed" value="true" />
+      <created>1725305714972</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725305714972</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color">
+      <option name="closed" value="true" />
+      <created>1725344038077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725344038077</updated>
+    </task>
+    <task id="LOCAL-00006" summary="some part working now heheheeh">
+      <option name="closed" value="true" />
+      <created>1725384729937</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725384729937</updated>
+    </task>
+    <task id="LOCAL-00007" summary="-">
+      <option name="closed" value="true" />
+      <created>1725387394996</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725387394996</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes">
+      <option name="closed" value="true" />
+      <created>1725391490119</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725391490119</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed whole project structure :lol:" />
+    <MESSAGE value="FUCKING WORKING YOU LITTLE SHIT LISTEN TO ME AYAYAYAYA" />
+    <MESSAGE value="forgot something... whoopsie" />
+    <MESSAGE value="Made own button class" />
+    <MESSAGE value="Arduino test added" />
+    <MESSAGE value="Implemented util.Button.setShadowColor() and getShadowColor()&#10;Implemented util.Button.Button() overload with parameter for button shadow color" />
+    <MESSAGE value="some part working now heheheeh" />
+    <MESSAGE value="-" />
+    <MESSAGE value="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected ViewContents.getInstance().clear() method&#10;Partly fixed GameOverLay&#10;Smaller, additional changes" />
+  </component>
+</project>
