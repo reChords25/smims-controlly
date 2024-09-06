@@ -4,26 +4,26 @@
 uint8_t receiverAddress[] = {0xC0, 0x49, 0xEF, 0x68, 0xA7, 0x20};// c0:49:ef:68:a7:20
 esp_now_peer_info_t peerInfo;
 
-int rStickXPin = 33;
-int rStickYPin = 34;
-int lStickXPin = 35;
-int lStickYPin = 39;
+int rStickXPin = 39;
+int rStickYPin = 35;
+int lStickXPin = 33;
+int lStickYPin = 34;
 
 int rStickButtonPin = 0;
-int lStickButtonPin = 2;
+int lStickButtonPin = 25;
 
-int rPadPin = 4;
-int lPadPin = 12;
+int rPadPin = 32;
+int lPadPin = 4;
 
 typedef struct message {
     int rStickX;
     int rStickY;
-    bool rStickClicked;
+    int rStickClicked;
     int lStickX;
     int lStickY;
-    bool lStickClicked;
-    bool rPadClicked;
-    bool lPadClicked;
+    int lStickClicked;
+    int rPadClicked;
+    int lPadClicked;
 } message;
 
 message myMessage; 
@@ -31,25 +31,34 @@ message myMessage;
 void messageSent(const uint8_t *macAddr, esp_now_send_status_t status) {
     Serial.print("Send status: ");
     if(status == ESP_NOW_SEND_SUCCESS){
-        Serial.println("Success");
+        Serial.println("Success!");
     }
     else{
-        Serial.println("Error");
+        Serial.println("Error!");
     }
 }
 
 void setup(){
     analogReadResolution(10);
     analogSetAttenuation(ADC_11db);
+
+    pinMode(rStickXPin, INPUT);
+    pinMode(rStickYPin, INPUT);
+    pinMode(lStickXPin, INPUT);
+    pinMode(lStickYPin, INPUT);
+    pinMode(rStickButtonPin, INPUT);
+    pinMode(lStickButtonPin, INPUT);
+    pinMode(rPadPin, INPUT);
+    pinMode(lPadPin, INPUT);
     
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     
     if (esp_now_init() == ESP_OK) {
-        Serial.println("ESPNow Init success");
+        Serial.println("ESPNow Init success!");
     }
     else {
-        Serial.println("ESPNow Init fail");
+        Serial.println("ESPNow Init fail!");
         return;
     }
     
@@ -60,7 +69,7 @@ void setup(){
     peerInfo.encrypt = false;
 
     if (esp_now_add_peer(&peerInfo) != ESP_OK) {
-        Serial.println("Failed to add peer");
+        Serial.println("Failed to add peer!");
         return;
     }
 }
@@ -72,12 +81,14 @@ void loop(){
     myMessage.lStickX = analogRead(lStickXPin);
     myMessage.lStickY = analogRead(lStickYPin);
     myMessage.lStickClicked = digitalRead(lStickButtonPin);
-    myMessage.rPadClicked = digitalRead(rStickButtonPin);
-    myMessage.lPadClicked = digitalRead(lStickButtonPin);
+    myMessage.rPadClicked = touchRead(rPadPin) < 50 ? 0 : 1;
+    myMessage.lPadClicked = touchRead(lPadPin) < 50 ? 0 : 1;
+
+    Serial.println(myMessage.rStickX);
 
     esp_err_t result = esp_now_send(receiverAddress, (uint8_t *) &myMessage, sizeof(myMessage));
     if (result != ESP_OK) {
-        Serial.println("Sending error");
+        Serial.println("Sending error!");
     }
-    delay(100);
+    delay(10);
 }

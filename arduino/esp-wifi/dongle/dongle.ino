@@ -4,34 +4,35 @@
 typedef struct message {
     int rStickX;
     int rStickY;
-    bool rStickClicked;
+    int rStickClicked;
     int lStickX;
     int lStickY;
-    bool lStickClicked;
-    bool rPadClicked;
-    bool lPadClicked;
+    int lStickClicked;
+    int rPadClicked;
+    int lPadClicked;
 } message;
 
 message myMessage;
 
 void messageReceived(const esp_now_recv_info *info, const uint8_t* incomingData, int len){
     memcpy(&myMessage, incomingData, sizeof(myMessage));   
-    Serial.print("Right Stick X: ");
-    Serial.println(myMessage.rStickX);
-    Serial.print("Right Stick Y: ");
-    Serial.println(myMessage.rStickY);
-    Serial.print("Right Stick Button: ");
-    Serial.println(myMessage.rStickClicked);
-    Serial.print("Right Pad: ");
-    Serial.println(myMessage.rPadClicked);
-    Serial.print("Left Stick X: ");
-    Serial.println(myMessage.lStickX);
-    Serial.print("Left Stick Y: ");
-    Serial.println(myMessage.lStickY);
-    Serial.print("Left Stick Button: ");
-    Serial.println(myMessage.lStickClicked);
-    Serial.print("Left Pad: ");
-    Serial.println(myMessage.lPadClicked);
+    Serial.print("#");
+    Serial.print(myMessage.rStickX);
+    Serial.print(",");
+    Serial.print(myMessage.rStickY);
+    Serial.print(",");
+    Serial.print(myMessage.rStickClicked);
+    Serial.print(",");
+    Serial.print(myMessage.rPadClicked);
+    Serial.print(",");
+    Serial.print(myMessage.lStickX);
+    Serial.print(",");
+    Serial.print(myMessage.lStickY);
+    Serial.print(",");
+    Serial.print(myMessage.lStickClicked);
+    Serial.print(",");
+    Serial.print(myMessage.lPadClicked);
+    Serial.print("?");
     Serial.println();
 }
 
@@ -40,12 +41,20 @@ void setup(){
     // delay(1000); // uncomment if your serial monitor is empty
     WiFi.mode(WIFI_STA);
     
+    pinMode(2, OUTPUT);
+    
     if (esp_now_init() == ESP_OK) {
         Serial.println("ESPNow Init success");
+        digitalWrite(2, HIGH);
     }
     else {
         Serial.println("ESPNow Init fail");
-        return;
+        while(true) {
+          digitalWrite(2, HIGH);
+          delay(75);
+          digitalWrite(2, LOW);
+          delay(75);
+        }
     }
 
     esp_now_register_recv_cb(messageReceived);
