@@ -15,7 +15,6 @@ public abstract class AbstractController implements SerialPortEventListener {
     protected SerialPort serialPort;
 
     public AbstractController() {
-        System.out.println("Super Constructor");
         initSerialPort();
     }
 

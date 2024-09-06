@@ -5,7 +5,6 @@ import sas.Picture;
 import sas.Rectangle;
 import sas.Tools;
 import sas.View;
-import util.Button;
 import util.GameOverLay;
 import viewcontents.AbstractViewContent;
 import viewcontents.ViewContents;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 
 public class DonkeyKongGame extends AbstractViewContent {
 
-    Button but;
     private static final String PATH_TO_DonkeyKong = AbstractViewContent.PATH_TO_RESOURCES + "DonkeyKong/";
     private Rectangle[] floors;
     private Rectangle groundfloor;
@@ -34,51 +32,48 @@ public class DonkeyKongGame extends AbstractViewContent {
 
     @Override
     protected void initView() {
-        Rectangle background = new Rectangle(0,0,900,700);
+        Rectangle background = new Rectangle(0, 0, 900, 700);
         shapesToRemove.add(background);
-        but = new Button(0, 0, 300, 50, "hallo", Color.RED);
-        buttonsToRemove.add(but);
         floors = new Rectangle[5];
-        stairs= new Stairs[5];
-        rLeft = new Rectangle(0,0,100,700);
+        stairs = new Stairs[5];
+        rLeft = new Rectangle(0, 0, 100, 700);
         shapesToRemove.add(rLeft);
-        rRight = new Rectangle(800,0, 100,700);
+        rRight = new Rectangle(800, 0, 100, 700);
         shapesToRemove.add(rRight);
-        groundfloor = new Rectangle(0,650,900,50, Color.green);
+        groundfloor = new Rectangle(0, 650, 900, 50, Color.green);
         shapesToRemove.add(groundfloor);
-        for(int i=1; i<floors.length+1; i++) {
-            if(i % 2 == 0) {
-                floors[i-1] = new Rectangle(100, i * 120+50, 800, 50, Color.green);
-                shapesToRemove.add(floors[i-1]);
-                stairs[i-1] = new Stairs(Tools.randomNumber(100, 650),i*120+50);
-                shapesToRemove.add(stairs[i-1].getStair());
-            }
-            else {
-                floors[i-1] = new Rectangle(0, i*120+50, 800,50, Color.green);
-                shapesToRemove.add(floors[i-1]);
-                stairs[i-1] = new Stairs(Tools.randomNumber(100, 650),i*120+50);
-                shapesToRemove.add(stairs[i-1].getStair());
+        for (int i = 1; i < floors.length + 1; i++) {
+            if (i % 2 == 0) {
+                floors[i - 1] = new Rectangle(100, i * 120 + 50, 800, 50, Color.green);
+                shapesToRemove.add(floors[i - 1]);
+                stairs[i - 1] = new Stairs(Tools.randomNumber(100, 650), i * 120 + 50);
+                shapesToRemove.add(stairs[i - 1].getStair());
+            } else {
+                floors[i - 1] = new Rectangle(0, i * 120 + 50, 800, 50, Color.green);
+                shapesToRemove.add(floors[i - 1]);
+                stairs[i - 1] = new Stairs(Tools.randomNumber(100, 650), i * 120 + 50);
+                shapesToRemove.add(stairs[i - 1].getStair());
             }
         }
         barrels = new ArrayList<Barrel>();
-        barrels.add(new Barrel(100,110));
+        barrels.add(new Barrel(100, 110));
 
-        for(int i=0; i<barrels.size();i++){
+        for (int i = 0; i < barrels.size(); i++) {
             shapesToRemove.add(barrels.get(i).getBarrel());
         }
-        dk = new Picture(10,120,50,50,PATH_TO_DonkeyKong +"donkey_kong.png");
+        dk = new Picture(10, 120, 50, 50, PATH_TO_DonkeyKong + "donkey_kong.png");
         shapesToRemove.add(dk);
         mario = new Mario(500, 600, stairs, barrels);
         shapesToRemove.add(mario.getMario());
 
-        deleteZone = new Rectangle(700,580,100,70);
+        deleteZone = new Rectangle(700, 580, 100, 70);
         shapesToRemove.add(deleteZone);
 
     }
 
-    public void deleteBarrels(){
-        for(int i=0; i<barrels.size();i++){
-            if(deleteZone.contains(barrels.get(i).getBarrel())){
+    public void deleteBarrels() {
+        for (int i = 0; i < barrels.size(); i++) {
+            if (deleteZone.contains(barrels.get(i).getBarrel())) {
                 barrels.get(i).getBarrel().setHidden(true);
                 view.remove(barrels.get(i).getBarrel());
             }
@@ -87,34 +82,31 @@ public class DonkeyKongGame extends AbstractViewContent {
 
     public void spawnBarrel() {
         int ranInt = Tools.randomNumber(1, 200);
-        if (ranInt==2) {
-            barrels.add(new Barrel(100,110));
-            for(int i=0; i<barrels.size();i++){
+        if (ranInt == 2) {
+            barrels.add(new Barrel(100, 110));
+            for (int i = 0; i < barrels.size(); i++) {
                 shapesToRemove.add(barrels.get(i).getBarrel());
             }
         }
     }
 
     public void changeDirectionBarrels() {
-        for (int i=0; i<barrels.size(); i++) {
-            if (checkKollisionBarrelFloorGetIndex(barrels.get(i))!=99) {
-                if(checkKollisionBarrelFloorGetIndex(barrels.get(i))%2==0) {
+        for (int i = 0; i < barrels.size(); i++) {
+            if (checkCollisionBarrelFloorGetIndex(barrels.get(i)) != 99) {
+                if (checkCollisionBarrelFloorGetIndex(barrels.get(i)) % 2 == 0) {
                     barrels.get(i).setDirectionRight(true);
-                }
-                else barrels.get(i).setDirectionRight(false);
+                } else barrels.get(i).setDirectionRight(false);
             }
         }
     }
 
     public void barrelFallDown() {
-        for (int i=0; i<barrels.size(); i++){
-            if(rLeft.contains(barrels.get(i).getBarrel()) && !checkKollisionBarrelFloor(barrels.get(i))) {
+        for (int i = 0; i < barrels.size(); i++) {
+            if (rLeft.contains(barrels.get(i).getBarrel()) && !checkKollisionBarrelFloor(barrels.get(i))) {
                 barrels.get(i).setFalling(true);
-            }
-            else if(rRight.contains(barrels.get(i).getBarrel()) && !checkKollisionBarrelFloor(barrels.get(i))) {
+            } else if (rRight.contains(barrels.get(i).getBarrel()) && !checkKollisionBarrelFloor(barrels.get(i))) {
                 barrels.get(i).setFalling(true);
-            }
-            else{
+            } else {
                 barrels.get(i).setFalling(false);
             }
         }
@@ -122,47 +114,42 @@ public class DonkeyKongGame extends AbstractViewContent {
 
     public boolean checkKollisionBarrelFloor(Barrel pBarrel) {
         boolean b = false;
-            for (int j = 0; j < floors.length; j++) {
-                if (pBarrel.getBarrel().intersects(floors[j])) {
-                    b = true;
-                }
+        for (int j = 0; j < floors.length; j++) {
+            if (pBarrel.getBarrel().intersects(floors[j])) {
+                b = true;
             }
+        }
         return b;
     }
 
-    public int checkKollisionBarrelFloorGetIndex(Barrel pBarrel) {
+    public int checkCollisionBarrelFloorGetIndex(Barrel pBarrel) {
         int z = 0;
-        if(checkKollisionBarrelFloor(pBarrel)) {
+        if (checkKollisionBarrelFloor(pBarrel)) {
             while (!pBarrel.getBarrel().intersects(floors[z])) {
                 z++;
             }
             return z;
-        }
-        else return 99;
+        } else return 99;
     }
 
 
     @Override
     public boolean tick() {
-        if (but.clicked()) {
-            ViewContents.getInstance().runViewContent(new GameOverLay(view, controller));
-            return false;
-        }
 
-        for (int i=0; i<barrels.size(); i++){
+        for (int i = 0; i < barrels.size(); i++) {
             barrels.get(i).turnBarrel();
         }
 
-        if(view.keyLeftPressed()) {
+        if (view.keyLeftPressed()) {
             mario.moveLeft();
         }
-        if(view.keyRightPressed()) {
+        if (view.keyRightPressed()) {
             mario.moveRight();
         }
-        if(view.keyUpPressed()) {
+        if (view.keyUpPressed()) {
             mario.moveUp();
         }
-        if(view.keyDownPressed()) {
+        if (view.keyDownPressed()) {
             mario.moveDown();
         }
         deleteBarrels();
@@ -170,7 +157,7 @@ public class DonkeyKongGame extends AbstractViewContent {
         changeDirectionBarrels();
         spawnBarrel();
         //loose
-        if(mario.checkKollisionBarrels()){
+        if (mario.checkKollisionBarrels()) {
             mario.getMario().setHidden(true);
             GameOverLay overlay = new GameOverLay(view, controller);
             overlay.setGameData(this.getClass(), false);
